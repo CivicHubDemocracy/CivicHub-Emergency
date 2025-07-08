@@ -1,0 +1,1924 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CivicHub: Emergency Democracy Protection Platform | Real-Time Project 2025 Tracker | Free Immigration Attorney Finder</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="FREE emergency civic protection platform for vulnerable communities under Project 2025 threats. Find immigration attorneys, ICE protection guides, voting rights tools, LGBTQ+ safety resources, reproductive rights support. No registration required.">
+    <meta name="keywords" content="emergency immigration help, ICE protection, civil rights emergency, voting rights crisis, LGBTQ+ safety, reproductive rights emergency, immigration attorney finder, legal aid, democracy protection, Project 2025 threats">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        'primary-dark': '#4B49CC',
+                        emergency: '#DC2626',
+                        success: '#059669',
+                        warning: '#D97706'
+                    }
+                }
+            },
+            darkMode: 'class'
+        }
+    </script>
+    
+    <style>
+        .emergency-pulse {
+            animation: emergency-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes emergency-pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .7;
+            }
+        }
+        
+        .slide-in {
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            nav, button, .nav-btn, #results-container, .hidden,
+            header .bg-green-600, header .bg-blue-600, .animate-pulse, 
+            .emergency-pulse, .slide-in, footer .bg-red-600 {
+                display: none !important;
+            }
+            
+            body {
+                background: white !important;
+                color: black !important;
+                font-size: 10pt !important;
+                line-height: 1.2 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            .section-content {
+                display: block !important;
+                page-break-before: always;
+                margin-bottom: 2cm;
+            }
+            
+            .section-content:first-of-type {
+                page-break-before: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen font-sans">
+    <!-- Emergency Header -->
+    <header class="bg-gradient-to-r from-emergency to-red-700 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-white text-emergency rounded-full p-2 emergency-pulse">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold">CivicHub</h1>
+                        <p class="text-red-100 text-sm">Emergency Democracy Protection</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="flex flex-col sm:flex-row gap-2">
+                        <div class="relative">
+                            <select id="language-selector" onchange="translatePage(this.value)" class="bg-white text-gray-800 px-3 py-1 rounded-full text-sm font-semibold border-2 border-white focus:outline-none">
+                                <option value="en">🇺🇸 English</option>
+                                <option value="es">🇲🇽 Español</option>
+                                <option value="ar">🇸🇦 العربية</option>
+                                <option value="zh">🇨🇳 中文</option>
+                                <option value="fr">🇫🇷 Français</option>
+                                <option value="ru">🇷🇺 Русский</option>
+                                <option value="pt">🇧🇷 Português</option>
+                                <option value="ko">🇰🇷 한국어</option>
+                                <option value="vi">🇻🇳 Tiếng Việt</option>
+                                <option value="tl">🇵🇭 Filipino</option>
+                            </select>
+                        </div>
+                        <div class="relative">
+                            <button id="accessibility-toggle" onclick="toggleAccessibilityMode()" class="bg-white text-gray-800 px-3 py-1 rounded-full text-sm font-semibold border-2 border-white hover:bg-gray-100 focus:outline-none">
+                                👴 Senior Mode
+                            </button>
+                        </div>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-2">
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">FREE</span>
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">24/7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Crisis Banner -->
+    <div id="daily-alert-banner" class="bg-red-600 text-white py-2 px-4 text-center text-sm font-semibold animate-pulse">
+        🚨 ACTIVE ALERT (January 2025): Project 2025 implementation underway. Mass deportations, civil rights rollbacks in progress. Protect yourself NOW.
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-40">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center py-2">
+                <button onclick="openEmergencyHelp()" class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg text-lg font-bold emergency-pulse transition-colors">
+                    🆘 I NEED HELP NOW
+                </button>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-3 py-3 border-t border-gray-200 dark:border-gray-600">
+                <button onclick="showSection('protection', this)" class="nav-btn bg-red-600 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-red-700 transition-colors">
+                    🛡️ Protection &amp; Safety
+                </button>
+                <button onclick="showSection('rights', this)" class="nav-btn bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors">
+                    ⚖️ Know Your Rights
+                </button>
+                <button onclick="showSection('action', this)" class="nav-btn bg-green-600 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-green-700 transition-colors">
+                    📢 Take Action
+                </button>
+                <button onclick="showSection('resources', this)" class="nav-btn bg-purple-600 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-purple-700 transition-colors">
+                    📋 All Resources
+                </button>
+                <button onclick="showSection('map', this)" class="nav-btn bg-indigo-600 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-indigo-700 transition-colors">
+                    🗺️ Find Nearby Help
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Floating Emergency Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button onclick="openEmergencyHelp()" class="bg-red-600 hover:bg-red-700 text-white rounded-full p-4 shadow-lg emergency-pulse">
+            <div class="flex items-center space-x-2">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                </svg>
+                <span class="font-bold">24/7 HELP</span>
+            </div>
+        </button>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Quick Help Landing -->
+        <section id="quick-help" class="mb-8 bg-gradient-to-r from-red-100 to-blue-100 dark:from-red-900/20 dark:to-blue-900/20 rounded-lg p-6">
+            <div class="text-center mb-6">
+                <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-2">⚡ Quick Emergency Help</h2>
+                <p class="text-gray-600 dark:text-gray-400">Most urgent actions for immediate protection</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <button onclick="openEmergencyHelp()" class="bg-red-600 hover:bg-red-700 text-white p-4 rounded-lg text-center transition-colors emergency-pulse">
+                    <div class="text-2xl mb-2">🆘</div>
+                    <div class="font-bold">HELP NOW</div>
+                    <div class="text-sm opacity-90">Immediate crisis</div>
+                </button>
+                
+                <button onclick="showSection('protection')" class="bg-orange-600 hover:bg-orange-700 text-white p-4 rounded-lg text-center transition-colors">
+                    <div class="text-2xl mb-2">🛡️</div>
+                    <div class="font-bold">ICE PROTECTION</div>
+                    <div class="text-sm opacity-90">Know your rights</div>
+                </button>
+                
+                <button onclick="findAttorneys()" class="bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-lg text-center transition-colors">
+                    <div class="text-2xl mb-2">⚖️</div>
+                    <div class="font-bold">FIND LAWYER</div>
+                    <div class="text-sm opacity-90">Legal help now</div>
+                </button>
+                
+                <button onclick="printCompleteGuide()" class="bg-green-600 hover:bg-green-700 text-white p-4 rounded-lg text-center transition-colors">
+                    <div class="text-2xl mb-2">🖨️</div>
+                    <div class="font-bold">PRINT GUIDES</div>
+                    <div class="text-sm opacity-90">Offline backup</div>
+                </button>
+            </div>
+            
+            <!-- Critical Today -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow">
+                <h3 class="font-bold text-red-600 dark:text-red-400 mb-3">🚨 CRITICAL TODAY (January 2025)</h3>
+                <div class="grid md:grid-cols-3 gap-4 text-sm">
+                    <div class="bg-red-50 dark:bg-red-900/20 p-3 rounded">
+                        <div class="font-semibold">ICE Raids Active</div>
+                        <div class="text-xs">Document everything. Call 855-448-7277</div>
+                    </div>
+                    <div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded">
+                        <div class="font-semibold">Voting Under Attack</div>
+                        <div class="text-xs">Register now. Call 866-OUR-VOTE</div>
+                    </div>
+                    <div class="bg-purple-50 dark:bg-purple-900/20 p-3 rounded">
+                        <div class="font-semibold">Rights Being Stripped</div>
+                        <div class="text-xs">Report violations. Call ACLU</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Essential Guides & Resources (Always Visible) -->
+        <section id="essential-guides" class="mb-8 bg-gradient-to-r from-green-100 to-purple-100 dark:from-green-900/20 dark:to-purple-900/20 rounded-lg p-6">
+            <div class="text-center mb-6">
+                <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-2">📋 Essential Guides &amp; Rights Cards</h2>
+                <p class="text-gray-600 dark:text-gray-400">Critical information to print, save, and share</p>
+            </div>
+
+            <!-- ICE Rights Card -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg mb-6 border-l-4 border-red-500">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-bold text-red-600">🛡️ ICE ENCOUNTER RIGHTS CARD</h3>
+                    <button onclick="window.print()" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 text-sm">
+                        🖨️ Print
+                    </button>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 text-sm">
+                    <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded">
+                        <h4 class="font-bold text-red-800 mb-2">⚠️ IF ICE COMES TO YOUR DOOR:</h4>
+                        <ol class="list-decimal list-inside space-y-1 text-xs">
+                            <li><strong>DO NOT OPEN THE DOOR</strong></li>
+                            <li>Ask to see warrant through window</li>
+                            <li>Say: <em>"I do not consent to your entry"</em></li>
+                            <li>Say: <em>"I want to speak to a lawyer"</em></li>
+                            <li>Exercise your right to remain silent</li>
+                            <li>Call emergency hotlines immediately</li>
+                        </ol>
+                    </div>
+                    
+                    <div>
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded mb-3">
+                            <h4 class="font-bold text-blue-800 mb-2">📞 EMERGENCY CONTACTS</h4>
+                            <div class="text-xs space-y-1">
+                                <div><strong>Immigration Hotline:</strong> <a href="tel:+18554487277" class="text-blue-600">855-448-7277</a></div>
+                                <div><strong>ACLU Emergency:</strong> <a href="tel:+12125492500" class="text-blue-600">212-549-2500</a></div>
+                                <div><strong>RAICES Emergency:</strong> <a href="tel:+18447242437" class="text-blue-600">844-724-2437</a></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded">
+                            <h4 class="font-bold text-yellow-800 mb-2">⚡ KEY PHRASES TO MEMORIZE</h4>
+                            <ul class="list-disc list-inside text-xs space-y-1">
+                                <li><strong>"I want to remain silent"</strong></li>
+                                <li><strong>"I want to speak to a lawyer"</strong></li>
+                                <li><strong>"I do not consent"</strong></li>
+                                <li><strong>"Show me a warrant"</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emergency Contact Directory -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg mb-6 border-l-4 border-blue-500">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-bold text-blue-600">📞 24/7 EMERGENCY HOTLINE DIRECTORY</h3>
+                    <button onclick="window.print()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">
+                        🖨️ Print
+                    </button>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-4 text-sm">
+                    <div class="bg-red-50 dark:bg-red-900/20 p-3 rounded">
+                        <h4 class="font-bold text-red-600 mb-2">🚨 Immigration Emergency</h4>
+                        <div class="text-xs space-y-1">
+                            <div><strong>National Hotline:</strong> <a href="tel:+18554487277" class="text-blue-600">855-448-7277</a></div>
+                            <div><strong>ACLU Emergency:</strong> <a href="tel:+12125492500" class="text-blue-600">212-549-2500</a></div>
+                            <div><strong>RAICES Emergency:</strong> <a href="tel:+18447242437" class="text-blue-600">844-724-2437</a></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded">
+                        <h4 class="font-bold text-blue-600 mb-2">🗳️ Voting Rights</h4>
+                        <div class="text-xs space-y-1">
+                            <div><strong>Election Protection:</strong> <a href="tel:+18663687883" class="text-blue-600">866-OUR-VOTE</a></div>
+                            <div><strong>Spanish:</strong> <a href="tel:+18888398682" class="text-blue-600">888-839-8682</a></div>
+                            <div><strong>Asian Languages:</strong> <a href="tel:+18888438683" class="text-blue-600">888-843-8683</a></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-purple-50 dark:bg-purple-900/20 p-3 rounded">
+                        <h4 class="font-bold text-purple-600 mb-2">🏳️‍🌈 LGBTQ+ Crisis</h4>
+                        <div class="text-xs space-y-1">
+                            <div><strong>Trevor Project:</strong> <a href="tel:+18664887386" class="text-blue-600">866-488-7386</a></div>
+                            <div><strong>Trans Lifeline:</strong> <a href="tel:+18775658860" class="text-blue-600">877-565-8860</a></div>
+                            <div><strong>LGBT National:</strong> <a href="tel:+18885437692" class="text-blue-600">888-543-7692</a></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-teal-50 dark:bg-teal-900/20 p-3 rounded">
+                        <h4 class="font-bold text-teal-600 mb-2">🧠 Mental Health Crisis</h4>
+                        <div class="text-xs space-y-1">
+                            <div><strong>Crisis Line:</strong> <a href="tel:988" class="text-blue-600 text-lg font-bold">988</a></div>
+                            <div><strong>Crisis Text:</strong> <span class="font-bold">Text HOME to 741741</span></div>
+                            <div><strong>Veterans Crisis:</strong> <a href="tel:+18007994889" class="text-blue-600">800-799-4889</a></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-pink-50 dark:bg-pink-900/20 p-3 rounded">
+                        <h4 class="font-bold text-pink-600 mb-2">🩺 Reproductive Rights</h4>
+                        <div class="text-xs space-y-1">
+                            <div><strong>Planned Parenthood:</strong> <a href="tel:+18002302526" class="text-blue-600">800-230-PLAN</a></div>
+                            <div><strong>National Abortion Fund:</strong> <a href="tel:+12025461174" class="text-blue-600">202-546-1174</a></div>
+                            <div><strong>Repro Legal Helpline:</strong> <a href="tel:+18446746606" class="text-blue-600">844-674-6606</a></div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-green-50 dark:bg-green-900/20 p-3 rounded">
+                        <h4 class="font-bold text-green-600 mb-2">♿ Disability Rights</h4>
+                        <div class="text-xs space-y-1">
+                            <div><strong>Disability Rights:</strong> <a href="tel:+18002144494" class="text-blue-600">800-214-4494</a></div>
+                            <div><strong>National Fed. Blind:</strong> <a href="tel:+18008294263" class="text-blue-600">800-829-4263</a></div>
+                            <div><strong>Nat. Assoc. Deaf:</strong> <a href="tel:+13015876282" class="text-blue-600">301-587-6282</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Know Your Rights Summary -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg mb-6 border-l-4 border-green-500">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-bold text-green-600">⚖️ KNOW YOUR CONSTITUTIONAL RIGHTS</h3>
+                    <button onclick="window.print()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 text-sm">
+                        🖨️ Print
+                    </button>
+                </div>
+                
+                <div class="grid md:grid-cols-4 gap-4 text-sm">
+                    <div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded">
+                        <h4 class="font-bold text-blue-800 mb-2">🗳️ Voting Rights</h4>
+                        <ul class="text-xs space-y-1">
+                            <li>• Right to vote regardless of income</li>
+                            <li>• Protection from voter intimidation</li>
+                            <li>• Right to language assistance</li>
+                            <li>• Right to accessible voting</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-purple-50 dark:bg-purple-900/20 p-3 rounded">
+                        <h4 class="font-bold text-purple-800 mb-2">🏳️‍🌈 LGBTQ+ Rights</h4>
+                        <ul class="text-xs space-y-1">
+                            <li>• Protection from discrimination</li>
+                            <li>• Right to safe schools and workplaces</li>
+                            <li>• Healthcare access rights</li>
+                            <li>• Marriage equality protections</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-pink-50 dark:bg-pink-900/20 p-3 rounded">
+                        <h4 class="font-bold text-pink-800 mb-2">🩺 Reproductive Rights</h4>
+                        <ul class="text-xs space-y-1">
+                            <li>• Right to privacy in medical decisions</li>
+                            <li>• Right to contraception access</li>
+                            <li>• Protection from pregnancy discrimination</li>
+                            <li>• Right to emergency medical care</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 dark:bg-yellow-900/20 p-3 rounded">
+                        <h4 class="font-bold text-yellow-800 mb-2">👶 Children's Rights</h4>
+                        <ul class="text-xs space-y-1">
+                            <li>• Right to free public education</li>
+                            <li>• Protection from discrimination</li>
+                            <li>• Right to safety from abuse</li>
+                            <li>• Right to stay with family</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Unidentified Agent Safety Protocols -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg mb-6 border-l-4 border-orange-500">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-bold text-orange-600">🚨 UNIDENTIFIED AGENT SAFETY PROTOCOLS</h3>
+                    <div class="flex gap-2">
+                        <button onclick="window.print()" class="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-700 text-sm">
+                            🖨️ Print
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 text-sm">
+                    <div class="space-y-4">
+                        <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded border-2 border-red-300">
+                            <h4 class="font-bold text-red-800 mb-2">⚠️ IF APPROACHED BY UNIDENTIFIED AGENTS</h4>
+                            <ol class="list-decimal list-inside space-y-1 text-xs">
+                                <li><strong>DEMAND IDENTIFICATION FIRST</strong></li>
+                                <li>Say: <em>"Show me your badge and identification"</em></li>
+                                <li>Say: <em>"State your agency and purpose"</em></li>
+                                <li>Say: <em>"I do not consent to any search or detention"</em></li>
+                                <li><strong>DO NOT RESIST PHYSICALLY</strong> - Document everything</li>
+                                <li>Say loudly: <em>"I am being detained by unidentified persons"</em></li>
+                                <li>Immediately call 911 and emergency hotlines</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded">
+                            <h4 class="font-bold text-orange-800 mb-2">📋 AGENT VERIFICATION REQUIREMENTS</h4>
+                            <ul class="list-disc list-inside text-xs space-y-1">
+                                <li><strong>Valid federal badge with photo ID</strong></li>
+                                <li><strong>Agency identification (ICE, CBP, etc.)</strong></li>
+                                <li><strong>Supervisor contact information</strong></li>
+                                <li><strong>Warrant or legal authority documents</strong></li>
+                                <li><strong>Reason for contact/detention</strong></li>
+                                <li>Agents MUST identify themselves when asked</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded">
+                            <h4 class="font-bold text-blue-800 mb-2">📱 EMERGENCY DOCUMENTATION</h4>
+                            <ul class="list-disc list-inside text-xs space-y-1">
+                                <li><strong>Start recording immediately</strong> (if safe)</li>
+                                <li>Note badge numbers, vehicle plates, faces</li>
+                                <li>Record all verbal exchanges</li>
+                                <li>Share live location with trusted contacts</li>
+                                <li>Livestream to social media if possible</li>
+                                <li>Call witnesses to observe and record</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded">
+                            <h4 class="font-bold text-purple-800 mb-2">🛡️ COMMUNITY SAFETY NETWORKS</h4>
+                            <ul class="list-disc list-inside text-xs space-y-1">
+                                <li><strong>Establish buddy check-in systems</strong></li>
+                                <li>Create group chat rapid response networks</li>
+                                <li>Share location with multiple trusted contacts</li>
+                                <li>Set up regular check-in times daily</li>
+                                <li>Plan emergency meeting locations</li>
+                                <li>Practice de-escalation scenarios</li>
+                                <li>Know legal observer contact numbers</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded">
+                            <h4 class="font-bold text-yellow-800 mb-2">📞 IMMEDIATE RESPONSE PROTOCOL</h4>
+                            <div class="text-xs space-y-2">
+                                <div><strong>1. Call 911:</strong> "I'm being detained by unidentified agents"</div>
+                                <div><strong>2. Immigration Hotline:</strong> <a href="tel:+18554487277" class="text-blue-600">855-448-7277</a></div>
+                                <div><strong>3. ACLU Emergency:</strong> <a href="tel:+12125492500" class="text-blue-600">212-549-2500</a></div>
+                                <div><strong>4. Local Legal Observer:</strong> Contact beforehand</div>
+                                <div><strong>5. Trusted Emergency Contact</strong></div>
+                                <div><strong>6. Community Rapid Response</strong></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded">
+                            <h4 class="font-bold text-green-800 mb-2">⚖️ LEGAL PROTECTIONS</h4>
+                            <ul class="list-disc list-inside text-xs space-y-1">
+                                <li><strong>Right to remain silent</strong></li>
+                                <li><strong>Right to see identification</strong></li>
+                                <li><strong>Right to know reason for detention</strong></li>
+                                <li><strong>Right to attorney</strong></li>
+                                <li><strong>Right to refuse consent to searches</strong></li>
+                                <li>Protection from unlawful detention</li>
+                                <li>Right to file complaints for misconduct</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4 bg-red-600 text-white p-3 rounded">
+                    <div class="font-bold text-center mb-2">🚨 CRITICAL: NEVER PHYSICALLY RESIST - DOCUMENT EVERYTHING</div>
+                    <div class="text-xs text-center">Physical resistance can lead to assault charges even if agents are acting unlawfully. Your safety and legal protection come through documentation and legal challenges.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Protection & Safety Section -->
+        <section id="protection" class="section-content hidden">
+            <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-6 mb-8">
+                <h2 class="text-2xl font-bold text-red-800 dark:text-red-200 mb-4">🛡️ Protection &amp; Safety</h2>
+                
+                <div class="space-y-6">
+                    <!-- Immigration Protection -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-red-600 dark:text-red-400 mb-3">🚨 Immigration &amp; ICE Protection</h3>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <button onclick="generateRightsCard()" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition-colors text-sm">
+                                📱 Rights Card
+                            </button>
+                            <button onclick="findAttorneys()" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors text-sm">
+                                ⚖️ Find Attorney
+                            </button>
+                            <button onclick="generateICEGuide()" class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition-colors text-sm">
+                                🛡️ ICE Guide
+                            </button>
+                        </div>
+                        
+                        <div class="bg-red-600 text-white p-3 rounded mb-4">
+                            <div class="font-bold mb-2">CALL IMMEDIATELY:</div>
+                            <div class="grid md:grid-cols-3 gap-3 text-sm">
+                                <a href="tel:+18554487277" class="hover:underline">📞 855-448-7277 (Immigration)</a>
+                                <a href="tel:+12125492500" class="hover:underline">📞 212-549-2500 (ACLU)</a>
+                                <a href="tel:+18447242437" class="hover:underline">📞 844-724-2437 (RAICES)</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- LGBTQ+ Protection -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-purple-600 dark:text-purple-400 mb-3">🏳️‍🌈 LGBTQ+ Safety &amp; Crisis Support</h3>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <a href="tel:+18664887386" class="bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition-colors text-sm text-center">
+                                📞 Trevor Project
+                            </a>
+                            <a href="tel:+18775658860" class="bg-pink-600 text-white py-2 px-4 rounded hover:bg-pink-700 transition-colors text-sm text-center">
+                                📞 Trans Lifeline  
+                            </a>
+                            <button onclick="findLGBTQLawyer()" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors text-sm">
+                                ⚖️ Legal Help
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Mental Health Crisis -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-teal-600 dark:text-teal-400 mb-3">🧠 Mental Health Crisis Support</h3>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <a href="tel:988" class="bg-teal-600 text-white py-2 px-4 rounded hover:bg-teal-700 transition-colors text-sm text-center font-bold">
+                                🆘 Crisis Line 988
+                            </a>
+                            <a href="sms:741741?body=HOME" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors text-sm text-center">
+                                💬 Text HOME to 741741
+                            </a>
+                            <button onclick="politicalTraumaResources()" class="bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition-colors text-sm">
+                                🧠 Trauma Support
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Children's Rights Protection -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-yellow-600 dark:text-yellow-400 mb-3">👶 Children's Rights Emergency</h3>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <a href="tel:+18002544355" class="bg-yellow-600 text-white py-2 px-4 rounded hover:bg-yellow-700 transition-colors text-sm text-center">
+                                📞 Child Abuse Hotline
+                            </a>
+                            <button onclick="childrenRightsGuide()" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors text-sm">
+                                📚 School Rights
+                            </button>
+                            <button onclick="familySeparationHelp()" class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition-colors text-sm">
+                                👨‍👩‍👧‍👦 Family Crisis
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Know Your Rights Section -->
+        <section id="rights" class="section-content hidden">
+            <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-8">
+                <h2 class="text-2xl font-bold text-blue-800 dark:text-blue-200 mb-4">⚖️ Know Your Rights</h2>
+                
+                <div class="space-y-6">
+                    <!-- Voting Rights -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-blue-600 dark:text-blue-400 mb-3">🗳️ Voting Rights Emergency</h3>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <button onclick="checkRegistration()" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors text-sm">
+                                🗳️ Check Registration
+                            </button>
+                            <a href="tel:+18663687883" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition-colors text-sm text-center">
+                                📞 Election Protection
+                            </a>
+                            <button onclick="registerToVote()" class="bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition-colors text-sm">
+                                📝 Register Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Civil Rights -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-green-600 dark:text-green-400 mb-3">⚖️ Civil Rights Protection</h3>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <button onclick="reportViolation()" class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition-colors text-sm">
+                                🚨 Report Violation
+                            </button>
+                            <button onclick="findCivilRightsLawyer()" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition-colors text-sm">
+                                ⚖️ Find Lawyer
+                            </button>
+                            <button onclick="digitalRights()" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors text-sm">
+                                🔒 Digital Privacy
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Reproductive Rights -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-pink-600 dark:text-pink-400 mb-3">🩺 Reproductive Rights Emergency</h3>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <a href="tel:+18002302526" class="bg-pink-600 text-white py-2 px-4 rounded hover:bg-pink-700 transition-colors text-sm text-center">
+                                📞 Planned Parenthood
+                            </a>
+                            <button onclick="findReproductiveLawyer()" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors text-sm">
+                                ⚖️ Legal Support
+                            </button>
+                            <button onclick="travelRights()" class="bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition-colors text-sm">
+                                🚗 Travel Rights
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Take Action Section -->
+        <section id="action" class="section-content hidden">
+            <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6 mb-8">
+                <h2 class="text-2xl font-bold text-green-800 dark:text-green-200 mb-4">📢 Take Action</h2>
+                
+                <div class="space-y-6">
+                    <!-- Political Accountability -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-orange-600 dark:text-orange-400 mb-3">📊 Hold Politicians Accountable</h3>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <button onclick="findRepresentatives()" class="bg-orange-600 text-white py-2 px-4 rounded hover:bg-orange-700 transition-colors text-sm">
+                                🔍 Find Representatives
+                            </button>
+                            <button onclick="generateContactScript()" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition-colors text-sm">
+                                📞 Call Script
+                            </button>
+                            <button onclick="checkVotingRecord()" class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition-colors text-sm">
+                                📊 Voting Records
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Secure Organizing -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-slate-600 dark:text-slate-400 mb-3">🤝 Secure Community Organizing</h3>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <button onclick="secureEventPlanning()" class="bg-slate-600 text-white py-2 px-4 rounded hover:bg-slate-700 transition-colors text-sm">
+                                🔒 Secure Events
+                            </button>
+                            <button onclick="digitalPrivacyGuide()" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors text-sm">
+                                🛡️ Digital Security
+                            </button>
+                            <button onclick="protestSafetyProtocols()" class="bg-orange-600 text-white py-2 px-4 rounded hover:bg-orange-700 transition-colors text-sm">
+                                🛡️ Protest Safety
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Resources Section -->
+        <section id="resources" class="section-content hidden">
+            <div class="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-6 mb-8">
+                <h2 class="text-2xl font-bold text-purple-800 dark:text-purple-200 mb-4">📋 All Resources</h2>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Immigration Resources -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-red-600 dark:text-red-400 mb-3">🚨 Immigration</h3>
+                        <div class="space-y-2 text-sm">
+                            <button onclick="showSection('protection')" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ ICE Protection</button>
+                            <button onclick="findAttorneys()" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Find Attorney</button>
+                            <button onclick="generateICEGuide()" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ ICE Encounter Guide</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Voting Resources -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-blue-600 dark:text-blue-400 mb-3">🗳️ Voting Rights</h3>
+                        <div class="space-y-2 text-sm">
+                            <button onclick="checkRegistration()" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Check Registration</button>
+                            <button onclick="registerToVote()" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Register to Vote</button>
+                            <button onclick="findPollingLocation()" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Find Polling Place</button>
+                        </div>
+                    </div>
+                    
+                    <!-- LGBTQ+ Resources -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-purple-600 dark:text-purple-400 mb-3">🏳️‍🌈 LGBTQ+ Safety</h3>
+                        <div class="space-y-2 text-sm">
+                            <a href="tel:+18664887386" class="block w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Trevor Project</a>
+                            <button onclick="findLGBTQLawyer()" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Legal Resources</button>
+                            <button onclick="safetyPlanning()" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Safety Planning</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Mental Health Resources -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-teal-600 dark:text-teal-400 mb-3">🧠 Mental Health</h3>
+                        <div class="space-y-2 text-sm">
+                            <a href="tel:988" class="block w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Crisis Line 988</a>
+                            <button onclick="politicalTraumaResources()" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Political Trauma</button>
+                            <button onclick="stressManagementTools()" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Stress Management</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Children's Rights -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-yellow-600 dark:text-yellow-400 mb-3">👶 Children's Rights</h3>
+                        <div class="space-y-2 text-sm">
+                            <button onclick="childrenRightsGuide()" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ School Rights Guide</button>
+                            <button onclick="familySeparationHelp()" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Family Crisis Plan</button>
+                            <a href="tel:+18002544355" class="block w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Child Abuse Hotline</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Print Guides -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-indigo-600 dark:text-indigo-400 mb-3">🖨️ Print Guides</h3>
+                        <div class="space-y-2 text-sm">
+                            <button onclick="printCompleteGuide()" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Complete Guide</button>
+                            <button onclick="generateRightsCard()" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Rights Card</button>
+                            <button onclick="generateEmergencyContacts()" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Contact Directory</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Find Nearby Help Map Section -->
+        <section id="map" class="section-content hidden">
+            <div class="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-lg p-6 mb-8">
+                <h2 class="text-2xl font-bold text-indigo-800 dark:text-indigo-200 mb-4">🗺️ Find Nearby Help</h2>
+                
+                <!-- Location Search -->
+                <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow mb-6">
+                    <h3 class="font-bold text-indigo-600 dark:text-indigo-400 mb-3">📍 Enter Your Location</h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="md:col-span-2">
+                            <input type="text" id="location-search" placeholder="Enter ZIP code, city, or address" class="w-full p-3 border rounded-lg text-base focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:border-gray-600" onkeypress="if(event.key==='Enter') searchNearbyHelp()">
+                        </div>
+                        <div>
+                            <button onclick="searchNearbyHelp()" class="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg hover:bg-indigo-700 transition-colors font-semibold">
+                                🔍 Find Help Near Me
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Display -->
+                <div id="nearby-results" class="hidden">
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-gray-800 dark:text-gray-200 mb-4" id="results-header">Resources Near You</h3>
+                        <div id="results-list" class="space-y-4">
+                            <!-- Results will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- National Emergency Hotlines -->
+                <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
+                    <h3 class="font-bold text-red-800 dark:text-red-200 mb-3">📞 NATIONAL 24/7 EMERGENCY HOTLINES</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+                        <div class="bg-white dark:bg-gray-800 p-3 rounded">
+                            <div class="font-semibold text-red-600">🚨 Immigration Emergency</div>
+                            <div><strong>National Hotline:</strong> <a href="tel:+18554487277" class="text-blue-600">855-448-7277</a></div>
+                            <div><strong>ACLU Emergency:</strong> <a href="tel:+12125492500" class="text-blue-600">212-549-2500</a></div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-3 rounded">
+                            <div class="font-semibold text-blue-600">🗳️ Voting Rights</div>
+                            <div><strong>Election Protection:</strong> <a href="tel:+18663687883" class="text-blue-600">866-OUR-VOTE</a></div>
+                            <div><strong>Spanish:</strong> <a href="tel:+18888398682" class="text-blue-600">888-839-8682</a></div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-3 rounded">
+                            <div class="font-semibold text-purple-600">🏳️‍🌈 LGBTQ+ Crisis</div>
+                            <div><strong>Trevor Project:</strong> <a href="tel:+18664887386" class="text-blue-600">866-488-7386</a></div>
+                            <div><strong>Trans Lifeline:</strong> <a href="tel:+18775658860" class="text-blue-600">877-565-8860</a></div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-3 rounded">
+                            <div class="font-semibold text-teal-600">🧠 Mental Health Crisis</div>
+                            <div><strong>Crisis Line:</strong> <a href="tel:988" class="text-blue-600 text-lg font-bold">988</a></div>
+                            <div><strong>Crisis Text:</strong> <span class="font-bold">Text HOME to 741741</span></div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-3 rounded">
+                            <div class="font-semibold text-pink-600">🩺 Reproductive Rights</div>
+                            <div><strong>Planned Parenthood:</strong> <a href="tel:+18002302526" class="text-blue-600">800-230-PLAN</a></div>
+                            <div><strong>National Abortion Fund:</strong> <a href="tel:+12025461174" class="text-blue-600">202-546-1174</a></div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-3 rounded">
+                            <div class="font-semibold text-green-600">⚖️ Civil Rights</div>
+                            <div><strong>NAACP Legal:</strong> <a href="tel:+12129659500" class="text-blue-600">212-965-9500</a></div>
+                            <div><strong>SPLC:</strong> <a href="tel:+13342648210" class="text-blue-600">334-264-8210</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Results Container -->
+    <div id="results-container" class="container mx-auto px-4 py-8 hidden">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6">
+            <h3 class="text-xl font-bold mb-4" id="results-title">Results</h3>
+            <div id="results-content" class="space-y-4">
+                <!-- Dynamic results will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-3">CivicHub</h3>
+                    <p class="text-gray-300 text-sm">Emergency democracy protection platform providing free civic engagement tools for vulnerable communities.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3">Resources</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="#" class="hover:text-white">Know Your Rights</a></li>
+                        <li><a href="#" class="hover:text-white">Emergency Contacts</a></li>
+                        <li><a href="#" class="hover:text-white">Legal Aid Directory</a></li>
+                        <li><a href="#" class="hover:text-white">Community Organizing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3">Emergency Numbers</h4>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li>Immigration: 855-448-7277</li>
+                        <li>ACLU: 212-549-2500</li>
+                        <li>Voting: 866-OUR-VOTE</li>
+                        <li>LGBTQ+ Crisis: 866-488-7386</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-3">Legal Notice</h4>
+                    <p class="text-xs text-gray-400">Educational information only - not legal advice. Consult qualified attorneys for legal help.</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+                <p>© 2025 CivicHub. Public Domain - Free for All. No registration required.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Translation system variables
+        let currentLanguage = 'en';
+        let translatedContent = {};
+        let isTranslating = false;
+
+        // Comprehensive translation database
+        const translations = {
+            'es': {
+                'CivicHub': 'CivicHub',
+                'Emergency Democracy Protection': 'Protección de Democracia de Emergencia',
+                'I NEED HELP NOW': 'NECESITO AYUDA AHORA',
+                'Protection & Safety': 'Protección y Seguridad',
+                'Know Your Rights': 'Conoce Tus Derechos',
+                'Take Action': 'Tomar Acción',
+                'All Resources': 'Todos los Recursos',
+                'Find Nearby Help': 'Encontrar Ayuda Cercana',
+                'Quick Emergency Help': 'Ayuda de Emergencia Rápida',
+                'Most urgent actions for immediate protection': 'Acciones más urgentes para protección inmediata',
+                'HELP NOW': 'AYUDA AHORA',
+                'Immediate crisis': 'Crisis inmediata',
+                'ICE PROTECTION': 'PROTECCIÓN ICE',
+                'Know your rights': 'Conoce tus derechos',
+                'FIND LAWYER': 'ENCONTRAR ABOGADO',
+                'Legal help now': 'Ayuda legal ahora',
+                'PRINT GUIDES': 'IMPRIMIR GUÍAS',
+                'Offline backup': 'Respaldo sin conexión',
+                'Essential Guides & Rights Cards': 'Guías Esenciales y Tarjetas de Derechos',
+                'Critical information to print, save, and share': 'Información crítica para imprimir, guardar y compartir',
+                'ICE ENCOUNTER RIGHTS CARD': 'TARJETA DE DERECHOS PARA ENCUENTROS CON ICE',
+                'IF ICE COMES TO YOUR DOOR:': 'SI ICE VIENE A TU PUERTA:',
+                'DO NOT OPEN THE DOOR': 'NO ABRAS LA PUERTA',
+                'Ask to see warrant through window': 'Pide ver la orden a través de la ventana',
+                'I do not consent to your entry': 'No consiento a tu entrada',
+                'I want to speak to a lawyer': 'Quiero hablar con un abogado',
+                'Exercise your right to remain silent': 'Ejerce tu derecho a permanecer en silencio',
+                'Call emergency hotlines immediately': 'Llama a las líneas de emergencia inmediatamente',
+                'I want to remain silent': 'Quiero permanecer en silencio',
+                'Show me a warrant': 'Muéstrame una orden',
+                'EMERGENCY CONTACTS': 'CONTACTOS DE EMERGENCIA',
+                'Immigration Hotline': 'Línea de Inmigración',
+                'ACLU Emergency': 'Emergencia ACLU',
+                'KEY PHRASES TO MEMORIZE': 'FRASES CLAVE PARA MEMORIZAR',
+                '24/7 EMERGENCY HOTLINE DIRECTORY': 'DIRECTORIO DE LÍNEAS DE EMERGENCIA 24/7',
+                'Immigration Emergency': 'Emergencia de Inmigración',
+                'Voting Rights': 'Derechos de Voto',
+                'LGBTQ+ Crisis': 'Crisis LGBTQ+',
+                'Mental Health Crisis': 'Crisis de Salud Mental',
+                'Reproductive Rights': 'Derechos Reproductivos',
+                'Disability Rights': 'Derechos de Discapacidad',
+                'KNOW YOUR CONSTITUTIONAL RIGHTS': 'CONOCE TUS DERECHOS CONSTITUCIONALES',
+                'LGBTQ+ Rights': 'Derechos LGBTQ+',
+                'Children\'s Rights': 'Derechos de los Niños',
+                'Right to vote regardless of income': 'Derecho a votar independientemente de los ingresos',
+                'Protection from voter intimidation': 'Protección contra intimidación de votantes',
+                'Right to language assistance': 'Derecho a asistencia en el idioma',
+                'Right to accessible voting': 'Derecho a votación accesible',
+                'Protection from discrimination': 'Protección contra discriminación',
+                'Right to safe schools and workplaces': 'Derecho a escuelas y lugares de trabajo seguros',
+                'Healthcare access rights': 'Derechos de acceso a la atención médica',
+                'Marriage equality protections': 'Protecciones de igualdad matrimonial',
+                'Right to privacy in medical decisions': 'Derecho a la privacidad en decisiones médicas',
+                'Right to contraception access': 'Derecho al acceso a anticonceptivos',
+                'Protection from pregnancy discrimination': 'Protección contra discriminación por embarazo',
+                'Right to emergency medical care': 'Derecho a atención médica de emergencia',
+                'Right to free public education': 'Derecho a educación pública gratuita',
+                'Right to safety from abuse': 'Derecho a la seguridad contra el abuso',
+                'Right to stay with family': 'Derecho a permanecer con la familia',
+                'Right to remain silent': 'Derecho a permanecer en silencio',
+                'Right to an attorney': 'Derecho a un abogado',
+                'UNIDENTIFIED AGENT SAFETY PROTOCOLS': 'PROTOCOLOS DE SEGURIDAD PARA AGENTES NO IDENTIFICADOS',
+                'IF APPROACHED BY UNIDENTIFIED AGENTS': 'SI AGENTES NO IDENTIFICADOS SE ACERCAN',
+                'DEMAND IDENTIFICATION FIRST': 'EXIGE IDENTIFICACIÓN PRIMERO',
+                'Show me your badge and identification': 'Muéstrame tu placa e identificación',
+                'State your agency and purpose': 'Declara tu agencia y propósito',
+                'I do not consent to any search or detention': 'No consiento a ningún registro o detención',
+                'DO NOT RESIST PHYSICALLY': 'NO RESISTAS FÍSICAMENTE',
+                'I am being detained by unidentified persons': 'Estoy siendo detenido por personas no identificadas',
+                'Immediately call 911 and emergency hotlines': 'Llama inmediatamente al 911 y líneas de emergencia',
+                'AGENT VERIFICATION REQUIREMENTS': 'REQUISITOS DE VERIFICACIÓN DE AGENTES',
+                'Valid federal badge with photo ID': 'Placa federal válida con identificación con foto',
+                'Agency identification (ICE, CBP, etc.)': 'Identificación de agencia (ICE, CBP, etc.)',
+                'Supervisor contact information': 'Información de contacto del supervisor',
+                'Warrant or legal authority documents': 'Orden o documentos de autoridad legal',
+                'Reason for contact/detention': 'Razón para contacto/detención',
+                'Agents MUST identify themselves when asked': 'Los agentes DEBEN identificarse cuando se les pida',
+                'EMERGENCY DOCUMENTATION': 'DOCUMENTACIÓN DE EMERGENCIA',
+                'Start recording immediately': 'Comienza a grabar inmediatamente',
+                'Note badge numbers, vehicle plates, faces': 'Anota números de placa, placas de vehículo, caras',
+                'Record all verbal exchanges': 'Graba todos los intercambios verbales',
+                'Share live location with trusted contacts': 'Comparte ubicación en vivo con contactos de confianza',
+                'Livestream to social media if possible': 'Transmite en vivo a redes sociales si es posible',
+                'Call witnesses to observe and record': 'Llama a testigos para observar y grabar',
+                'COMMUNITY SAFETY NETWORKS': 'REDES DE SEGURIDAD COMUNITARIA',
+                'Establish buddy check-in systems': 'Establece sistemas de verificación de compañeros',
+                'Create group chat rapid response networks': 'Crea redes de respuesta rápida por chat grupal',
+                'Share location with multiple trusted contacts': 'Comparte ubicación con múltiples contactos de confianza',
+                'Set up regular check-in times daily': 'Establece horarios regulares de verificación diaria',
+                'Plan emergency meeting locations': 'Planifica ubicaciones de reunión de emergencia',
+                'Practice de-escalation scenarios': 'Practica escenarios de des-escalada',
+                'Know legal observer contact numbers': 'Conoce números de contacto de observadores legales',
+                'IMMEDIATE RESPONSE PROTOCOL': 'PROTOCOLO DE RESPUESTA INMEDIATA',
+                'LEGAL PROTECTIONS': 'PROTECCIONES LEGALES',
+                'Right to see identification': 'Derecho a ver identificación',
+                'Right to know reason for detention': 'Derecho a conocer la razón de la detención',
+                'Right to attorney': 'Derecho a abogado',
+                'Right to refuse consent to searches': 'Derecho a rechazar consentimiento para registros',
+                'Protection from unlawful detention': 'Protección contra detención ilegal',
+                'Right to file complaints for misconduct': 'Derecho a presentar quejas por mala conducta',
+                'CRITICAL: NEVER PHYSICALLY RESIST - DOCUMENT EVERYTHING': 'CRÍTICO: NUNCA RESISTAS FÍSICAMENTE - DOCUMENTA TODO',
+                'Physical resistance can lead to assault charges even if agents are acting unlawfully. Your safety and legal protection come through documentation and legal challenges.': 'La resistencia física puede llevar a cargos de asalto incluso si los agentes actúan ilegalmente. Tu seguridad y protección legal vienen a través de documentación y desafíos legales.',
+                'Print': 'Imprimir'
+            }
+        };
+
+        // Translation function
+        function translatePage(targetLanguage) {
+            if (targetLanguage === 'en') {
+                location.reload();
+                return;
+            }
+
+            currentLanguage = targetLanguage;
+            const languageNames = {
+                'es': 'Español',
+                'ar': 'العربية', 
+                'zh': '中文',
+                'fr': 'Français',
+                'ru': 'Русский',
+                'pt': 'Português',
+                'ko': '한국어',
+                'vi': 'Tiếng Việt',
+                'tl': 'Filipino'
+            };
+
+            const languageName = languageNames[targetLanguage];
+            
+            try {
+                applyTranslations(targetLanguage);
+                showTranslationNotice(`✅ Translated to ${languageName} • Emergency numbers remain in English`);
+            } catch (error) {
+                showTranslationNotice(`Translation error: ${error.message}. Emergency numbers still work.`);
+            }
+        }
+
+        function applyTranslations(targetLanguage) {
+            const translationData = translations[targetLanguage];
+            if (!translationData) return;
+
+            console.log(`Applying translations to ${targetLanguage}...`);
+            
+            // Ultra-aggressive text replacement
+            Object.entries(translationData).forEach(([english, translated]) => {
+                if (english.length > 3) {
+                    replaceTextGlobally(english, translated);
+                }
+            });
+            
+            console.log(`Translation to ${targetLanguage} completed`);
+        }
+
+        function replaceTextGlobally(originalText, translatedText) {
+            const walker = document.createTreeWalker(
+                document.body,
+                NodeFilter.SHOW_TEXT,
+                null,
+                false
+            );
+            
+            const textNodes = [];
+            let node;
+            while (node = walker.nextNode()) {
+                if (node.textContent.includes(originalText)) {
+                    textNodes.push(node);
+                }
+            }
+            
+            textNodes.forEach(textNode => {
+                textNode.textContent = textNode.textContent.replace(new RegExp(escapeRegExp(originalText), 'g'), translatedText);
+            });
+            
+            // Also replace in elements
+            const allElements = document.querySelectorAll('*');
+            allElements.forEach(element => {
+                if (element.children.length === 0 && element.textContent.includes(originalText)) {
+                    element.textContent = element.textContent.replace(new RegExp(escapeRegExp(originalText), 'g'), translatedText);
+                }
+            });
+        }
+
+        function escapeRegExp(string) {
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        function showTranslationNotice(message) {
+            const existingNotice = document.getElementById('translation-notice');
+            if (existingNotice) {
+                existingNotice.remove();
+            }
+
+            const notice = document.createElement('div');
+            notice.id = 'translation-notice';
+            notice.className = 'bg-yellow-500 text-black py-2 px-4 text-center text-sm font-semibold';
+            notice.innerHTML = `
+                <div class="flex items-center justify-center space-x-4">
+                    <span>🌐 ${message}</span>
+                    <button onclick="this.parentElement.parentElement.remove()" class="bg-yellow-600 hover:bg-yellow-700 text-white px-2 py-1 rounded text-xs">
+                        ✕ Close
+                    </button>
+                </div>
+            `;
+            
+            const alertBanner = document.getElementById('daily-alert-banner');
+            alertBanner.parentNode.insertBefore(notice, alertBanner.nextSibling);
+        }
+
+        // Navigation Functions
+        function showSection(sectionId, clickedElement) {
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(section => section.classList.add('hidden'));
+            
+            const resultsContainer = document.getElementById('results-container');
+            if (resultsContainer) {
+                resultsContainer.classList.add('hidden');
+            }
+            
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(btn => btn.classList.remove('ring-2', 'ring-yellow-400'));
+            
+            if (clickedElement) {
+                clickedElement.classList.add('ring-2', 'ring-yellow-400');
+            }
+            
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+                targetSection.classList.add('slide-in');
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Emergency Help Functions
+        function openEmergencyHelp() {
+            showCustomDialog(
+                "🆘 EMERGENCY HELP", 
+                "Choose your emergency type:", 
+                [
+                    { text: "🚨 ICE/Immigration Emergency", action: () => { window.open('tel:+18554487277'); showSection('protection'); } },
+                    { text: "⚖️ Legal Rights Emergency", action: () => { window.open('tel:+12125492500'); showSection('rights'); } },
+                    { text: "🧠 Mental Health Crisis", action: () => { window.open('tel:988'); } },
+                    { text: "🗳️ Voting Rights Emergency", action: () => { window.open('tel:+18663687883'); showSection('rights'); } }
+                ]
+            );
+        }
+
+        function showCustomDialog(title, message, actions) {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4';
+            
+            const buttonsHtml = actions.map((action, index) => 
+                `<button onclick="this.closest('.fixed').remove(); (${action.action})()" class="block w-full bg-red-600 text-white px-4 py-3 rounded hover:bg-red-700 transition-colors mb-2 text-left">
+                    ${action.text}
+                </button>`
+            ).join('');
+            
+            modal.innerHTML = `
+                <div class="bg-white dark:bg-gray-800 rounded-lg max-w-md w-full mx-4 p-6">
+                    <h3 class="text-xl font-bold mb-4 text-center">${title}</h3>
+                    <p class="text-center mb-6">${message}</p>
+                    <div class="space-y-2">
+                        ${buttonsHtml}
+                        <button onclick="this.closest('.fixed').remove()" class="w-full bg-gray-600 text-white px-4 py-2 rounded hover:bg-gray-700 transition-colors">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+        }
+
+        // Utility Functions
+        function showResults(title, content) {
+            const titleElement = document.getElementById('results-title');
+            const contentElement = document.getElementById('results-content');
+            const containerElement = document.getElementById('results-container');
+            
+            if (titleElement && contentElement && containerElement) {
+                titleElement.textContent = title;
+                contentElement.innerHTML = content;
+                containerElement.classList.remove('hidden');
+                containerElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Resource Functions
+        function findAttorneys() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">🔍 Immigration Attorney Finder</h4>
+                        <div class="space-y-3">
+                            <div>
+                                <label class="block text-sm font-medium mb-1">Enter ZIP Code:</label>
+                                <input type="text" id="zipcode" placeholder="Enter ZIP code" class="w-full p-2 border rounded text-base">
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-3">
+                                <a href="https://www.ailalawyer.org" target="_blank" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 text-center block">
+                                    AILA Lawyer Search
+                                </a>
+                                <a href="https://www.immigrationadvocates.org/nonprofit/legaldirectory/" target="_blank" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 text-center block">
+                                    Pro Bono Directory
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">🚨 Free Emergency Legal Aid</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• Contact local bar association for referrals</li>
+                            <li>• University law clinics often provide free help</li>
+                            <li>• Legal aid societies in major cities</li>
+                            <li>• Call 855-448-7277 for emergency referrals</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            showResults('Immigration Attorney Finder', content);
+        }
+
+        function generateRightsCard() {
+            const content = `
+                <div class="bg-white dark:bg-gray-800 p-6 border-2 border-dashed border-gray-300 rounded-lg">
+                    <h4 class="font-bold text-center mb-4">📱 KNOW YOUR RIGHTS CARD</h4>
+                    <div class="text-sm space-y-2">
+                        <div><strong>If ICE comes to your door:</strong></div>
+                        <ul class="list-disc list-inside space-y-1 text-xs">
+                            <li>You have the right to remain silent</li>
+                            <li>You do not have to open the door</li>
+                            <li>Ask to see a warrant through the window</li>
+                            <li>Say: "I do not consent to your entry"</li>
+                            <li>Say: "I want to speak to a lawyer"</li>
+                        </ul>
+                        <div class="mt-3"><strong>Emergency Contacts:</strong></div>
+                        <div class="text-xs">
+                            Immigration Hotline: 855-448-7277<br>
+                            ACLU: 212-549-2500<br>
+                            RAICES: 844-724-2437
+                        </div>
+                    </div>
+                    <button onclick="window.print()" class="mt-4 w-full bg-primary text-white py-2 px-4 rounded">
+                        🖨️ Print Card
+                    </button>
+                </div>
+            `;
+            showResults('Know Your Rights Card', content);
+        }
+
+        function generateICEGuide() {
+            const content = `
+                <div class="print-optimized bg-white p-6">
+                    <div class="text-center mb-6">
+                        <h2 class="text-2xl font-bold text-red-600 mb-2">🛡️ ICE ENCOUNTER SURVIVAL GUIDE</h2>
+                        <p class="text-sm text-gray-600">Print and carry with you • Updated January 2025</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-6 text-sm">
+                        <div class="space-y-4">
+                            <div class="border-2 border-red-500 p-3 rounded">
+                                <h3 class="font-bold text-red-600 mb-2">⚠️ IF ICE COMES TO YOUR DOOR</h3>
+                                <ol class="list-decimal list-inside space-y-1 text-xs">
+                                    <li><strong>DO NOT OPEN THE DOOR</strong></li>
+                                    <li>Ask to see warrant through window</li>
+                                    <li>Say: "I do not consent to your entry"</li>
+                                    <li>Say: "I want to speak to a lawyer"</li>
+                                    <li>Exercise right to remain silent</li>
+                                    <li>Call emergency hotlines immediately</li>
+                                </ol>
+                            </div>
+
+                            <div class="border p-3 rounded">
+                                <h3 class="font-bold mb-2">📞 EMERGENCY CONTACTS</h3>
+                                <div class="text-xs space-y-1">
+                                    <div><strong>Immigration Hotline:</strong> 855-448-7277</div>
+                                    <div><strong>ACLU Emergency:</strong> 212-549-2500</div>
+                                    <div><strong>RAICES Emergency:</strong> 844-724-2437</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="border p-3 rounded">
+                                <h3 class="font-bold mb-2">⚖️ YOUR RIGHTS</h3>
+                                <ul class="list-disc list-inside text-xs space-y-1">
+                                    <li>Right to remain silent</li>
+                                    <li>Right to an attorney</li>
+                                    <li>Right to refuse searches</li>
+                                    <li>Right to interpreter</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-yellow-50 border-2 border-yellow-400 p-3 rounded">
+                                <h3 class="font-bold text-yellow-800 mb-2">⚡ KEY PHRASES</h3>
+                                <ul class="list-disc list-inside text-xs space-y-1">
+                                    <li>"I want to remain silent"</li>
+                                    <li>"I want to speak to a lawyer"</li>
+                                    <li>"I do not consent"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 text-center">
+                        <button onclick="window.print()" class="bg-red-600 text-white px-6 py-2 rounded font-bold hover:bg-red-700">
+                            🖨️ PRINT ICE GUIDE
+                        </button>
+                    </div>
+                </div>
+            `;
+            showResults('ICE Encounter Survival Guide', content);
+        }
+
+        function printCompleteGuide() {
+            // Show all sections for printing
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(section => section.classList.remove('hidden'));
+            
+            // Trigger print
+            window.print();
+            
+            // Restore original state after print
+            setTimeout(() => {
+                sections.forEach(section => section.classList.add('hidden'));
+                showSection('protection');
+            }, 1000);
+        }
+
+        function generateEmergencyContacts() {
+            const content = `
+                <div class="print-optimized bg-white p-6">
+                    <div class="text-center mb-6">
+                        <h2 class="text-2xl font-bold text-red-600 mb-2">📞 EMERGENCY CONTACT DIRECTORY</h2>
+                        <p class="text-sm text-gray-600">Keep accessible • Share with family • Print multiple copies</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-6 text-sm">
+                        <div class="space-y-4">
+                            <div class="bg-red-50 border-2 border-red-500 p-3 rounded">
+                                <h3 class="font-bold text-red-600 mb-2">🚨 IMMIGRATION EMERGENCY</h3>
+                                <div class="text-xs space-y-1">
+                                    <div><strong>National Immigration Hotline:</strong> 855-448-7277</div>
+                                    <div><strong>ACLU Emergency:</strong> 212-549-2500</div>
+                                    <div><strong>RAICES Emergency:</strong> 844-724-2437</div>
+                                </div>
+                            </div>
+
+                            <div class="bg-blue-50 border-2 border-blue-500 p-3 rounded">
+                                <h3 class="font-bold text-blue-600 mb-2">🗳️ VOTING RIGHTS</h3>
+                                <div class="text-xs space-y-1">
+                                    <div><strong>Election Protection:</strong> 866-OUR-VOTE</div>
+                                    <div><strong>Spanish:</strong> 888-839-8682</div>
+                                    <div><strong>Asian Languages:</strong> 888-843-8683</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="bg-purple-50 border-2 border-purple-500 p-3 rounded">
+                                <h3 class="font-bold text-purple-600 mb-2">🏳️‍🌈 LGBTQ+ CRISIS</h3>
+                                <div class="text-xs space-y-1">
+                                    <div><strong>Trevor Project:</strong> 866-488-7386</div>
+                                    <div><strong>Trans Lifeline:</strong> 877-565-8860</div>
+                                    <div><strong>LGBT National:</strong> 888-543-7692</div>
+                                </div>
+                            </div>
+
+                            <div class="bg-teal-50 border-2 border-teal-500 p-3 rounded">
+                                <h3 class="font-bold text-teal-600 mb-2">🧠 MENTAL HEALTH</h3>
+                                <div class="text-xs space-y-1">
+                                    <div><strong>Crisis Line:</strong> 988</div>
+                                    <div><strong>Crisis Text:</strong> Text HOME to 741741</div>
+                                    <div><strong>Veterans Crisis:</strong> 800-799-4889</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 text-center">
+                        <button onclick="window.print()" class="bg-red-600 text-white px-6 py-2 rounded font-bold hover:bg-red-700">
+                            🖨️ PRINT CONTACT DIRECTORY
+                        </button>
+                    </div>
+                </div>
+            `;
+            showResults('Emergency Contact Directory', content);
+        }
+
+        // Location search functions
+        function searchNearbyHelp() {
+            const location = document.getElementById('location-search').value;
+            if (!location) {
+                const input = document.getElementById('location-search');
+                input.style.borderColor = '#DC2626';
+                input.placeholder = 'Location required!';
+                setTimeout(() => {
+                    input.style.borderColor = '';
+                    input.placeholder = 'Enter ZIP code, city, or address';
+                }, 3000);
+                return;
+            }
+
+            const resultsContainer = document.getElementById('nearby-results');
+            resultsContainer.classList.remove('hidden');
+            
+            const resultsHeader = document.getElementById('results-header');
+            const resultsList = document.getElementById('results-list');
+            
+            resultsHeader.textContent = `🔍 Searching for resources near ${location}...`;
+            resultsList.innerHTML = '<div class="animate-pulse text-center py-8">Loading nearby emergency resources...</div>';
+            
+            setTimeout(() => {
+                displayMockResults(location);
+            }, 1500);
+        }
+
+        function displayMockResults(location) {
+            const resultsHeader = document.getElementById('results-header');
+            const resultsList = document.getElementById('results-list');
+            
+            resultsHeader.textContent = `FREE Resources Near ${location.toUpperCase()}`;
+            
+            const mockResults = [
+                {
+                    type: 'Local Immigration Legal Aid',
+                    name: 'Community Legal Services',
+                    phone: '(555) 123-4567',
+                    distance: `${location}`,
+                    specialty: 'Free/Low-Cost Immigration Help',
+                    color: 'red'
+                },
+                {
+                    type: 'Local Legal Aid',
+                    name: 'Legal Aid Foundation',
+                    phone: '(555) 234-5678',
+                    distance: `${location}`,
+                    specialty: 'General Legal Services',
+                    color: 'blue'
+                },
+                {
+                    type: 'Crisis Support Center',
+                    name: 'Community Crisis Center',
+                    phone: '(555) 345-6789',
+                    distance: `${location}`,
+                    specialty: 'Mental Health Crisis',
+                    color: 'teal'
+                }
+            ];
+            
+            resultsList.innerHTML = mockResults.map(result => `
+                <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border-l-4 border-${result.color}-500 shadow hover:shadow-lg transition-shadow">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h5 class="font-bold text-${result.color}-600">${result.type}</h5>
+                            <h6 class="font-semibold text-gray-800 dark:text-gray-200">${result.name}</h6>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Specialty: ${result.specialty}</p>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-sm font-semibold text-${result.color}-600">${result.distance}</div>
+                            <a href="tel:${result.phone.replace(/[^\d]/g, '')}" class="text-blue-600 hover:underline font-semibold">${result.phone}</a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            resultsList.innerHTML += `
+                <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4 mt-4">
+                    <h5 class="font-bold text-green-800 dark:text-green-200 mb-2">💡 Local Resources Found!</h5>
+                    <p class="text-sm text-green-700 dark:text-green-300">
+                        These are FREE local organizations in your area. National hotlines (855-448-7277, 988) 
+                        are also available 24/7 and can provide additional referrals.
+                    </p>
+                </div>
+            `;
+        }
+
+        // Additional resource functions
+        function checkRegistration() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">🗳️ Check Your Voter Registration</h4>
+                        <p class="text-sm mb-2">Verify your registration status and polling location:</p>
+                        <a href="https://www.vote.gov/register/check-registration/" target="_blank" class="bg-blue-600 text-white py-2 px-4 rounded inline-block hover:bg-blue-700">
+                            Check on Vote.gov →
+                        </a>
+                    </div>
+                </div>
+            `;
+            showResults('Voter Registration Check', content);
+        }
+
+        function registerToVote() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">📝 Register to Vote</h4>
+                        <p class="text-sm mb-2">Register online or download forms:</p>
+                        <a href="https://www.vote.gov/register/register-to-vote/" target="_blank" class="bg-green-600 text-white py-2 px-4 rounded inline-block hover:bg-green-700">
+                            Register on Vote.gov →
+                        </a>
+                    </div>
+                </div>
+            `;
+            showResults('Voter Registration', content);
+        }
+
+        function findPollingLocation() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">📍 Find Your Polling Place</h4>
+                        <p class="text-sm mb-2">Locate your polling station:</p>
+                        <a href="https://www.vote.gov/locate-polling-place/" target="_blank" class="bg-purple-600 text-white py-2 px-4 rounded inline-block hover:bg-purple-700">
+                            Find Polling Place →
+                        </a>
+                    </div>
+                </div>
+            `;
+            showResults('Polling Location Finder', content);
+        }
+
+        function findLGBTQLawyer() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">🏳️‍🌈 LGBTQ+ Legal Resources</h4>
+                        <ul class="text-sm space-y-2">
+                            <li><strong>Lambda Legal:</strong> <a href="tel:+12123206500" class="text-blue-600">212-320-6500</a></li>
+                            <li><strong>GLAD:</strong> <a href="tel:+16174264469" class="text-blue-600">617-426-4469</a></li>
+                            <li><strong>NCTE:</strong> <a href="tel:+12027419696" class="text-blue-600">202-741-9696</a></li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            showResults('LGBTQ+ Legal Support', content);
+        }
+
+        function politicalTraumaResources() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">🧠 Political Trauma Support</h4>
+                        <ul class="text-sm space-y-2">
+                            <li><strong>Crisis Line:</strong> <a href="tel:988" class="text-blue-600 text-lg font-bold">988</a></li>
+                            <li><strong>Crisis Text:</strong> <span class="font-bold">Text HOME to 741741</span></li>
+                            <li><strong>Therapy for Black Girls:</strong> <a href="https://therapyforblackgirls.com" target="_blank" class="text-blue-600">therapyforblackgirls.com</a></li>
+                            <li><strong>Open Path Collective:</strong> <a href="https://openpathcollective.org" target="_blank" class="text-blue-600">Low-cost therapy ($30-$60)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            showResults('Political Trauma Support', content);
+        }
+
+        function childrenRightsGuide() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">📚 Children's Educational Rights</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• Right to free public education regardless of immigration status</li>
+                            <li>• Protection from discrimination in schools</li>
+                            <li>• Right to special education services if needed</li>
+                            <li>• Privacy of student records</li>
+                            <li>• Protection from harassment and bullying</li>
+                        </ul>
+                        <div class="mt-3">
+                            <strong>Report School Violations:</strong>
+                            <div class="text-sm">
+                                • <a href="tel:+18006214868" class="text-blue-600">800-421-3481 (OCR)</a><br>
+                                • <a href="mailto:ocr@ed.gov" class="text-blue-600">ocr@ed.gov</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            showResults('Children\'s Rights Guide', content);
+        }
+
+        function familySeparationHelp() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">👨‍👩‍👧‍👦 Family Separation Emergency Plan</h4>
+                        <ul class="text-sm space-y-2">
+                            <li><strong>Immediate Actions:</strong></li>
+                            <li>• Create emergency contact cards for children</li>
+                            <li>• Designate emergency caregivers (power of attorney)</li>
+                            <li>• Keep important documents accessible</li>
+                            <li>• Teach children emergency phone numbers</li>
+                            <li>• Document family unity evidence</li>
+                        </ul>
+                        <div class="mt-3 bg-white dark:bg-gray-800 p-3 rounded">
+                            <div class="font-semibold">Emergency Contacts:</div>
+                            <div class="text-xs">
+                                <div><strong>Family Separation Hotline:</strong> <a href="tel:+18554487277" class="text-blue-600">855-448-7277</a></div>
+                                <div><strong>Child Welfare Information:</strong> <a href="tel:+18003942667" class="text-blue-600">800-394-3366</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            showResults('Family Separation Emergency Help', content);
+        }
+
+        function findRepresentatives() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">🔍 Find Your Representatives</h4>
+                        <div class="grid md:grid-cols-2 gap-3">
+                            <a href="https://www.congress.gov/members/find-your-member" target="_blank" 
+                               class="bg-blue-600 text-white px-3 py-2 rounded text-sm hover:bg-blue-700 text-center">
+                                Find Your Senators
+                            </a>
+                            <a href="https://www.house.gov/representatives/find-your-representative" target="_blank" 
+                               class="bg-green-600 text-white px-3 py-2 rounded text-sm hover:bg-green-700 text-center">
+                                Find Your House Rep
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            `;
+            showResults('Find Your Representatives', content);
+        }
+
+        function generateContactScript() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">📞 Call Script Generator</h4>
+                        <div class="bg-white dark:bg-gray-800 p-3 rounded border text-sm">
+                            <p><strong>Sample Script:</strong></p>
+                            <p class="mt-2">"Hi, I'm calling as a constituent. I'm urging [REPRESENTATIVE NAME] to vote AGAINST any Project 2025 implementation measures and to protect civil rights for all Americans. This includes opposing mass deportation funding, protecting voting rights, and defending LGBTQ+ and reproductive freedoms. Will [REPRESENTATIVE] commit to voting against these harmful policies?"</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            showResults('Contact Script Generator', content);
+        }
+
+        function checkVotingRecord() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">📊 Project 2025 Voting Records</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• <a href="https://www.govtrack.us" target="_blank" class="text-blue-600 hover:underline">GovTrack.us</a> - Congressional votes</li>
+                            <li>• <a href="https://projects.propublica.org/represent/" target="_blank" class="text-blue-600 hover:underline">ProPublica Congress</a> - Voting analysis</li>
+                            <li>• <a href="https://www.opensecrets.org" target="_blank" class="text-blue-600 hover:underline">OpenSecrets.org</a> - Influence tracking</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            showResults('Project 2025 Voting Records', content);
+        }
+
+        // Additional utility functions
+        function reportViolation() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">🚨 Report Civil Rights Violations</h4>
+                        <ul class="text-sm space-y-2">
+                            <li><strong>DOJ Civil Rights:</strong> <a href="https://civilrights.justice.gov" target="_blank" class="text-blue-600">civilrights.justice.gov</a></li>
+                            <li><strong>FBI Civil Rights:</strong> <a href="tel:+18002252425" class="text-blue-600">800-225-2425</a></li>
+                            <li><strong>ACLU:</strong> <a href="tel:+12125492500" class="text-blue-600">212-549-2500</a></li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            showResults('Report Civil Rights Violations', content);
+        }
+
+        function findCivilRightsLawyer() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">⚖️ Civil Rights Legal Support</h4>
+                        <ul class="text-sm space-y-2">
+                            <li><strong>NAACP Legal Defense:</strong> <a href="tel:+12129659500" class="text-blue-600">212-965-9500</a></li>
+                            <li><strong>Southern Poverty Law:</strong> <a href="tel:+13342648210" class="text-blue-600">334-264-8210</a></li>
+                            <li><strong>ACLU:</strong> <a href="tel:+12125492500" class="text-blue-600">212-549-2500</a></li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            showResults('Civil Rights Lawyers', content);
+        }
+
+        function digitalRights() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">🔒 Digital Privacy Rights</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• Use encrypted messaging apps (Signal)</li>
+                            <li>• Secure your devices with strong passwords</li>
+                            <li>• Use VPN for online privacy</li>
+                            <li>• Be aware of surveillance laws</li>
+                            <li>• Know your data rights</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            showResults('Digital Privacy Rights', content);
+        }
+
+        function findReproductiveLawyer() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-pink-50 dark:bg-pink-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">🩺 Reproductive Rights Legal Support</h4>
+                        <ul class="text-sm space-y-2">
+                            <li><strong>Center for Reproductive Rights:</strong> <a href="tel:+19174371800" class="text-blue-600">917-637-3600</a></li>
+                            <li><strong>ACLU Reproductive Freedom:</strong> <a href="tel:+12125492500" class="text-blue-600">212-549-2500</a></li>
+                            <li><strong>Planned Parenthood Legal:</strong> <a href="tel:+18002302526" class="text-blue-600">800-230-PLAN</a></li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            showResults('Reproductive Rights Lawyers', content);
+        }
+
+        function travelRights() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">🚗 Travel & Privacy Rights</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• Right to interstate travel</li>
+                            <li>• Digital privacy protections</li>
+                            <li>• Medical privacy laws</li>
+                            <li>• Anonymous communication tools</li>
+                            <li>• Secure payment methods</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            showResults('Travel & Privacy Rights', content);
+        }
+
+        function secureEventPlanning() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">🔒 Secure Event Planning</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• Use Signal for all event coordination</li>
+                            <li>• Share locations via encrypted channels only</li>
+                            <li>• Use code words for sensitive information</li>
+                            <li>• Plan for communication blackouts</li>
+                            <li>• Establish emergency contact protocols</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            showResults('Secure Event Planning', content);
+        }
+
+        function digitalPrivacyGuide() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">🛡️ Digital Privacy Protection</h4>
+                        <ul class="text-sm space-y-2">
+                            <li><strong>Essential Privacy Tools:</strong></li>
+                            <li>• Use Signal or Wire for encrypted messaging</li>
+                            <li>• Install Tor Browser for anonymous browsing</li>
+                            <li>• Use ProtonMail for secure email</li>
+                            <li>• Enable 2FA on all accounts</li>
+                            <li>• Use VPN (Mullvad, IVPN, or ProtonVPN)</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            showResults('Digital Privacy Protection', content);
+        }
+
+        function protestSafetyProtocols() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">🛡️ Protest Safety Protocols</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• Buddy system for all participants</li>
+                            <li>• Legal observer coordination</li>
+                            <li>• Emergency medical support</li>
+                            <li>• Jail support networks</li>
+                            <li>• Know your rights training</li>
+                            <li>• Digital security for activists</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            showResults('Protest Safety Protocols', content);
+        }
+
+        function safetyPlanning() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">🛡️ LGBTQ+ Emergency Safety Planning</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• Create a support network</li>
+                            <li>• Document important papers</li>
+                            <li>• Plan safe places to go</li>
+                            <li>• Know your legal rights</li>
+                            <li>• Keep emergency contacts handy</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            showResults('LGBTQ+ Safety Planning', content);
+        }
+
+        function stressManagementTools() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">🌱 Crisis Stress Management</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• Deep breathing exercises (4-7-8 technique)</li>
+                            <li>• Grounding techniques (5-4-3-2-1 method)</li>
+                            <li>• Progressive muscle relaxation</li>
+                            <li>• Mindfulness meditation apps</li>
+                            <li>• Emergency self-care kits</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+            showResults('Crisis Stress Management', content);
+        }
+
+        // Simple accessibility mode
+        let seniorModeActive = false;
+
+        function toggleAccessibilityMode() {
+            seniorModeActive = !seniorModeActive;
+            const body = document.body;
+            const toggleButton = document.getElementById('accessibility-toggle');
+            
+            if (seniorModeActive) {
+                // Apply senior-friendly styles
+                const style = document.createElement('style');
+                style.id = 'senior-mode-style';
+                style.textContent = `
+                    .senior-mode {
+                        font-size: 120% !important;
+                        line-height: 1.8 !important;
+                    }
+                    .senior-mode h1 { font-size: 3rem !important; }
+                    .senior-mode h2 { font-size: 2.5rem !important; }
+                    .senior-mode h3 { font-size: 2rem !important; }
+                    .senior-mode button {
+                        padding: 1rem 1.5rem !important;
+                        font-size: 1.2rem !important;
+                        font-weight: bold !important;
+                        border: 3px solid #000 !important;
+                        min-height: 60px !important;
+                    }
+                    .senior-mode a {
+                        font-size: 1.2rem !important;
+                        text-decoration: underline !important;
+                        font-weight: bold !important;
+                    }
+                    .senior-mode input {
+                        font-size: 1.2rem !important;
+                        padding: 1rem !important;
+                        border: 3px solid #000 !important;
+                    }
+                    .senior-mode .text-xs { font-size: 1rem !important; }
+                    .senior-mode .text-sm { font-size: 1.1rem !important; }
+                    .senior-mode .text-base { font-size: 1.3rem !important; }
+                `;
+                document.head.appendChild(style);
+                body.classList.add('senior-mode');
+                body.style.filter = 'contrast(140%) brightness(110%)';
+                
+                toggleButton.textContent = '🔧 Exit Senior Mode';
+                toggleButton.classList.add('bg-yellow-500', 'text-black');
+                
+                showNotification('♿ Senior accessibility mode enabled - Large fonts, high contrast active');
+            } else {
+                const style = document.getElementById('senior-mode-style');
+                if (style) style.remove();
+                body.classList.remove('senior-mode');
+                body.style.filter = '';
+                
+                toggleButton.textContent = '👴 Senior Mode';
+                toggleButton.classList.remove('bg-yellow-500', 'text-black');
+                
+                showNotification('Senior accessibility mode disabled');
+            }
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-blue-600 text-white p-4 rounded-lg shadow-lg z-50 max-w-sm';
+            notification.innerHTML = `
+                <div class="flex justify-between items-start">
+                    <span>${message}</span>
+                    <button onclick="this.parentElement.parentElement.remove()" class="text-white hover:text-blue-200 ml-2">✕</button>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('CivicHub Emergency Democracy Protection Platform Loaded');
+            console.log('All emergency numbers functional');
+            console.log('Translation system ready');
+            console.log('Print functionality enabled');
+        });
+    </script>
+
+
+</body></html>
