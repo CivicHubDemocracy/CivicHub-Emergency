@@ -885,6 +885,40 @@
                             </button>
                         </div>
                     </div>
+
+                    <!-- Protest Rights & Safety -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-orange-600 dark:text-orange-400 mb-3">📢 Protest Rights & Safety Guides</h3>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <button onclick="generateProtestRightsCard()" class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-700 transition-colors text-sm">
+                                📋 Protest Rights Card
+                            </button>
+                            <button onclick="legalObserverGuide()" class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition-colors text-sm">
+                                👁️ Legal Observer
+                            </button>
+                            <button onclick="protestPreparationGuide()" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition-colors text-sm">
+                                ✅ Protest Prep
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Women's Emergency Rights -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-pink-600 dark:text-pink-400 mb-3">👩 Women's Emergency Rights & Safety</h3>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-4">
+                            <button onclick="generateWomensRightsGuide()" class="bg-pink-600 text-white py-2 px-4 rounded hover:bg-pink-700 transition-colors text-sm">
+                                📋 Women's Rights
+                            </button>
+                            <button onclick="domesticViolenceGuide()" class="bg-purple-600 text-white py-2 px-4 rounded hover:bg-purple-700 transition-colors text-sm">
+                                🆘 Domestic Violence
+                            </button>
+                            <button onclick="workplaceRightsWomen()" class="bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 transition-colors text-sm">
+                                💼 Workplace Rights
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -932,6 +966,16 @@
                             <a href="tel:988" class="block w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Crisis Line 988</a>
                             <button onclick="politicalTraumaResources()" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Political Trauma</button>
                             <button onclick="stressManagementTools()" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Stress Management</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Reproductive Rights Resources -->
+                    <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
+                        <h3 class="font-bold text-pink-600 dark:text-pink-400 mb-3">🩺 Reproductive Rights</h3>
+                        <div class="space-y-2 text-sm">
+                            <a href="tel:+18002302526" class="block w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Planned Parenthood</a>
+                            <button onclick="generateReproductiveRightsGuide()" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Complete Rights Guide</button>
+                            <button onclick="findReproductiveLawyer()" class="w-full text-left hover:bg-gray-50 dark:hover:bg-gray-700 p-2 rounded">→ Legal Support</button>
                         </div>
                     </div>
                     
@@ -3523,24 +3567,510 @@
             showResults('Disability Rights Advocacy & Legal Help', content);
         }
 
+        // NEW: Protest Rights Card
+        function generateProtestRightsCard() {
+            const content = `
+                <div class="print-optimized bg-white dark:bg-gray-800 p-6 max-w-2xl mx-auto">
+                    <div class="text-center mb-6">
+                        <h2 class="text-3xl font-bold text-orange-600 mb-2">📋 PROTEST RIGHTS CARD</h2>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Carry with you • Know your rights • Updated July 8, 2025</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 p-6 border-2 border-dashed border-orange-500 rounded-lg">
+                        <div class="grid md:grid-cols-2 gap-6 text-sm">
+                            <div>
+                                <h3 class="font-bold text-orange-600 text-lg mb-3">⚖️ YOUR CONSTITUTIONAL RIGHTS</h3>
+                                <ul class="list-disc list-inside space-y-1 text-xs">
+                                    <li><strong>Right to peaceful assembly</strong> (1st Amendment)</li>
+                                    <li><strong>Right to free speech</strong></li>
+                                    <li><strong>Right to remain silent</strong></li>
+                                    <li><strong>Right to an attorney</strong></li>
+                                    <li><strong>Right to refuse searches</strong> without warrant</li>
+                                    <li><strong>Right to record police</strong> (from safe distance)</li>
+                                    <li><strong>Right to leave</strong> if not under arrest</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h3 class="font-bold text-red-600 text-lg mb-3">🚨 IF POLICE APPROACH</h3>
+                                <ol class="list-decimal list-inside space-y-1 text-xs">
+                                    <li>Stay calm, keep hands visible</li>
+                                    <li>Ask: <em>"Am I free to leave?"</em></li>
+                                    <li>If yes: Leave calmly</li>
+                                    <li>If no: <em>"I want to remain silent"</em></li>
+                                    <li><em>"I want to speak to a lawyer"</em></li>
+                                    <li><strong>NEVER RESIST PHYSICALLY</strong></li>
+                                    <li>Document badge numbers, faces</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 border-t border-gray-300 pt-4">
+                            <h3 class="font-bold text-blue-600 text-lg mb-3 text-center">📞 EMERGENCY CONTACTS</h3>
+                            <div class="grid grid-cols-2 gap-4 text-xs">
+                                <div>
+                                    <strong>Legal Support:</strong><br>
+                                    National Lawyers Guild: 212-679-5100<br>
+                                    ACLU: 212-549-2500
+                                </div>
+                                <div>
+                                    <strong>Your Emergency Contact:</strong><br>
+                                    Name: _________________<br>
+                                    Phone: ________________
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 bg-yellow-100 dark:bg-yellow-900/20 p-3 rounded">
+                            <div class="text-xs text-center">
+                                <strong>KEY PHRASES TO MEMORIZE:</strong><br>
+                                "I do not consent to any search" • "I want to remain silent" • "I want to speak to a lawyer"
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 text-center">
+                        <button onclick="window.print()" class="bg-orange-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-orange-700 text-lg">
+                            🖨️ PRINT PROTEST RIGHTS CARD
+                        </button>
+                        <div class="text-xs text-gray-500 mt-2">
+                            Cut to wallet size • Laminate if possible • Share with fellow protesters
+                        </div>
+                    </div>
+                </div>
+            `;
+            showResults('Protest Rights Card', content);
+        }
+
+        // NEW: Legal Observer Guide
+        function legalObserverGuide() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">👁️ Legal Observer Training & Guidelines</h4>
+                        <div class="space-y-3">
+                            <div><strong>Primary Role:</strong> Document police interactions and potential rights violations</div>
+                            
+                            <div><strong>What to Document:</strong></div>
+                            <ul class="text-sm space-y-1">
+                                <li>• Badge numbers and names of officers</li>
+                                <li>• Time, date, and exact location</li>
+                                <li>• Witness contact information</li>
+                                <li>• Photo/video evidence (if safe)</li>
+                                <li>• Use of force incidents</li>
+                                <li>• Arrest procedures and conditions</li>
+                                <li>• Rights violations</li>
+                            </ul>
+
+                            <div><strong>Safety Guidelines:</strong></div>
+                            <ul class="text-sm space-y-1">
+                                <li>• Stay 8-10 feet away from police activity</li>
+                                <li>• Don't interfere with police operations</li>
+                                <li>• Clearly identify yourself as legal observer</li>
+                                <li>• Coordinate with other observers</li>
+                                <li>• Have backup for your documentation</li>
+                                <li>• Know when to prioritize your safety</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-3 bg-white dark:bg-gray-800 p-3 rounded">
+                            <div class="font-semibold">Training Resources:</div>
+                            <div class="text-sm">
+                                • National Lawyers Guild Legal Observer training<br>
+                                • ACLU Know Your Rights trainings<br>
+                                • Local civil rights organizations
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            showResults('Legal Observer Training Guide', content);
+        }
+
+        // NEW: Protest Preparation Guide
+        function protestPreparationGuide() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">✅ Complete Protest Preparation Checklist</h4>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <h5 class="font-semibold text-green-700 mb-2">Before You Go:</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>□ Set up buddy system with trusted friend</li>
+                                    <li>□ Share your location and plans with emergency contact</li>
+                                    <li>□ Turn off Face ID/Touch ID on phone</li>
+                                    <li>□ Backup important data</li>
+                                    <li>□ Research local laws and permits</li>
+                                    <li>□ Plan multiple exit routes</li>
+                                    <li>□ Check weather conditions</li>
+                                    <li>□ Arrange jail support if needed</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h5 class="font-semibold text-blue-700 mb-2">What to Bring:</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>□ Government-issued ID</li>
+                                    <li>□ Emergency cash ($50-100)</li>
+                                    <li>□ Water and snacks</li>
+                                    <li>□ Basic first aid supplies</li>
+                                    <li>□ Charged phone + portable charger</li>
+                                    <li>□ Protest rights card (printed)</li>
+                                    <li>□ Weather-appropriate clothing</li>
+                                    <li>□ Comfortable, closed-toe shoes</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h5 class="font-semibold text-red-700 mb-2">Do NOT Bring:</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>□ Weapons or anything that could be considered one</li>
+                                    <li>□ Drugs or alcohol</li>
+                                    <li>□ Valuable items or important documents</li>
+                                    <li>□ Contact lenses (tear gas risk)</li>
+                                    <li>□ Lotions or oils that trap chemicals</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            showResults('Complete Protest Preparation Checklist', content);
+        }
+
+        // NEW: Women's Rights Emergency Guide
+        function generateWomensRightsGuide() {
+            const content = `
+                <div class="print-optimized bg-white dark:bg-gray-800 p-6 max-w-5xl mx-auto">
+                    <div class="text-center mb-6">
+                        <h2 class="text-3xl font-bold text-pink-600 mb-2">👩 WOMEN'S EMERGENCY RIGHTS GUIDE</h2>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Comprehensive rights protection • Workplace equality • Healthcare access • Safety resources • Updated July 8, 2025</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-6 text-sm">
+                        <div class="space-y-4">
+                            <div class="border-4 border-pink-500 bg-pink-50 dark:bg-pink-900/20 p-4 rounded-lg">
+                                <h3 class="font-bold text-pink-600 text-lg mb-3">🚨 EMERGENCY WOMEN'S SAFETY CONTACTS</h3>
+                                <div class="space-y-2 text-sm">
+                                    <div class="bg-white dark:bg-gray-700 p-2 rounded border">
+                                        <strong>National Domestic Violence:</strong> 
+                                        <a href="tel:+18007997233" class="text-pink-600 text-lg font-bold">800-799-SAFE</a>
+                                    </div>
+                                    <div class="bg-white dark:bg-gray-700 p-2 rounded border">
+                                        <strong>RAINN Sexual Assault:</strong> 
+                                        <a href="tel:+18006564673" class="text-pink-600 text-lg font-bold">800-656-HOPE</a>
+                                    </div>
+                                    <div class="bg-white dark:bg-gray-700 p-2 rounded border">
+                                        <strong>Planned Parenthood:</strong> 
+                                        <a href="tel:+18002302526" class="text-pink-600 text-lg font-bold">800-230-PLAN</a>
+                                    </div>
+                                    <div class="bg-white dark:bg-gray-700 p-2 rounded border">
+                                        <strong>Women's Law Center:</strong> 
+                                        <a href="tel:+12025885180" class="text-pink-600 text-lg font-bold">202-588-5180</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="border-2 border-blue-500 bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                                <h3 class="font-bold text-blue-600 text-lg mb-3">⚖️ WORKPLACE RIGHTS & PROTECTIONS</h3>
+                                <ul class="list-disc list-inside space-y-2 text-sm font-medium">
+                                    <li><strong>Equal pay protections</strong> - Report wage gaps</li>
+                                    <li><strong>Pregnancy discrimination</strong> prevention</li>
+                                    <li><strong>Sexual harassment</strong> reporting rights</li>
+                                    <li><strong>FMLA leave</strong> for pregnancy/family</li>
+                                    <li><strong>Breastfeeding accommodations</strong></li>
+                                    <li><strong>Safe workplace standards</strong></li>
+                                </ul>
+                            </div>
+
+                            <div class="border-2 border-red-500 bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+                                <h3 class="font-bold text-red-600 text-lg mb-3">🆘 DOMESTIC VIOLENCE SAFETY</h3>
+                                <ul class="list-disc list-inside space-y-1 text-sm">
+                                    <li><strong>Create safety plan</strong> with trusted friend</li>
+                                    <li><strong>Keep emergency bag</strong> ready</li>
+                                    <li><strong>Document abuse</strong> with photos, dates</li>
+                                    <li><strong>Know safe places</strong> to go quickly</li>
+                                    <li><strong>Use code words</strong> with family/friends</li>
+                                    <li><strong>Call 911</strong> in immediate danger</li>
+                                </ul>
+                            </div>
+
+                            <div class="border-2 border-purple-500 bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                                <h3 class="font-bold text-purple-600 text-lg mb-3">🩺 REPRODUCTIVE HEALTHCARE RIGHTS</h3>
+                                <div class="space-y-2 text-xs">
+                                    <div><strong>Your Healthcare Rights:</strong></div>
+                                    <ul class="list-disc list-inside text-xs space-y-1 ml-4">
+                                        <li>Right to privacy in medical decisions</li>
+                                        <li>Right to contraception access</li>
+                                        <li>Right to emergency medical care</li>
+                                        <li>Protection from discrimination</li>
+                                        <li>Right to informed consent</li>
+                                        <li>Confidentiality protections</li>
+                                    </ul>
+                                    <div class="mt-2"><strong>Emergency Contraception:</strong> Available over-counter, no age restrictions</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="border-2 border-orange-500 bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+                                <h3 class="font-bold text-orange-600 text-lg mb-3">💼 EQUAL EMPLOYMENT RIGHTS</h3>
+                                <ul class="list-disc list-inside space-y-1 text-sm">
+                                    <li><strong>Title VII protections</strong> - Sex discrimination</li>
+                                    <li><strong>Equal Pay Act</strong> - Wage equality</li>
+                                    <li><strong>Pregnancy Discrimination Act</strong></li>
+                                    <li><strong>FMLA</strong> - Family/medical leave</li>
+                                    <li><strong>Hostile work environment</strong> protections</li>
+                                    <li><strong>Retaliation protections</strong></li>
+                                </ul>
+                            </div>
+
+                            <div class="border-2 border-green-500 bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                                <h3 class="font-bold text-green-600 text-lg mb-3">🏛️ POLITICAL & CIVIC RIGHTS</h3>
+                                <ul class="list-disc list-inside space-y-1 text-sm">
+                                    <li><strong>19th Amendment</strong> voting rights</li>
+                                    <li><strong>Equal representation</strong> in government</li>
+                                    <li><strong>Free speech protections</strong></li>
+                                    <li><strong>Assembly and protest rights</strong></li>
+                                    <li><strong>Political participation</strong> without discrimination</li>
+                                    <li><strong>Civic engagement</strong> opportunities</li>
+                                </ul>
+                            </div>
+
+                            <div class="border-2 border-teal-500 bg-teal-50 dark:bg-teal-900/20 p-4 rounded-lg">
+                                <h3 class="font-bold text-teal-600 text-lg mb-3">🏠 HOUSING & FINANCIAL RIGHTS</h3>
+                                <div class="space-y-2 text-sm">
+                                    <div><strong>Housing Protections:</strong></div>
+                                    <ul class="list-disc list-inside text-xs space-y-1 ml-4">
+                                        <li>Fair Housing Act protections</li>
+                                        <li>Protection from sex discrimination</li>
+                                        <li>Domestic violence housing protections</li>
+                                        <li>Single mother housing assistance</li>
+                                    </ul>
+                                    
+                                    <div class="mt-2"><strong>Financial Rights:</strong></div>
+                                    <ul class="list-disc list-inside text-xs space-y-1 ml-4">
+                                        <li>Equal credit opportunity</li>
+                                        <li>Protection from lending discrimination</li>
+                                        <li>Social Security survivor benefits</li>
+                                        <li>Retirement security protections</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="border-2 border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-lg">
+                                <h3 class="font-bold text-indigo-600 text-lg mb-3">👶 MATERNAL & FAMILY RIGHTS</h3>
+                                <ul class="list-disc list-inside text-xs space-y-1">
+                                    <li><strong>Pregnancy workplace accommodations</strong></li>
+                                    <li><strong>Maternity leave protections</strong></li>
+                                    <li><strong>Breastfeeding rights</strong> at work</li>
+                                    <li><strong>Child support enforcement</strong></li>
+                                    <li><strong>Custody and visitation rights</strong></li>
+                                    <li><strong>Healthcare for children</strong></li>
+                                    <li><strong>Educational rights for daughters</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 bg-pink-600 text-white p-4 rounded-lg">
+                        <h3 class="font-bold text-xl text-center mb-3">📞 WOMEN'S EMERGENCY RESOURCE DIRECTORY</h3>
+                        <div class="grid md:grid-cols-3 gap-4 text-sm">
+                            <div>
+                                <strong>DOMESTIC VIOLENCE:</strong><br>
+                                <span class="text-lg font-bold">National Hotline: 800-799-SAFE</span><br>
+                                <span class="text-xs">24/7 confidential support</span>
+                            </div>
+                            <div>
+                                <strong>SEXUAL ASSAULT:</strong><br>
+                                <span class="text-lg font-bold">RAINN: 800-656-HOPE</span><br>
+                                <span class="text-xs">Crisis support and referrals</span>
+                            </div>
+                            <div>
+                                <strong>REPRODUCTIVE HEALTH:</strong><br>
+                                <span class="text-lg font-bold">Planned Parenthood: 800-230-PLAN</span><br>
+                                <span class="text-xs">Healthcare and resources</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 bg-purple-100 dark:bg-purple-900/20 border border-purple-400 p-4 rounded-lg">
+                        <h3 class="font-bold text-purple-800 dark:text-purple-200 text-lg mb-3">📋 DIGITAL SAFETY FOR WOMEN</h3>
+                        <div class="grid md:grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <div><strong>Online Safety:</strong></div>
+                                <ul class="text-xs space-y-1">
+                                    <li>• Use strong, unique passwords</li>
+                                    <li>• Enable two-factor authentication</li>
+                                    <li>• Be cautious about location sharing</li>
+                                    <li>• Report online harassment</li>
+                                    <li>• Use privacy settings on social media</li>
+                                    <li>• Document cyberstalking evidence</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div><strong>Digital Privacy Tools:</strong></div>
+                                <ul class="text-xs space-y-1">
+                                    <li>• Signal for encrypted messaging</li>
+                                    <li>• VPN for browsing privacy</li>
+                                    <li>• Tor browser for anonymity</li>
+                                    <li>• Secure email services</li>
+                                    <li>• Password managers</li>
+                                    <li>• Digital security apps</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 text-center space-y-3">
+                        <button onclick="window.print()" class="bg-pink-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-pink-700 text-lg">
+                            🖨️ PRINT WOMEN'S RIGHTS GUIDE
+                        </button>
+                        <div class="text-xs text-gray-500">
+                            Share with other women • Keep confidential if needed • Know your protections
+                        </div>
+                    </div>
+
+                    <div class="mt-4 bg-yellow-100 dark:bg-yellow-900/20 border border-yellow-400 p-3 rounded">
+                        <div class="text-xs text-center">
+                            <strong>⚠️ SAFETY FIRST:</strong> This information is for educational purposes only. 
+                            If you're in immediate danger, call 911. Trust your instincts and prioritize your safety. 
+                            Contact qualified professionals for specific legal advice about your situation.
+                        </div>
+                    </div>
+                </div>
+            `;
+            showResults('Complete Women\'s Emergency Rights Guide', content);
+        }
+
+        // NEW: Domestic Violence Emergency Guide
+        function domesticViolenceGuide() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border-2 border-red-500">
+                        <h4 class="font-bold mb-2 text-red-600">🆘 DOMESTIC VIOLENCE EMERGENCY HELP</h4>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-white dark:bg-gray-800 p-3 rounded">
+                                <div class="font-semibold text-red-600">🚨 IMMEDIATE DANGER - CALL 911</div>
+                                <div class="text-sm mt-2">If you are in immediate physical danger, call 911 immediately. Your safety is the top priority.</div>
+                            </div>
+
+                            <div class="bg-red-600 text-white p-3 rounded">
+                                <div class="font-bold mb-2">24/7 CONFIDENTIAL HOTLINES:</div>
+                                <div class="space-y-1 text-sm">
+                                    <div><strong>National Domestic Violence:</strong> <a href="tel:+18007997233" class="text-yellow-200">800-799-SAFE (7233)</a></div>
+                                    <div><strong>Crisis Text Line:</strong> <span class="font-bold">Text START to 88788</span></div>
+                                    <div><strong>National Sexual Assault:</strong> <a href="tel:+18006564673" class="text-yellow-200">800-656-HOPE (4673)</a></div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h5 class="font-semibold text-purple-700 mb-2">🛡️ Safety Planning:</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Identify safe places to go quickly</li>
+                                    <li>• Keep emergency bag ready (clothes, documents, money)</li>
+                                    <li>• Memorize important phone numbers</li>
+                                    <li>• Establish code words with trusted friends/family</li>
+                                    <li>• Know the safest time to leave</li>
+                                    <li>• Plan escape routes from home and work</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h5 class="font-semibold text-blue-700 mb-2">📋 Documentation:</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Take photos of injuries (with dates)</li>
+                                    <li>• Keep a journal of incidents</li>
+                                    <li>• Save threatening messages/emails</li>
+                                    <li>• Get copies of important documents</li>
+                                    <li>• Tell trusted friends/family about abuse</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-green-50 dark:bg-green-900/20 p-3 rounded">
+                                <div class="font-semibold">Local Resources:</div>
+                                <div class="text-sm">
+                                    • Call 211 for local domestic violence shelters<br>
+                                    • Contact local police victim services<br>
+                                    • Reach out to women's resource centers<br>
+                                    • Ask hospitals about social workers
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            showResults('Domestic Violence Emergency Help', content);
+        }
+
+        // NEW: Workplace Rights for Women
+        function workplaceRightsWomen() {
+            const content = `
+                <div class="space-y-4">
+                    <div class="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">💼 Women's Workplace Rights & Protections</h4>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <h5 class="font-semibold text-blue-700 mb-2">⚖️ Federal Protections:</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• <strong>Title VII:</strong> Protection from sex discrimination</li>
+                                    <li>• <strong>Equal Pay Act:</strong> Equal pay for equal work</li>
+                                    <li>• <strong>Pregnancy Discrimination Act:</strong> Pregnancy protections</li>
+                                    <li>• <strong>FMLA:</strong> Family and medical leave</li>
+                                    <li>• <strong>ADA:</strong> Disability accommodations</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h5 class="font-semibold text-red-700 mb-2">🚨 Sexual Harassment:</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Document all incidents with dates/details</li>
+                                    <li>• Report to HR or supervisor immediately</li>
+                                    <li>• Keep copies of all communications</li>
+                                    <li>• File EEOC complaint within 180 days</li>
+                                    <li>• Seek support from trusted colleagues</li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <h5 class="font-semibold text-green-700 mb-2">🤱 Pregnancy Rights:</h5>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Reasonable accommodations for pregnancy</li>
+                                    <li>• Protection from firing due to pregnancy</li>
+                                    <li>• Maternity leave under FMLA</li>
+                                    <li>• Right to breastfeeding accommodations</li>
+                                    <li>• Health insurance continuation</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-yellow-50 dark:bg-yellow-900/20 p-3 rounded">
+                                <div class="font-semibold">File Complaints:</div>
+                                <div class="text-sm space-y-1">
+                                    <div>• <strong>EEOC:</strong> <a href="tel:+18006694000" class="text-blue-600">800-669-4000</a> (workplace discrimination)</div>
+                                    <div>• <strong>Department of Labor:</strong> <a href="tel:+18664872365" class="text-blue-600">866-4-USWAGE</a> (pay issues)</div>
+                                    <div>• <strong>OSHA:</strong> <a href="tel:+18003216742" class="text-blue-600">800-321-OSHA</a> (workplace safety)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            showResults('Women\'s Workplace Rights Protection', content);
+        }
+
         // Initialize app
         document.addEventListener('DOMContentLoaded', () => {
             console.log('CivicHub Emergency Democracy Protection Platform Loaded');
             console.log('All emergency numbers functional');
             console.log('Translation system ready');
             console.log('Print functionality enabled');
-            console.log('NEW: Elderly Rights & Housing Rights guides added');
+            console.log('NEW: Complete protest guides and women\'s rights guides added');
         });
     </script>
 </body>
 </html>
 
-            console.log('CivicHub Emergency Democracy Protection Platform Loaded');
-            console.log('All emergency numbers functional');
-            console.log('Translation system ready');
-            console.log('Print functionality enabled');
-            console.log('NEW: Elderly Rights & Housing Rights guides added');
-        });
-    </script>
-</body>
-</html>
