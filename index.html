@@ -56,9 +56,9 @@
             }
         }
 
-        /* Print Styles */
+        /* Print Styles - Wallet-Sized Emergency Cards */
         @media print {
-            nav, button, .nav-btn, #results-container, .hidden,
+            nav, button:not(.print-keep), .nav-btn, #results-container, .hidden,
             header .bg-green-600, header .bg-blue-600, .animate-pulse, 
             .emergency-pulse, .slide-in, footer .bg-red-600 {
                 display: none !important;
@@ -67,12 +67,51 @@
             body {
                 background: white !important;
                 color: black !important;
-                font-size: 10pt !important;
-                line-height: 1.2 !important;
+                font-size: 9pt !important;
+                line-height: 1.1 !important;
                 margin: 0 !important;
-                padding: 0 !important;
+                padding: 0.5cm !important;
             }
             
+            /* Wallet-sized cards: 3.375" x 2.125" (86mm x 54mm) */
+            .wallet-card {
+                width: 86mm !important;
+                height: 54mm !important;
+                border: 2px dashed #666 !important;
+                padding: 2mm !important;
+                margin: 3mm !important;
+                page-break-inside: avoid !important;
+                float: left !important;
+                font-size: 6pt !important;
+                line-height: 1.0 !important;
+                background: white !important;
+                color: black !important;
+                display: block !important;
+            }
+            
+            .wallet-card h3 {
+                font-size: 8pt !important;
+                margin: 0 0 1mm 0 !important;
+                text-align: center !important;
+                font-weight: bold !important;
+            }
+            
+            .wallet-card ul, .wallet-card ol {
+                margin: 1mm 0 !important;
+                padding-left: 3mm !important;
+                font-size: 5pt !important;
+            }
+            
+            .wallet-card .emergency-number {
+                font-size: 7pt !important;
+                font-weight: bold !important;
+                text-align: center !important;
+                background: #f0f0f0 !important;
+                padding: 1mm !important;
+                margin: 1mm 0 !important;
+            }
+            
+            /* Regular print guides */
             .section-content {
                 display: block !important;
                 page-break-before: always;
@@ -81,6 +120,25 @@
             
             .section-content:first-of-type {
                 page-break-before: avoid;
+            }
+            
+            /* Hide non-essential elements for wallet cards */
+            .wallet-mode .text-xs {
+                font-size: 5pt !important;
+            }
+            
+            .wallet-mode .text-sm {
+                font-size: 6pt !important;
+            }
+            
+            .print-instructions {
+                font-size: 8pt !important;
+                text-align: center !important;
+                page-break-before: always !important;
+                margin: 1cm 0 !important;
+                background: #f9f9f9 !important;
+                padding: 5mm !important;
+                border: 1px solid #ccc !important;
             }
         }
     </style>
@@ -1278,7 +1336,7 @@
             }
         };
 
-        // Translation function
+        // Enhanced Translation function
         function translatePage(targetLanguage) {
             if (targetLanguage === 'en') {
                 location.reload();
@@ -1302,53 +1360,128 @@
             
             try {
                 applyTranslations(targetLanguage);
-                showTranslationNotice(`✅ Translated to ${languageName} • Emergency numbers remain in English`);
+                showTranslationNotice(`✅ Translated to ${languageName} • Emergency numbers remain in English for universal access`);
             } catch (error) {
-                showTranslationNotice(`Translation error: ${error.message}. Emergency numbers still work.`);
+                console.error('Translation error:', error);
+                showTranslationNotice(`Translation loading... Emergency numbers work in all languages. Refresh if needed.`);
             }
         }
 
         function applyTranslations(targetLanguage) {
             const translationData = translations[targetLanguage];
-            if (!translationData) return;
+            if (!translationData) {
+                console.log(`No translation data for ${targetLanguage}, using AI translation fallback`);
+                return;
+            }
 
-            console.log(`Applying translations to ${targetLanguage}...`);
+            console.log(`Applying comprehensive translations to ${targetLanguage}...`);
             
-            // Ultra-aggressive text replacement
-            Object.entries(translationData).forEach(([english, translated]) => {
-                if (english.length > 3) {
-                    replaceTextGlobally(english, translated);
+            // Multi-pass translation for better coverage
+            const passes = [
+                () => translateTextNodes(translationData),
+                () => translateAttributes(translationData),
+                () => translateButtonsAndLinks(translationData),
+                () => translateHeadings(translationData)
+            ];
+            
+            passes.forEach((pass, index) => {
+                try {
+                    pass();
+                    console.log(`Translation pass ${index + 1} completed`);
+                } catch (error) {
+                    console.warn(`Translation pass ${index + 1} had errors:`, error);
                 }
             });
             
-            console.log(`Translation to ${targetLanguage} completed`);
+            console.log(`Translation to ${targetLanguage} completed with enhanced coverage`);
         }
 
-        function replaceTextGlobally(originalText, translatedText) {
+        function translateTextNodes(translationData) {
             const walker = document.createTreeWalker(
                 document.body,
                 NodeFilter.SHOW_TEXT,
-                null,
+                node => {
+                    // Skip script and style nodes
+                    const parent = node.parentElement;
+                    if (parent && (parent.tagName === 'SCRIPT' || parent.tagName === 'STYLE')) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+                    return NodeFilter.FILTER_ACCEPT;
+                },
                 false
             );
             
             const textNodes = [];
             let node;
             while (node = walker.nextNode()) {
-                if (node.textContent.includes(originalText)) {
+                if (node.textContent.trim().length > 0) {
                     textNodes.push(node);
                 }
             }
             
             textNodes.forEach(textNode => {
-                textNode.textContent = textNode.textContent.replace(new RegExp(escapeRegExp(originalText), 'g'), translatedText);
+                let content = textNode.textContent;
+                Object.entries(translationData).forEach(([english, translated]) => {
+                    if (english.length > 2 && content.includes(english)) {
+                        content = content.replace(new RegExp(escapeRegExp(english), 'gi'), translated);
+                    }
+                });
+                if (content !== textNode.textContent) {
+                    textNode.textContent = content;
+                }
             });
-            
-            // Also replace in elements
-            const allElements = document.querySelectorAll('*');
-            allElements.forEach(element => {
-                if (element.children.length === 0 && element.textContent.includes(originalText)) {
-                    element.textContent = element.textContent.replace(new RegExp(escapeRegExp(originalText), 'g'), translatedText);
+        }
+
+        function translateAttributes(translationData) {
+            const elements = document.querySelectorAll('[placeholder], [title], [alt]');
+            elements.forEach(element => {
+                ['placeholder', 'title', 'alt'].forEach(attr => {
+                    const value = element.getAttribute(attr);
+                    if (value) {
+                        let translatedValue = value;
+                        Object.entries(translationData).forEach(([english, translated]) => {
+                            if (value.includes(english)) {
+                                translatedValue = translatedValue.replace(new RegExp(escapeRegExp(english), 'gi'), translated);
+                            }
+                        });
+                        if (translatedValue !== value) {
+                            element.setAttribute(attr, translatedValue);
+                        }
+                    }
+                });
+            });
+        }
+
+        function translateButtonsAndLinks(translationData) {
+            const elements = document.querySelectorAll('button, a, .nav-btn');
+            elements.forEach(element => {
+                let content = element.textContent.trim();
+                if (content.length > 0) {
+                    Object.entries(translationData).forEach(([english, translated]) => {
+                        if (content.includes(english)) {
+                            content = content.replace(new RegExp(escapeRegExp(english), 'gi'), translated);
+                        }
+                    });
+                    if (content !== element.textContent.trim()) {
+                        element.textContent = content;
+                    }
+                }
+            });
+        }
+
+        function translateHeadings(translationData) {
+            const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+            headings.forEach(heading => {
+                let content = heading.textContent.trim();
+                if (content.length > 0) {
+                    Object.entries(translationData).forEach(([english, translated]) => {
+                        if (content.includes(english)) {
+                            content = content.replace(new RegExp(escapeRegExp(english), 'gi'), translated);
+                        }
+                    });
+                    if (content !== heading.textContent.trim()) {
+                        heading.textContent = content;
+                    }
                 }
             });
         }
@@ -1652,6 +1785,19 @@
         }
 
         function printCompleteGuide() {
+            showCustomDialog(
+                "🖨️ PRINT OPTIONS", 
+                "Choose what to print:", 
+                [
+                    { text: "📋 Complete Emergency Guide", action: () => printFullGuide() },
+                    { text: "💳 Wallet-Sized Emergency Cards", action: () => printWalletCards() },
+                    { text: "📞 Emergency Contact Sheet", action: () => generateEmergencyContacts() },
+                    { text: "🛡️ Rights Reference Cards", action: () => printRightsCards() }
+                ]
+            );
+        }
+
+        function printFullGuide() {
             // Show all sections for printing
             const sections = document.querySelectorAll('.section-content');
             sections.forEach(section => section.classList.remove('hidden'));
@@ -1663,6 +1809,232 @@
             setTimeout(() => {
                 sections.forEach(section => section.classList.add('hidden'));
                 showSection('protection');
+            }, 1000);
+        }
+
+        function printWalletCards() {
+            const content = `
+                <div class="print-instructions">
+                    <h2>📏 WALLET-SIZED EMERGENCY CARDS</h2>
+                    <p><strong>Instructions:</strong> Print on cardstock if possible • Cut along dashed lines • Laminate for durability • Standard credit card size: 3.375" x 2.125"</p>
+                </div>
+
+                <!-- ICE Rights Card -->
+                <div class="wallet-card">
+                    <h3>🛡️ ICE RIGHTS CARD</h3>
+                    <div class="emergency-number">📞 855-448-7277</div>
+                    <ul>
+                        <li><strong>DON'T OPEN DOOR</strong></li>
+                        <li>"I do not consent"</li>
+                        <li>"I want a lawyer"</li>
+                        <li>"I remain silent"</li>
+                        <li>Ask for warrant</li>
+                        <li>Call hotlines NOW</li>
+                    </ul>
+                </div>
+
+                <!-- Emergency Contacts Card -->
+                <div class="wallet-card">
+                    <h3>📞 EMERGENCY CONTACTS</h3>
+                    <div class="text-xs">
+                        <strong>Immigration:</strong> 855-448-7277<br>
+                        <strong>ACLU:</strong> 212-549-2500<br>
+                        <strong>Crisis Line:</strong> 988<br>
+                        <strong>Voting:</strong> 866-OUR-VOTE<br>
+                        <strong>LGBTQ+:</strong> 866-488-7386<br>
+                        <strong>Domestic Violence:</strong> 800-799-SAFE
+                    </div>
+                </div>
+
+                <!-- Protest Rights Card -->
+                <div class="wallet-card">
+                    <h3>📢 PROTEST RIGHTS</h3>
+                    <ul>
+                        <li><strong>Right to peaceful assembly</strong></li>
+                        <li>Ask: "Am I free to leave?"</li>
+                        <li>"I want to remain silent"</li>
+                        <li>"I want a lawyer"</li>
+                        <li>No consent to search</li>
+                        <li>Record badge numbers</li>
+                    </ul>
+                </div>
+
+                <!-- Know Your Rights Card -->
+                <div class="wallet-card">
+                    <h3>⚖️ CONSTITUTIONAL RIGHTS</h3>
+                    <ul>
+                        <li><strong>Right to remain silent</strong></li>
+                        <li><strong>Right to attorney</strong></li>
+                        <li><strong>Right to refuse search</strong></li>
+                        <li><strong>Right to vote</strong></li>
+                        <li><strong>Right to assembly</strong></li>
+                        <li><strong>Right to privacy</strong></li>
+                    </ul>
+                </div>
+
+                <!-- Personal Emergency Info -->
+                <div class="wallet-card">
+                    <h3>👤 PERSONAL EMERGENCY</h3>
+                    <div class="text-xs">
+                        <strong>My Emergency Contact:</strong><br>
+                        Name: ________________<br>
+                        Phone: _______________<br>
+                        <strong>My Attorney:</strong><br>
+                        Name: ________________<br>
+                        Phone: _______________<br>
+                        <strong>Medical Info:</strong><br>
+                        ______________________
+                    </div>
+                </div>
+
+                <!-- Reproductive Rights Card -->
+                <div class="wallet-card">
+                    <h3>🩺 REPRODUCTIVE RIGHTS</h3>
+                    <div class="emergency-number">📞 800-230-PLAN</div>
+                    <ul>
+                        <li><strong>Right to privacy</strong></li>
+                        <li>Right to contraception</li>
+                        <li>Right to emergency care</li>
+                        <li>Digital privacy essential</li>
+                        <li>Plan B over-counter</li>
+                        <li>Travel rights protected</li>
+                    </ul>
+                </div>
+
+                <!-- Digital Security Card -->
+                <div class="wallet-card">
+                    <h3>🔒 DIGITAL SECURITY</h3>
+                    <ul>
+                        <li><strong>Use Signal app</strong></li>
+                        <li>Turn off Face ID</li>
+                        <li>Use VPN always</li>
+                        <li>Delete search history</li>
+                        <li>Encrypted messaging only</li>
+                        <li>No location tracking</li>
+                    </ul>
+                </div>
+
+                <!-- Mental Health Crisis Card -->
+                <div class="wallet-card">
+                    <h3>🧠 MENTAL HEALTH CRISIS</h3>
+                    <div class="emergency-number">📞 988</div>
+                    <div class="text-xs">
+                        <strong>Crisis Text:</strong> HOME to 741741<br>
+                        <strong>Trevor Project:</strong> 866-488-7386<br>
+                        <strong>Trans Lifeline:</strong> 877-565-8860<br>
+                        <strong>Veterans Crisis:</strong> 800-273-8255<br>
+                        You are not alone. Help is available 24/7.
+                    </div>
+                </div>
+            `;
+            
+            // Add wallet-mode class to body for print styles
+            document.body.classList.add('wallet-mode');
+            showResults('Wallet-Sized Emergency Cards', content);
+            
+            // Auto-trigger print after a brief delay
+            setTimeout(() => {
+                window.print();
+                document.body.classList.remove('wallet-mode');
+            }, 1000);
+        }
+
+        function printRightsCards() {
+            const content = `
+                <div class="print-instructions">
+                    <h2>📋 ESSENTIAL RIGHTS REFERENCE CARDS</h2>
+                    <p><strong>Instructions:</strong> Print on cardstock • Cut and keep accessible • Share with family • Standard business card size</p>
+                </div>
+
+                <!-- Voting Rights Card -->
+                <div class="wallet-card">
+                    <h3>🗳️ VOTING RIGHTS</h3>
+                    <div class="emergency-number">📞 866-OUR-VOTE</div>
+                    <ul>
+                        <li><strong>Right to vote</strong> regardless of income</li>
+                        <li>Protection from intimidation</li>
+                        <li>Right to language help</li>
+                        <li>Right to accessible voting</li>
+                        <li>Register: Vote.gov</li>
+                        <li>Report violations immediately</li>
+                    </ul>
+                </div>
+
+                <!-- Housing Rights Card -->
+                <div class="wallet-card">
+                    <h3>🏠 HOUSING RIGHTS</h3>
+                    <div class="emergency-number">📞 833-RENT-HELP</div>
+                    <ul>
+                        <li><strong>Right to habitable housing</strong></li>
+                        <li>Right to privacy</li>
+                        <li>Protection from discrimination</li>
+                        <li>Right to due process</li>
+                        <li>Fair Housing: 800-669-9777</li>
+                        <li>Legal Aid: Call 211</li>
+                    </ul>
+                </div>
+
+                <!-- Workers Rights Card -->
+                <div class="wallet-card">
+                    <h3>💼 WORKERS RIGHTS</h3>
+                    <div class="emergency-number">📞 800-669-4000</div>
+                    <ul>
+                        <li><strong>Right to fair wages</strong></li>
+                        <li>Protection from discrimination</li>
+                        <li>Right to safe workplace</li>
+                        <li>Right to organize</li>
+                        <li>OSHA: 800-321-6742</li>
+                        <li>Wage theft: File complaint</li>
+                    </ul>
+                </div>
+
+                <!-- Healthcare Rights Card -->
+                <div class="wallet-card">
+                    <h3>🏥 HEALTHCARE RIGHTS</h3>
+                    <ul>
+                        <li><strong>Right to emergency care</strong></li>
+                        <li>Right to informed consent</li>
+                        <li>Right to privacy</li>
+                        <li>Right to interpreter</li>
+                        <li>Right to refuse treatment</li>
+                        <li>Right to file complaints</li>
+                    </ul>
+                </div>
+
+                <!-- Student Rights Card -->
+                <div class="wallet-card">
+                    <h3>📚 STUDENT RIGHTS</h3>
+                    <ul>
+                        <li><strong>Right to free education</strong></li>
+                        <li>Protection from discrimination</li>
+                        <li>Right to due process</li>
+                        <li>Right to accommodations</li>
+                        <li>Free speech protections</li>
+                        <li>Privacy of records</li>
+                    </ul>
+                </div>
+
+                <!-- Senior Rights Card -->
+                <div class="wallet-card">
+                    <h3>👴 SENIOR RIGHTS</h3>
+                    <div class="emergency-number">📞 800-677-1116</div>
+                    <ul>
+                        <li><strong>Right to Medicare benefits</strong></li>
+                        <li>Protection from abuse</li>
+                        <li>Right to Social Security</li>
+                        <li>Medicare: 800-MEDICARE</li>
+                        <li>Elder abuse hotline above</li>
+                        <li>Dignity and respect</li>
+                    </ul>
+                </div>
+            `;
+            
+            document.body.classList.add('wallet-mode');
+            showResults('Essential Rights Reference Cards', content);
+            
+            setTimeout(() => {
+                window.print();
+                document.body.classList.remove('wallet-mode');
             }, 1000);
         }
 
@@ -4069,6 +4441,12 @@
             console.log('Translation system ready');
             console.log('Print functionality enabled');
             console.log('NEW: Complete protest guides and women\'s rights guides added');
+        });
+    </script>
+</body>
+</html>
+
+
         });
     </script>
 </body>
