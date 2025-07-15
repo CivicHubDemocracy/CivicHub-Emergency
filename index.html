@@ -56,25 +56,277 @@
             }
         }
 
-        /* Print Styles - Wallet-Sized Emergency Cards */
+        /* Print Styles - Professional Offline Backup Formatting */
         @media print {
+            /* Hide interactive elements */
             nav, button:not(.print-keep), .nav-btn, #results-container, .hidden,
             header .bg-green-600, header .bg-blue-600, .animate-pulse, 
-            .emergency-pulse, .slide-in, footer .bg-red-600 {
+            .emergency-pulse, .slide-in, footer .bg-red-600, .floating-emergency,
+            .fixed, .sticky, .nav-btn, #accessibility-toggle, #language-selector {
                 display: none !important;
             }
             
-            body {
-                background: white !important;
-                color: black !important;
-                font-size: 9pt !important;
-                line-height: 1.1 !important;
-                margin: 0 !important;
-                padding: 0.5cm !important;
+            /* Base print layout */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
             }
             
-            /* Wallet-sized cards: 3.375" x 2.125" (86mm x 54mm) */
-            .wallet-card {
+            html, body {
+                width: 100% !important;
+                height: auto !important;
+                background: white !important;
+                color: black !important;
+                font-family: "Times New Roman", serif !important;
+                font-size: 11pt !important;
+                line-height: 1.4 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            .container {
+                max-width: none !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0.75in !important;
+            }
+            
+            /* Professional page formatting */
+            .print-optimized {
+                width: 100% !important;
+                max-width: none !important;
+                margin: 0 !important;
+                padding: 0.5in !important;
+                page-break-before: always !important;
+                page-break-after: always !important;
+                background: white !important;
+                color: black !important;
+            }
+            
+            .print-optimized:first-of-type {
+                page-break-before: avoid !important;
+                margin-top: 0 !important;
+            }
+            
+            /* Heading hierarchy */
+            h1 {
+                font-size: 18pt !important;
+                font-weight: bold !important;
+                text-align: center !important;
+                margin: 0 0 0.25in 0 !important;
+                page-break-after: avoid !important;
+                border-bottom: 2pt solid black !important;
+                padding-bottom: 0.1in !important;
+            }
+            
+            h2 {
+                font-size: 16pt !important;
+                font-weight: bold !important;
+                text-align: center !important;
+                margin: 0.25in 0 0.2in 0 !important;
+                page-break-after: avoid !important;
+                border-bottom: 1pt solid black !important;
+                padding-bottom: 0.05in !important;
+            }
+            
+            h3 {
+                font-size: 14pt !important;
+                font-weight: bold !important;
+                margin: 0.2in 0 0.1in 0 !important;
+                page-break-after: avoid !important;
+            }
+            
+            h4 {
+                font-size: 12pt !important;
+                font-weight: bold !important;
+                margin: 0.15in 0 0.1in 0 !important;
+                page-break-after: avoid !important;
+            }
+            
+            h5 {
+                font-size: 11pt !important;
+                font-weight: bold !important;
+                margin: 0.1in 0 0.05in 0 !important;
+            }
+            
+            /* Text formatting */
+            p {
+                margin: 0.1in 0 !important;
+                text-align: justify !important;
+                orphans: 3 !important;
+                widows: 3 !important;
+            }
+            
+            .text-center {
+                text-align: center !important;
+            }
+            
+            /* Lists */
+            ul, ol {
+                margin: 0.1in 0 0.1in 0.25in !important;
+                padding: 0 !important;
+            }
+            
+            li {
+                margin: 0.05in 0 !important;
+                page-break-inside: avoid !important;
+            }
+            
+            /* Grid layouts for print */
+            .grid {
+                display: block !important;
+            }
+            
+            .grid.md\\:grid-cols-2 > div {
+                width: 48% !important;
+                float: left !important;
+                margin-right: 4% !important;
+                margin-bottom: 0.2in !important;
+            }
+            
+            .grid.md\\:grid-cols-2 > div:nth-child(2n) {
+                margin-right: 0 !important;
+            }
+            
+            .grid.md\\:grid-cols-3 > div {
+                width: 32% !important;
+                float: left !important;
+                margin-right: 2% !important;
+                margin-bottom: 0.2in !important;
+            }
+            
+            .grid.md\\:grid-cols-3 > div:nth-child(3n) {
+                margin-right: 0 !important;
+            }
+            
+            /* Clear floats */
+            .grid::after {
+                content: "" !important;
+                display: table !important;
+                clear: both !important;
+            }
+            
+            /* Bordered sections */
+            .border, .border-2, .border-4,
+            .border-red-500, .border-blue-500, .border-green-500,
+            .border-purple-500, .border-orange-500, .border-yellow-500,
+            .border-teal-500, .border-indigo-500, .border-pink-500,
+            .border-amber-500 {
+                border: 2pt solid black !important;
+                margin: 0.15in 0 !important;
+                padding: 0.1in !important;
+                page-break-inside: avoid !important;
+                background: white !important;
+            }
+            
+            /* Background colors for print */
+            .bg-red-50, .bg-red-100 { background: #f8f8f8 !important; }
+            .bg-blue-50, .bg-blue-100 { background: #f5f5f5 !important; }
+            .bg-green-50, .bg-green-100 { background: #f9f9f9 !important; }
+            .bg-yellow-50, .bg-yellow-100 { background: #fafafa !important; }
+            .bg-purple-50, .bg-purple-100 { background: #f7f7f7 !important; }
+            .bg-orange-50, .bg-orange-100 { background: #f8f8f8 !important; }
+            .bg-pink-50, .bg-pink-100 { background: #f9f9f9 !important; }
+            .bg-teal-50, .bg-teal-100 { background: #f6f6f6 !important; }
+            .bg-indigo-50, .bg-indigo-100 { background: #f7f7f7 !important; }
+            .bg-amber-50, .bg-amber-100 { background: #f8f8f8 !important; }
+            
+            /* Colored text headers */
+            .text-red-600, .text-red-700, .text-red-800 { color: black !important; font-weight: bold !important; }
+            .text-blue-600, .text-blue-700, .text-blue-800 { color: black !important; font-weight: bold !important; }
+            .text-green-600, .text-green-700, .text-green-800 { color: black !important; font-weight: bold !important; }
+            .text-yellow-700, .text-yellow-800 { color: black !important; font-weight: bold !important; }
+            .text-purple-600, .text-purple-700, .text-purple-800 { color: black !important; font-weight: bold !important; }
+            .text-orange-600, .text-orange-700, .text-orange-800 { color: black !important; font-weight: bold !important; }
+            .text-pink-600, .text-pink-700, .text-pink-800 { color: black !important; font-weight: bold !important; }
+            .text-teal-600, .text-teal-700, .text-teal-800 { color: black !important; font-weight: bold !important; }
+            .text-indigo-600, .text-indigo-700, .text-indigo-800 { color: black !important; font-weight: bold !important; }
+            .text-amber-600, .text-amber-700, .text-amber-800 { color: black !important; font-weight: bold !important; }
+            
+            /* Links for print */
+            a {
+                color: black !important;
+                text-decoration: underline !important;
+            }
+            
+            a[href^="tel:"] {
+                font-weight: bold !important;
+                font-size: 12pt !important;
+            }
+            
+            /* Emergency number highlighting */
+            .emergency-number {
+                font-size: 14pt !important;
+                font-weight: bold !important;
+                text-align: center !important;
+                border: 2pt solid black !important;
+                padding: 0.1in !important;
+                margin: 0.1in 0 !important;
+                background: #f0f0f0 !important;
+            }
+            
+            /* Font size utilities for print */
+            .text-xs { font-size: 9pt !important; }
+            .text-sm { font-size: 10pt !important; }
+            .text-base { font-size: 11pt !important; }
+            .text-lg { font-size: 12pt !important; }
+            .text-xl { font-size: 14pt !important; }
+            .text-2xl { font-size: 16pt !important; }
+            .text-3xl { font-size: 18pt !important; }
+            
+            /* Page breaks */
+            .page-break-before {
+                page-break-before: always !important;
+            }
+            
+            .page-break-after {
+                page-break-after: always !important;
+            }
+            
+            .page-break-inside-avoid {
+                page-break-inside: avoid !important;
+            }
+            
+            /* Section content spacing */
+            .section-content {
+                display: block !important;
+                page-break-before: always !important;
+                margin: 0 !important;
+                padding: 0.5in !important;
+            }
+            
+            .section-content:first-of-type {
+                page-break-before: avoid !important;
+            }
+            
+            /* Space utility fixes */
+            .space-y-1 > * + * { margin-top: 0.05in !important; }
+            .space-y-2 > * + * { margin-top: 0.1in !important; }
+            .space-y-3 > * + * { margin-top: 0.15in !important; }
+            .space-y-4 > * + * { margin-top: 0.2in !important; }
+            .space-y-6 > * + * { margin-top: 0.3in !important; }
+            
+            .gap-4 { gap: 0.2in !important; }
+            .gap-6 { gap: 0.3in !important; }
+            
+            /* Margin and padding fixes */
+            .mb-2 { margin-bottom: 0.1in !important; }
+            .mb-3 { margin-bottom: 0.15in !important; }
+            .mb-4 { margin-bottom: 0.2in !important; }
+            .mb-6 { margin-bottom: 0.3in !important; }
+            .mb-8 { margin-bottom: 0.4in !important; }
+            
+            .mt-3 { margin-top: 0.15in !important; }
+            .mt-4 { margin-top: 0.2in !important; }
+            .mt-6 { margin-top: 0.3in !important; }
+            .mt-8 { margin-top: 0.4in !important; }
+            
+            .p-3 { padding: 0.15in !important; }
+            .p-4 { padding: 0.2in !important; }
+            .p-6 { padding: 0.3in !important; }
+            
+            /* WALLET-SIZED CARDS (Special mode) */
+            .wallet-mode .wallet-card {
                 width: 86mm !important;
                 height: 54mm !important;
                 border: 2px dashed #666 !important;
@@ -82,81 +334,90 @@
                 margin: 3mm !important;
                 page-break-inside: avoid !important;
                 float: left !important;
-                font-size: 6pt !important;
-                line-height: 1.0 !important;
+                font-size: 7pt !important;
+                line-height: 1.1 !important;
                 background: white !important;
                 color: black !important;
                 display: block !important;
             }
             
-            .wallet-card h3 {
-                font-size: 8pt !important;
-                margin: 0 0 1mm 0 !important;
+            .wallet-mode .wallet-card h3 {
+                font-size: 9pt !important;
+                margin: 0 0 2mm 0 !important;
                 text-align: center !important;
                 font-weight: bold !important;
             }
             
-            .wallet-card ul, .wallet-card ol {
-                margin: 1mm 0 !important;
-                padding-left: 3mm !important;
-                font-size: 5pt !important;
+            .wallet-mode .wallet-card ul, 
+            .wallet-mode .wallet-card ol {
+                margin: 2mm 0 !important;
+                padding-left: 4mm !important;
+                font-size: 6pt !important;
             }
             
-            .wallet-card .emergency-number {
-                font-size: 7pt !important;
+            .wallet-mode .wallet-card .emergency-number {
+                font-size: 8pt !important;
                 font-weight: bold !important;
                 text-align: center !important;
                 background: #f0f0f0 !important;
                 padding: 1mm !important;
-                margin: 1mm 0 !important;
+                margin: 2mm 0 !important;
+                border: 1px solid #333 !important;
             }
             
-            /* Regular print guides */
-            .section-content {
-                display: block !important;
-                page-break-before: always;
-                margin-bottom: 2cm;
-            }
-            
-            .section-content:first-of-type {
-                page-break-before: avoid;
-            }
-            
-            /* Hide non-essential elements for wallet cards */
-            .wallet-mode .text-xs {
-                font-size: 5pt !important;
-            }
-            
-            .wallet-mode .text-sm {
-                font-size: 6pt !important;
-            }
-            
-            .print-instructions {
-                font-size: 8pt !important;
+            .wallet-mode .print-instructions {
+                font-size: 10pt !important;
                 text-align: center !important;
                 page-break-before: always !important;
-                margin: 1cm 0 !important;
+                margin: 0.5in 0 !important;
                 background: #f9f9f9 !important;
-                padding: 5mm !important;
-                border: 1px solid #ccc !important;
+                padding: 0.25in !important;
+                border: 2pt solid #333 !important;
+            }
+            
+            /* Clear floats after wallet cards */
+            .wallet-mode::after {
+                content: "" !important;
+                display: table !important;
+                clear: both !important;
+            }
+            
+            /* Hide elements that don't print well */
+            .animate-pulse, .emergency-pulse, .slide-in,
+            .hover\\:bg-red-700, .hover\\:bg-blue-700, .hover\\:bg-green-700,
+            .transition-colors, .transition-shadow {
+                animation: none !important;
+                transition: none !important;
+            }
+            
+            /* Footer printing */
+            .print-footer {
+                position: fixed !important;
+                bottom: 0.5in !important;
+                left: 0.75in !important;
+                right: 0.75in !important;
+                font-size: 8pt !important;
+                text-align: center !important;
+                border-top: 1pt solid black !important;
+                padding-top: 0.1in !important;
             }
         }
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen font-sans">
-    <!-- Emergency Header -->
-    <header class="bg-gradient-to-r from-emergency to-red-700 text-white shadow-lg">
-        <div class="container mx-auto px-4 py-3">
+    <!-- Professional Header -->
+    <header class="bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
-                    <div class="bg-white text-emergency rounded-full p-2 emergency-pulse">
+                    <div class="bg-white text-blue-600 rounded-full p-2">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
                     <div>
                         <h1 class="text-2xl font-bold">CivicHub</h1>
-                        <p class="text-red-100 text-sm">Emergency Democracy Protection</p>
+                        <p class="text-blue-100 text-sm">Your Civic Rights & Resources Platform</p>
                     </div>
                 </div>
                 <div class="flex items-center space-x-4">
@@ -190,9 +451,10 @@
         </div>
     </header>
 
-    <!-- Crisis Banner -->
-    <div id="daily-alert-banner" class="bg-red-600 text-white py-2 px-4 text-center text-sm font-semibold animate-pulse">
-        🚨 ACTIVE ALERT (July 8, 2025): Project 2025 implementation accelerating. Mass deportations, civil rights rollbacks intensifying. Protect yourself NOW.
+    <!-- Contextual Alert Banner (only shows when relevant) -->
+    <div id="contextual-alert-banner" class="hidden bg-amber-500 text-black py-2 px-4 text-center text-sm font-semibold">
+        <span id="alert-content"></span>
+        <button onclick="dismissAlert()" class="ml-4 text-black hover:text-gray-700 font-bold">✕</button>
     </div>
 
     <!-- Main Navigation -->
@@ -238,69 +500,100 @@
 
     <!-- Main Content -->
     <main class="container mx-auto px-4 py-8">
-        <!-- Quick Help Landing -->
-        <section id="quick-help" class="mb-8 bg-gradient-to-r from-red-100 to-blue-100 dark:from-red-900/20 dark:to-blue-900/20 rounded-lg p-6">
+        <!-- User Type Selection Funnel -->
+        <section id="user-selection" class="mb-8 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg p-6">
             <div class="text-center mb-6">
-                <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-2">⚡ Quick Emergency Help</h2>
-                <p class="text-gray-600 dark:text-gray-400">Most urgent actions for immediate protection</p>
+                <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-2">👋 Welcome to CivicHub</h2>
+                <p class="text-gray-600 dark:text-gray-400">Choose what best describes your situation to see personalized resources</p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-4 mb-6">
-                <button onclick="openEmergencyHelp()" class="bg-red-600 hover:bg-red-700 text-white p-4 rounded-lg text-center transition-colors emergency-pulse">
-                    <div class="text-2xl mb-2">🆘</div>
-                    <div class="font-bold">HELP NOW</div>
-                    <div class="text-sm opacity-90">Immediate crisis</div>
+            <!-- User Type Categories -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                <button onclick="showUserPath('immigration')" class="bg-orange-500 hover:bg-orange-600 text-white p-6 rounded-lg text-center transition-colors">
+                    <div class="text-3xl mb-2">🛡️</div>
+                    <div class="font-bold text-lg">Immigration Concerns</div>
+                    <div class="text-sm opacity-90 mt-2">ICE encounters, documentation, attorney help</div>
                 </button>
                 
-                <button onclick="showSection('protection')" class="bg-orange-600 hover:bg-orange-700 text-white p-4 rounded-lg text-center transition-colors">
-                    <div class="text-2xl mb-2">🛡️</div>
-                    <div class="font-bold">ICE PROTECTION</div>
-                    <div class="text-sm opacity-90">Know your rights</div>
+                <button onclick="showUserPath('voting')" class="bg-blue-500 hover:bg-blue-600 text-white p-6 rounded-lg text-center transition-colors">
+                    <div class="text-3xl mb-2">🗳️</div>
+                    <div class="font-bold text-lg">Voting & Elections</div>
+                    <div class="text-sm opacity-90 mt-2">Registration, rights, poll protection</div>
                 </button>
                 
-                <button onclick="findAttorneys()" class="bg-blue-600 hover:bg-blue-700 text-white p-4 rounded-lg text-center transition-colors">
-                    <div class="text-2xl mb-2">⚖️</div>
-                    <div class="font-bold">FIND LAWYER</div>
-                    <div class="text-sm opacity-90">Legal help now</div>
+                <button onclick="showUserPath('workplace')" class="bg-green-500 hover:bg-green-600 text-white p-6 rounded-lg text-center transition-colors">
+                    <div class="text-3xl mb-2">💼</div>
+                    <div class="font-bold text-lg">Workers' Rights</div>
+                    <div class="text-sm opacity-90 mt-2">Discrimination, wages, safety, unions</div>
                 </button>
                 
-                <a href="tel:+18332587316" class="bg-green-600 hover:bg-green-700 text-white p-4 rounded-lg text-center transition-colors block">
-                    <div class="text-2xl mb-2">🏠</div>
-                    <div class="font-bold">STOP EVICTION</div>
-                    <div class="text-sm opacity-90">Emergency rent help</div>
-                </a>
+                <button onclick="showUserPath('housing')" class="bg-teal-500 hover:bg-teal-600 text-white p-6 rounded-lg text-center transition-colors">
+                    <div class="text-3xl mb-2">🏠</div>
+                    <div class="font-bold text-lg">Housing Crisis</div>
+                    <div class="text-sm opacity-90 mt-2">Eviction help, tenant rights, emergency aid</div>
+                </button>
                 
-                <a href="tel:+18002738255" class="bg-indigo-600 hover:bg-indigo-700 text-white p-4 rounded-lg text-center transition-colors block">
-                    <div class="text-2xl mb-2">🎖️</div>
-                    <div class="font-bold">VETERANS CRISIS</div>
-                    <div class="text-sm opacity-90">24/7 support</div>
-                </a>
+                <button onclick="showUserPath('lgbtq')" class="bg-purple-500 hover:bg-purple-600 text-white p-6 rounded-lg text-center transition-colors">
+                    <div class="text-3xl mb-2">🏳️‍🌈</div>
+                    <div class="font-bold text-lg">LGBTQ+ Safety</div>
+                    <div class="text-sm opacity-90 mt-2">Crisis support, legal rights, community resources</div>
+                </button>
                 
-                <button onclick="printCompleteGuide()" class="bg-purple-600 hover:bg-purple-700 text-white p-4 rounded-lg text-center transition-colors">
-                    <div class="text-2xl mb-2">🖨️</div>
-                    <div class="font-bold">PRINT GUIDES</div>
-                    <div class="text-sm opacity-90">Offline backup</div>
+                <button onclick="showUserPath('healthcare')" class="bg-pink-500 hover:bg-pink-600 text-white p-6 rounded-lg text-center transition-colors">
+                    <div class="text-3xl mb-2">🩺</div>
+                    <div class="font-bold text-lg">Healthcare Rights</div>
+                    <div class="text-sm opacity-90 mt-2">Reproductive rights, access, insurance</div>
+                </button>
+                
+                <button onclick="showUserPath('seniors')" class="bg-amber-500 hover:bg-amber-600 text-white p-6 rounded-lg text-center transition-colors">
+                    <div class="text-3xl mb-2">👴</div>
+                    <div class="font-bold text-lg">Seniors & Elderly</div>
+                    <div class="text-sm opacity-90 mt-2">Medicare, Social Security, elder abuse</div>
+                </button>
+                
+                <button onclick="showUserPath('veterans')" class="bg-indigo-500 hover:bg-indigo-600 text-white p-6 rounded-lg text-center transition-colors">
+                    <div class="text-3xl mb-2">🎖️</div>
+                    <div class="font-bold text-lg">Veterans</div>
+                    <div class="text-sm opacity-90 mt-2">Benefits, healthcare, crisis support</div>
+                </button>
+                
+                <button onclick="showUserPath('students')" class="bg-cyan-500 hover:bg-cyan-600 text-white p-6 rounded-lg text-center transition-colors">
+                    <div class="text-3xl mb-2">📚</div>
+                    <div class="font-bold text-lg">Students & Education</div>
+                    <div class="text-sm opacity-90 mt-2">School rights, discrimination, financial aid</div>
+                </button>
+                
+                <button onclick="showUserPath('parents')" class="bg-rose-500 hover:bg-rose-600 text-white p-6 rounded-lg text-center transition-colors">
+                    <div class="text-3xl mb-2">👨‍👩‍👧‍👦</div>
+                    <div class="font-bold text-lg">Parents & Families</div>
+                    <div class="text-sm opacity-90 mt-2">Child welfare, education, family separation</div>
+                </button>
+                
+                <button onclick="showUserPath('disability')" class="bg-violet-500 hover:bg-violet-600 text-white p-6 rounded-lg text-center transition-colors">
+                    <div class="text-3xl mb-2">♿</div>
+                    <div class="font-bold text-lg">Disability Rights</div>
+                    <div class="text-sm opacity-90 mt-2">ADA, accommodations, accessibility</div>
+                </button>
+                
+                <button onclick="showUserPath('general')" class="bg-gray-500 hover:bg-gray-600 text-white p-6 rounded-lg text-center transition-colors">
+                    <div class="text-3xl mb-2">📋</div>
+                    <div class="font-bold text-lg">General Civic Help</div>
+                    <div class="text-sm opacity-90 mt-2">All resources, community organizing</div>
                 </button>
             </div>
             
-            <!-- Critical Today -->
-            <div class="bg-white dark:bg-gray-800 rounded-lg p-4 shadow">
-                <h3 class="font-bold text-red-600 dark:text-red-400 mb-3">🚨 CRITICAL TODAY (July 8, 2025)</h3>
-                <div class="grid md:grid-cols-3 gap-4 text-sm">
-                    <div class="bg-red-50 dark:bg-red-900/20 p-3 rounded">
-                        <div class="font-semibold">ICE Raids Intensifying</div>
-                        <div class="text-xs">Document everything. Call 855-448-7277</div>
-                    </div>
-                    <div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded">
-                        <div class="font-semibold">Voting Suppression Active</div>
-                        <div class="text-xs">Register now. Call 866-OUR-VOTE</div>
-                    </div>
-                    <div class="bg-purple-50 dark:bg-purple-900/20 p-3 rounded">
-                        <div class="font-semibold">Mass Rights Rollbacks</div>
-                        <div class="text-xs">Report violations. Call ACLU</div>
-                    </div>
-                </div>
+            <!-- Quick Emergency Access -->
+            <div class="text-center border-t border-gray-300 dark:border-gray-600 pt-6">
+                <p class="text-gray-600 dark:text-gray-400 mb-4">Need immediate emergency help? Skip selection:</p>
+                <button onclick="openEmergencyHelp()" class="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg font-bold transition-colors emergency-pulse">
+                    🆘 IMMEDIATE CRISIS HELP
+                </button>
             </div>
+        </section>
+
+        <!-- Personalized User Pathways (Hidden by default) -->
+        <section id="user-pathways" class="mb-8 hidden">
+            <!-- Dynamic content will be loaded here based on user selection -->
         </section>
 
         <!-- Essential Guides & Resources (Always Visible) -->
@@ -1430,15 +1723,17 @@
             }
         });
 
-        // Translation system variables
+        // Comprehensive Translation System
         let currentLanguage = 'en';
-        let translatedContent = {};
         let isTranslating = false;
+        let translationCache = new Map();
 
-        // Comprehensive translation database
+        // COMPREHENSIVE TRANSLATION DATABASE - All visible text
         const translations = {
             'es': {
+                // Header and Navigation
                 'CivicHub': 'CivicHub',
+                'Your Civic Rights & Resources Platform': 'Tu Plataforma de Derechos y Recursos Cívicos',
                 'Emergency Democracy Protection': 'Protección de Democracia de Emergencia',
                 'I NEED HELP NOW': 'NECESITO AYUDA AHORA',
                 'Protection & Safety': 'Protección y Seguridad',
@@ -1446,16 +1741,43 @@
                 'Take Action': 'Tomar Acción',
                 'All Resources': 'Todos los Recursos',
                 'Find Nearby Help': 'Encontrar Ayuda Cercana',
-                'Quick Emergency Help': 'Ayuda de Emergencia Rápida',
-                'Most urgent actions for immediate protection': 'Acciones más urgentes para protección inmediata',
-                'HELP NOW': 'AYUDA AHORA',
-                'Immediate crisis': 'Crisis inmediata',
-                'ICE PROTECTION': 'PROTECCIÓN ICE',
-                'Know your rights': 'Conoce tus derechos',
-                'FIND LAWYER': 'ENCONTRAR ABOGADO',
-                'Legal help now': 'Ayuda legal ahora',
-                'PRINT GUIDES': 'IMPRIMIR GUÍAS',
-                'Offline backup': 'Respaldo sin conexión',
+                '24/7 HELP': 'AYUDA 24/7',
+                'FREE': 'GRATIS',
+                '24/7': '24/7',
+                'Senior Mode': 'Modo Mayor',
+                'Exit Senior Mode': 'Salir Modo Mayor',
+
+                // User Selection Section
+                'Welcome to CivicHub': 'Bienvenido a CivicHub',
+                'Choose what best describes your situation to see personalized resources': 'Elige lo que mejor describe tu situación para ver recursos personalizados',
+                'Immigration Concerns': 'Preocupaciones de Inmigración',
+                'ICE encounters, documentation, attorney help': 'Encuentros con ICE, documentación, ayuda legal',
+                'Voting & Elections': 'Votación y Elecciones',
+                'Registration, rights, poll protection': 'Registro, derechos, protección electoral',
+                'Workers\' Rights': 'Derechos de Trabajadores',
+                'Discrimination, wages, safety, unions': 'Discriminación, salarios, seguridad, sindicatos',
+                'Housing Crisis': 'Crisis de Vivienda',
+                'Eviction help, tenant rights, emergency aid': 'Ayuda con desalojo, derechos de inquilino, ayuda de emergencia',
+                'LGBTQ+ Safety': 'Seguridad LGBTQ+',
+                'Crisis support, legal rights, community resources': 'Apoyo de crisis, derechos legales, recursos comunitarios',
+                'Healthcare Rights': 'Derechos de Atención Médica',
+                'Reproductive rights, access, insurance': 'Derechos reproductivos, acceso, seguro',
+                'Seniors & Elderly': 'Mayores y Ancianos',
+                'Medicare, Social Security, elder abuse': 'Medicare, Seguro Social, abuso de ancianos',
+                'Veterans': 'Veteranos',
+                'Benefits, healthcare, crisis support': 'Beneficios, atención médica, apoyo de crisis',
+                'Students & Education': 'Estudiantes y Educación',
+                'School rights, discrimination, financial aid': 'Derechos escolares, discriminación, ayuda financiera',
+                'Parents & Families': 'Padres y Familias',
+                'Child welfare, education, family separation': 'Bienestar infantil, educación, separación familiar',
+                'Disability Rights': 'Derechos de Discapacidad',
+                'ADA, accommodations, accessibility': 'ADA, acomodaciones, accesibilidad',
+                'General Civic Help': 'Ayuda Cívica General',
+                'All resources, community organizing': 'Todos los recursos, organización comunitaria',
+                'Need immediate emergency help? Skip selection:': '¿Necesitas ayuda de emergencia inmediata? Omite la selección:',
+                'IMMEDIATE CRISIS HELP': 'AYUDA DE CRISIS INMEDIATA',
+
+                // Essential Guides Section
                 'Essential Guides & Rights Cards': 'Guías Esenciales y Tarjetas de Derechos',
                 'Critical information to print, save, and share': 'Información crítica para imprimir, guardar y compartir',
                 'ICE ENCOUNTER RIGHTS CARD': 'TARJETA DE DERECHOS PARA ENCUENTROS CON ICE',
@@ -1482,6 +1804,7 @@
                 'KNOW YOUR CONSTITUTIONAL RIGHTS': 'CONOCE TUS DERECHOS CONSTITUCIONALES',
                 'LGBTQ+ Rights': 'Derechos LGBTQ+',
                 'Children\'s Rights': 'Derechos de los Niños',
+                'Elderly Rights': 'Derechos de Ancianos',
                 'Right to vote regardless of income': 'Derecho a votar independientemente de los ingresos',
                 'Protection from voter intimidation': 'Protección contra intimidación de votantes',
                 'Right to language assistance': 'Derecho a asistencia en el idioma',
@@ -1499,6 +1822,8 @@
                 'Right to stay with family': 'Derecho a permanecer con la familia',
                 'Right to remain silent': 'Derecho a permanecer en silencio',
                 'Right to an attorney': 'Derecho a un abogado',
+
+                // Unidentified Agent Safety Protocols
                 'UNIDENTIFIED AGENT SAFETY PROTOCOLS': 'PROTOCOLOS DE SEGURIDAD PARA AGENTES NO IDENTIFICADOS',
                 'IF APPROACHED BY UNIDENTIFIED AGENTS': 'SI AGENTES NO IDENTIFICADOS SE ACERCAN',
                 'DEMAND IDENTIFICATION FIRST': 'EXIGE IDENTIFICACIÓN PRIMERO',
@@ -1540,7 +1865,161 @@
                 'Right to file complaints for misconduct': 'Derecho a presentar quejas por mala conducta',
                 'CRITICAL: NEVER PHYSICALLY RESIST - DOCUMENT EVERYTHING': 'CRÍTICO: NUNCA RESISTAS FÍSICAMENTE - DOCUMENTA TODO',
                 'Physical resistance can lead to assault charges even if agents are acting unlawfully. Your safety and legal protection come through documentation and legal challenges.': 'La resistencia física puede llevar a cargos de asalto incluso si los agentes actúan ilegalmente. Tu seguridad y protección legal vienen a través de documentación y desafíos legales.',
-                'Print': 'Imprimir'
+
+                // Platform Safety Section
+                'PLATFORM SAFETY & PROTECTIONS': 'SEGURIDAD Y PROTECCIONES DE LA PLATAFORMA',
+                'Understanding the real protections and limitations of this platform': 'Entendiendo las protecciones reales y limitaciones de esta plataforma',
+                'CONSTITUTIONAL PROTECTION': 'PROTECCIÓN CONSTITUCIONAL',
+                'Educational content is constitutionally protected speech': 'El contenido educativo es discurso constitucionalmente protegido',
+                'Emergency numbers and legal rights are public information': 'Los números de emergencia y derechos legales son información pública',
+                'Government cannot pre-censor protected speech': 'El gobierno no puede pre-censurar el discurso protegido',
+                'Civic education has strong legal precedent protection': 'La educación cívica tiene fuerte protección de precedente legal',
+                'USER PRIVACY': 'PRIVACIDAD DEL USUARIO',
+                'Zero user tracking, registration, or storage': 'Cero seguimiento de usuarios, registro o almacenamiento',
+                'Runs entirely in your browser': 'Funciona completamente en tu navegador',
+                'No persistent tracking or identification': 'Sin seguimiento persistente o identificación',
+                'No login or personal information required': 'No se requiere inicio de sesión o información personal',
+                'HOSTING LIMITATIONS': 'LIMITACIONES DEL HOSTING',
+                'Platform relies on GitHub/Microsoft infrastructure': 'La plataforma depende de la infraestructura de GitHub/Microsoft',
+                'Subject to GitHub\'s community guidelines': 'Sujeto a las pautas comunitarias de GitHub',
+                'GitHub could remove repository under pressure': 'GitHub podría eliminar el repositorio bajo presión',
+                'Open source allows re-hosting on other platforms': 'El código abierto permite re-hosting en otras plataformas',
+
+                // Footer
+                'Emergency democracy protection platform providing free civic engagement tools for vulnerable communities.': 'Plataforma de protección democrática de emergencia que proporciona herramientas gratuitas de participación cívica para comunidades vulnerables.',
+                'Resources': 'Recursos',
+                'Emergency Numbers': 'Números de Emergencia',
+                'Platform Security': 'Seguridad de la Plataforma',
+                'No user tracking or data collection': 'Sin seguimiento de usuarios o recopilación de datos',
+                'Constitutional protection (1st Amendment)': 'Protección constitucional (1ra Enmienda)',
+                'Public domain information': 'Información de dominio público',
+                'Anonymous access guaranteed': 'Acceso anónimo garantizado',
+                'Public Domain - Free for All. No registration required. Protected by U.S. Constitution.': 'Dominio Público - Gratis para Todos. No se requiere registro. Protegido por la Constitución de EE.UU.',
+
+                // Common UI Elements
+                'Print': 'Imprimir',
+                'Close': 'Cerrar',
+                'Cancel': 'Cancelar',
+                'Confirm': 'Confirmar',
+                'Continue': 'Continuar',
+                'Back': 'Atrás',
+                'Next': 'Siguiente',
+                'Submit': 'Enviar',
+                'Search': 'Buscar',
+                'Loading': 'Cargando',
+                'Error': 'Error',
+                'Success': 'Éxito',
+                'Warning': 'Advertencia',
+                'Information': 'Información',
+                'Help': 'Ayuda',
+                'Contact': 'Contacto',
+                'About': 'Acerca de',
+                'Home': 'Inicio',
+                'Menu': 'Menú',
+                'Settings': 'Configuración',
+                'Privacy': 'Privacidad',
+                'Terms': 'Términos',
+                'Legal': 'Legal',
+                'Support': 'Apoyo',
+                'FAQ': 'Preguntas Frecuentes',
+                'Documentation': 'Documentación',
+                'Download': 'Descargar',
+                'Upload': 'Subir',
+                'Save': 'Guardar',
+                'Delete': 'Eliminar',
+                'Edit': 'Editar',
+                'View': 'Ver',
+                'Share': 'Compartir',
+                'Copy': 'Copiar',
+                'Paste': 'Pegar',
+                'Cut': 'Cortar',
+                'Undo': 'Deshacer',
+                'Redo': 'Rehacer',
+                'Select All': 'Seleccionar Todo',
+                'Clear': 'Limpiar',
+                'Reset': 'Restablecer',
+                'Refresh': 'Actualizar',
+                'Reload': 'Recargar',
+                'Update': 'Actualizar',
+                'Install': 'Instalar',
+                'Uninstall': 'Desinstalar',
+                'Enable': 'Habilitar',
+                'Disable': 'Deshabilitar',
+                'Activate': 'Activar',
+                'Deactivate': 'Desactivar',
+                'Login': 'Iniciar Sesión',
+                'Logout': 'Cerrar Sesión',
+                'Register': 'Registrarse',
+                'Sign Up': 'Registrarse',
+                'Sign In': 'Iniciar Sesión',
+                'Sign Out': 'Cerrar Sesión',
+                'Profile': 'Perfil',
+                'Account': 'Cuenta',
+                'Dashboard': 'Panel',
+                'Overview': 'Resumen',
+                'Details': 'Detalles',
+                'Summary': 'Resumen',
+                'Report': 'Informe',
+                'Statistics': 'Estadísticas',
+                'Analytics': 'Análisis',
+                'Charts': 'Gráficos',
+                'Tables': 'Tablas',
+                'Lists': 'Listas',
+                'Categories': 'Categorías',
+                'Tags': 'Etiquetas',
+                'Filters': 'Filtros',
+                'Sort': 'Ordenar',
+                'Group': 'Agrupar',
+                'Export': 'Exportar',
+                'Import': 'Importar',
+                'Backup': 'Copia de Seguridad',
+                'Restore': 'Restaurar',
+                'Archive': 'Archivar',
+                'Unarchive': 'Desarchivar',
+                'Publish': 'Publicar',
+                'Unpublish': 'Despublicar',
+                'Draft': 'Borrador',
+                'Preview': 'Vista Previa',
+                'Review': 'Revisar',
+                'Approve': 'Aprobar',
+                'Reject': 'Rechazar',
+                'Pending': 'Pendiente',
+                'Complete': 'Completo',
+                'Incomplete': 'Incompleto',
+                'Active': 'Activo',
+                'Inactive': 'Inactivo',
+                'Available': 'Disponible',
+                'Unavailable': 'No Disponible',
+                'Online': 'En Línea',
+                'Offline': 'Fuera de Línea',
+                'Connected': 'Conectado',
+                'Disconnected': 'Desconectado',
+                'Public': 'Público',
+                'Private': 'Privado',
+                'Shared': 'Compartido',
+                'Personal': 'Personal',
+                'Custom': 'Personalizado',
+                'Default': 'Predeterminado',
+                'Standard': 'Estándar',
+                'Advanced': 'Avanzado',
+                'Basic': 'Básico',
+                'Premium': 'Premium',
+                'Free': 'Gratis',
+                'Paid': 'Pagado',
+                'Trial': 'Prueba',
+                'Demo': 'Demostración',
+                'Test': 'Prueba',
+                'Production': 'Producción',
+                'Development': 'Desarrollo',
+                'Staging': 'Preparación',
+                'Local': 'Local',
+                'Remote': 'Remoto',
+                'Global': 'Global',
+                'Regional': 'Regional',
+                'National': 'Nacional',
+                'International': 'Internacional',
+                'Worldwide': 'Mundial',
+                'Universal': 'Universal'
             }
         };
 
@@ -1864,10 +2343,49 @@
 
         function generateICEGuide() {
             const content = `
-                <div class="print-optimized bg-white dark:bg-gray-800 p-6 max-w-4xl mx-auto">
+                <div class="print-optimized bg-white dark:bg-gray-800 p-6 max-w-6xl mx-auto">
                     <div class="text-center mb-6">
                         <h2 class="text-3xl font-bold text-red-600 mb-2">🛡️ ICE ENCOUNTER SURVIVAL GUIDE</h2>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Print and carry with you • Updated July 8, 2025 • Share with family</p>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Real-time ICE activity tracking • Community alerts • Print and carry with you • Updated July 8, 2025</p>
+                    </div>
+
+                    <!-- ICE ACTIVITY TRACKING -->
+                    <div class="mb-8 bg-red-600 text-white p-6 rounded-lg">
+                        <h3 class="text-2xl font-bold mb-4 text-center">🚨 ICE ACTIVITY TRACKING RESOURCES</h3>
+                        <div class="bg-red-700 p-4 rounded-lg text-center">
+                            <div class="font-bold text-lg mb-2">📱 TRACK ICE ACTIVITY IN YOUR AREA</div>
+                            <div class="mb-4">
+                                <a href="https://icelist.info" target="_blank" class="bg-yellow-500 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-400 inline-block">
+                                    Visit ICEList.info →
+                                </a>
+                            </div>
+                            <div class="text-sm">
+                                <div class="mb-2">
+                                    <strong>ICEList.info provides:</strong> Real-time ICE activity reports, community alerts, and safety coordination tools
+                                </div>
+                                <div class="bg-yellow-500 text-black p-2 rounded font-semibold">
+                                    ⚡ CRITICAL: Bookmark this site and share with your community network
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 bg-red-800 p-4 rounded-lg">
+                            <div class="font-bold text-lg mb-2">📞 EMERGENCY REPORTING</div>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <strong>Report ICE Activity:</strong><br>
+                                    • Text "ICE [LOCATION]" to <strong>741741</strong><br>
+                                    • Call Immigration Hotline: <strong>855-448-7277</strong><br>
+                                    • Local community alert networks
+                                </div>
+                                <div>
+                                    <strong>Stay Informed:</strong><br>
+                                    • Check ICEList.info regularly<br>
+                                    • Join local WhatsApp/Signal groups<br>
+                                    • Follow trusted community sources
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="grid md:grid-cols-2 gap-6 text-sm">
@@ -2014,6 +2532,83 @@
                         </div>
                     </div>
 
+                    <div class="mt-6 bg-blue-100 dark:bg-blue-900/20 border border-blue-400 p-4 rounded-lg">
+                        <h3 class="font-bold text-blue-800 dark:text-blue-200 text-lg mb-3">🌐 ESSENTIAL ICE PROTECTION WEBSITES</h3>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+                            <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                                <div class="font-semibold text-blue-600 mb-2">Real-Time ICE Tracking:</div>
+                                <ul class="text-xs space-y-1">
+                                    <li>• <a href="https://icelist.info" target="_blank" class="text-blue-600 hover:underline">ICEList.info</a> - Live ICE activity reports</li>
+                                    <li>• <a href="https://www.notifica.us" target="_blank" class="text-blue-600 hover:underline">Notifica.us</a> - Community alert system</li>
+                                    <li>• <a href="https://www.immigrantdefenseproject.org" target="_blank" class="text-blue-600 hover:underline">IDP ICE Watch</a> - Court and detention tracking</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                                <div class="font-semibold text-green-600 mb-2">Know Your Rights:</div>
+                                <ul class="text-xs space-y-1">
+                                    <li>• <a href="https://www.aclu.org/know-your-rights/immigrants-rights" target="_blank" class="text-blue-600 hover:underline">ACLU Know Your Rights</a></li>
+                                    <li>• <a href="https://www.nilc.org" target="_blank" class="text-blue-600 hover:underline">NILC.org</a> - Immigration law center</li>
+                                    <li>• <a href="https://unitedwedream.org/tools/know-your-rights/" target="_blank" class="text-blue-600 hover:underline">United We Dream Rights</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                                <div class="font-semibold text-red-600 mb-2">Legal Help:</div>
+                                <ul class="text-xs space-y-1">
+                                    <li>• <a href="https://www.ailalawyer.org" target="_blank" class="text-blue-600 hover:underline">AILA Lawyer Search</a></li>
+                                    <li>• <a href="https://www.immigrationadvocates.org/nonprofit/legaldirectory/" target="_blank" class="text-blue-600 hover:underline">Pro Bono Directory</a></li>
+                                    <li>• <a href="https://www.legalaidnyc.org" target="_blank" class="text-blue-600 hover:underline">Legal Aid Societies</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                                <div class="font-semibold text-purple-600 mb-2">Community Organizations:</div>
+                                <ul class="text-xs space-y-1">
+                                    <li>• <a href="https://maketheroadny.org" target="_blank" class="text-blue-600 hover:underline">Make the Road</a> - Community support</li>
+                                    <li>• <a href="https://www.chirla.org" target="_blank" class="text-blue-600 hover:underline">CHIRLA</a> - CA immigrant rights</li>
+                                    <li>• <a href="https://wearecasa.org" target="_blank" class="text-blue-600 hover:underline">CASA</a> - Mid-Atlantic organizing</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                                <div class="font-semibold text-orange-600 mb-2">Emergency Assistance:</div>
+                                <ul class="text-xs space-y-1">
+                                    <li>• <a href="https://www.raicestexas.org" target="_blank" class="text-blue-600 hover:underline">RAICES</a> - Texas legal services</li>
+                                    <li>• <a href="https://www.detentionwatchnetwork.org" target="_blank" class="text-blue-600 hover:underline">Detention Watch</a> - Detention support</li>
+                                    <li>• <a href="https://www.freedomforimmigrants.org" target="_blank" class="text-blue-600 hover:underline">Freedom for Immigrants</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white dark:bg-gray-700 p-3 rounded">
+                                <div class="font-semibold text-teal-600 mb-2">Deportation Defense:</div>
+                                <ul class="text-xs space-y-1">
+                                    <li>• <a href="https://www.informedimmigrant.com" target="_blank" class="text-blue-600 hover:underline">Informed Immigrant</a> - Resources</li>
+                                    <li>• <a href="https://www.uscis.gov" target="_blank" class="text-blue-600 hover:underline">USCIS.gov</a> - Official immigration info</li>
+                                    <li>• <a href="https://www.justice.gov/eoir" target="_blank" class="text-blue-600 hover:underline">Immigration Courts</a> - EOIR info</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 bg-yellow-50 dark:bg-yellow-900/20 p-3 rounded">
+                            <div class="font-semibold text-yellow-800 dark:text-yellow-200 mb-2">📱 Mobile Apps for ICE Protection:</div>
+                            <div class="grid md:grid-cols-3 gap-4 text-xs">
+                                <div>
+                                    <strong>Notifica (iPhone/Android):</strong><br>
+                                    Sends ICE alerts to your network
+                                </div>
+                                <div>
+                                    <strong>Red Panic Button (Android):</strong><br>
+                                    Emergency alert system
+                                </div>
+                                <div>
+                                    <strong>Cell 411 (iPhone/Android):</strong><br>
+                                    Community safety network
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="mt-6 bg-red-600 text-white p-4 rounded-lg text-center">
                         <h3 class="font-bold text-xl mb-2">🚨 CRITICAL REMINDERS</h3>
                         <div class="grid md:grid-cols-3 gap-4 text-sm">
@@ -2075,114 +2670,248 @@
 
         function printWalletCards() {
             const content = `
+                <style>
+                    @media print {
+                        /* Reset all other styles for wallet cards */
+                        * { box-sizing: border-box; }
+                        
+                        body { 
+                            margin: 0; 
+                            padding: 10mm; 
+                            font-family: Arial, sans-serif;
+                            background: white;
+                        }
+                        
+                        .print-instructions {
+                            text-align: center;
+                            margin-bottom: 15mm;
+                            font-size: 12pt;
+                            page-break-after: avoid;
+                        }
+                        
+                        .wallet-cards-container {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 5mm;
+                            justify-content: flex-start;
+                        }
+                        
+                        .wallet-card {
+                            width: 85.6mm !important;  /* Standard credit card width */
+                            height: 53.98mm !important; /* Standard credit card height */
+                            border: 2px dashed #666 !important;
+                            padding: 3mm !important;
+                            margin: 0 !important;
+                            background: white !important;
+                            color: black !important;
+                            font-family: Arial, sans-serif !important;
+                            font-size: 8pt !important;
+                            line-height: 1.1 !important;
+                            page-break-inside: avoid !important;
+                            display: block !important;
+                            float: none !important;
+                            box-sizing: border-box !important;
+                            overflow: hidden !important;
+                        }
+                        
+                        .wallet-card h3 {
+                            font-size: 11pt !important;
+                            font-weight: bold !important;
+                            margin: 0 0 2mm 0 !important;
+                            text-align: center !important;
+                            color: #000 !important;
+                            line-height: 1.2 !important;
+                        }
+                        
+                        .emergency-number {
+                            text-align: center !important;
+                            font-size: 14pt !important;
+                            font-weight: bold !important;
+                            color: #d00 !important;
+                            margin: 2mm 0 !important;
+                            background: #f9f9f9 !important;
+                            padding: 1mm !important;
+                            border: 1px solid #999 !important;
+                        }
+                        
+                        .wallet-card .content {
+                            font-size: 7pt !important;
+                            line-height: 1.15 !important;
+                            margin: 1mm 0 !important;
+                        }
+                        
+                        .wallet-card .small-text {
+                            font-size: 6pt !important;
+                            line-height: 1.1 !important;
+                            margin-top: 1mm !important;
+                        }
+                        
+                        .wallet-card strong {
+                            font-weight: bold !important;
+                            color: #000 !important;
+                        }
+                        
+                        /* Force new page after every 6 cards (2 rows of 3) */
+                        .wallet-card:nth-child(6n) {
+                            page-break-after: always !important;
+                        }
+                    }
+                </style>
+                
                 <div class="print-instructions">
                     <h2>📏 WALLET-SIZED EMERGENCY CARDS</h2>
-                    <p><strong>Instructions:</strong> Print on cardstock • Cut along dashed lines • Laminate for durability • Test print: Actual wallet cards should be readable without magnification</p>
-                    <p><strong>Size Options:</strong> Standard credit card (3.375" x 2.125") or Business card (3.5" x 2")</p>
+                    <p><strong>Print Instructions:</strong></p>
+                    <p>• Print on heavy cardstock (110lb+) • Cut along dashed lines • Laminate for durability</p>
+                    <p>• Standard credit card size: 3.375" × 2.125" (85.6mm × 53.98mm)</p>
+                    <p>• Test print one page first to verify sizing</p>
                 </div>
 
-                <!-- ICE Emergency Card - SIMPLIFIED -->
-                <div class="wallet-card">
-                    <h3>🛡️ ICE EMERGENCY</h3>
-                    <div class="emergency-number">📞 855-448-7277</div>
-                    <div style="font-size: 8pt; font-weight: bold; margin: 2mm 0;">
-                        "I do not consent"<br>
-                        "I want a lawyer"<br>
-                        "I remain silent"
+                <div class="wallet-cards-container">
+                    <!-- ICE Emergency Card -->
+                    <div class="wallet-card">
+                        <h3>🛡️ ICE EMERGENCY</h3>
+                        <div class="emergency-number">📞 855-448-7277</div>
+                        <div class="content">
+                            <strong>"I do not consent"</strong><br>
+                            <strong>"I want a lawyer"</strong><br>
+                            <strong>"I remain silent"</strong>
+                        </div>
+                        <div class="small-text">DON'T OPEN DOOR • ASK FOR WARRANT</div>
                     </div>
-                    <div style="font-size: 6pt;">DON'T OPEN DOOR • ASK FOR WARRANT</div>
-                </div>
 
-                <!-- Crisis Hotlines Card - ESSENTIAL ONLY -->
-                <div class="wallet-card">
-                    <h3>📞 CRISIS HOTLINES</h3>
-                    <div style="font-size: 7pt; line-height: 1.1;">
-                        <strong>CRISIS:</strong> 988<br>
-                        <strong>ICE:</strong> 855-448-7277<br>
-                        <strong>VOTING:</strong> 866-OUR-VOTE<br>
-                        <strong>LGBTQ+:</strong> 866-488-7386<br>
-                        <strong>DOMESTIC:</strong> 800-799-SAFE
+                    <!-- Crisis Hotlines Card -->
+                    <div class="wallet-card">
+                        <h3>📞 CRISIS HOTLINES</h3>
+                        <div class="content">
+                            <strong>CRISIS:</strong> 988<br>
+                            <strong>ICE:</strong> 855-448-7277<br>
+                            <strong>VOTING:</strong> 866-OUR-VOTE<br>
+                            <strong>LGBTQ+:</strong> 866-488-7386<br>
+                            <strong>DOMESTIC:</strong> 800-799-SAFE
+                        </div>
                     </div>
-                </div>
 
-                <!-- Know Your Rights - SIMPLIFIED -->
-                <div class="wallet-card">
-                    <h3>⚖️ YOUR RIGHTS</h3>
-                    <div style="font-size: 8pt; font-weight: bold;">
-                        • RIGHT TO REMAIN SILENT<br>
-                        • RIGHT TO A LAWYER<br>
-                        • RIGHT TO REFUSE SEARCH<br>
-                        • RIGHT TO ASK "AM I FREE TO LEAVE?"
+                    <!-- Know Your Rights -->
+                    <div class="wallet-card">
+                        <h3>⚖️ YOUR RIGHTS</h3>
+                        <div class="content">
+                            <strong>• RIGHT TO REMAIN SILENT</strong><br>
+                            <strong>• RIGHT TO A LAWYER</strong><br>
+                            <strong>• RIGHT TO REFUSE SEARCH</strong><br>
+                            <strong>• RIGHT TO ASK "AM I FREE TO LEAVE?"</strong>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Personal Emergency - FILLABLE -->
-                <div class="wallet-card">
-                    <h3>👤 MY EMERGENCY INFO</h3>
-                    <div style="font-size: 7pt;">
-                        <strong>Emergency Contact:</strong><br>
-                        Name: ________________<br>
-                        Phone: _______________<br>
-                        <strong>My Lawyer:</strong><br>
-                        Phone: _______________<br>
-                        <strong>Medical:</strong> ________________
+                    <!-- Personal Emergency Info -->
+                    <div class="wallet-card">
+                        <h3>👤 MY EMERGENCY INFO</h3>
+                        <div class="content">
+                            <strong>Emergency Contact:</strong><br>
+                            Name: ________________________<br>
+                            Phone: _______________________<br>
+                            <strong>My Lawyer:</strong><br>
+                            Phone: _______________________<br>
+                            <strong>Medical:</strong> ___________________
+                        </div>
                     </div>
-                </div>
 
-                <!-- Protest Rights - ESSENTIAL -->
-                <div class="wallet-card">
-                    <h3>📢 PROTEST RIGHTS</h3>
-                    <div style="font-size: 8pt; font-weight: bold;">
-                        "AM I FREE TO LEAVE?"<br>
-                        "I WANT TO REMAIN SILENT"<br>
-                        "I WANT A LAWYER"
+                    <!-- Protest Rights -->
+                    <div class="wallet-card">
+                        <h3>📢 PROTEST RIGHTS</h3>
+                        <div class="content">
+                            <strong>"AM I FREE TO LEAVE?"</strong><br>
+                            <strong>"I WANT TO REMAIN SILENT"</strong><br>
+                            <strong>"I WANT A LAWYER"</strong>
+                        </div>
+                        <div class="small-text">RECORD BADGE NUMBERS • NO PHYSICAL RESISTANCE</div>
                     </div>
-                    <div style="font-size: 6pt;">RECORD BADGE NUMBERS • NO PHYSICAL RESISTANCE</div>
-                </div>
 
-                <!-- Reproductive Emergency - CRITICAL INFO -->
-                <div class="wallet-card">
-                    <h3>🩺 REPRODUCTIVE HELP</h3>
-                    <div class="emergency-number">📞 800-230-PLAN</div>
-                    <div style="font-size: 7pt;">
-                        <strong>Emergency contraception:</strong><br>
-                        Plan B - over counter<br>
-                        <strong>Legal Help:</strong> 844-674-6606<br>
-                        <strong>Travel rights protected</strong>
+                    <!-- Reproductive Health -->
+                    <div class="wallet-card">
+                        <h3>🩺 REPRODUCTIVE HELP</h3>
+                        <div class="emergency-number">📞 800-230-PLAN</div>
+                        <div class="content">
+                            <strong>Emergency contraception:</strong><br>
+                            Plan B - over counter<br>
+                            <strong>Legal Help:</strong> 844-674-6606
+                        </div>
+                        <div class="small-text">TRAVEL RIGHTS PROTECTED</div>
                     </div>
-                </div>
 
-                <!-- Digital Security - SIMPLIFIED -->
-                <div class="wallet-card">
-                    <h3>🔒 DIGITAL SAFETY</h3>
-                    <div style="font-size: 8pt; font-weight: bold;">
-                        • USE SIGNAL APP<br>
-                        • TURN OFF FACE ID<br>
-                        • USE VPN ALWAYS<br>
-                        • DELETE HISTORY
+                    <!-- Digital Security -->
+                    <div class="wallet-card">
+                        <h3>🔒 DIGITAL SAFETY</h3>
+                        <div class="content">
+                            <strong>• USE SIGNAL APP</strong><br>
+                            <strong>• TURN OFF FACE ID</strong><br>
+                            <strong>• USE VPN ALWAYS</strong><br>
+                            <strong>• DELETE HISTORY</strong>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Veterans Crisis - FOCUSED -->
-                <div class="wallet-card">
-                    <h3>🎖️ VETERANS CRISIS</h3>
-                    <div class="emergency-number">📞 800-273-8255</div>
-                    <div style="font-size: 7pt;">
-                        <strong>VA Benefits:</strong> 800-827-1000<br>
-                        <strong>Homeless Help:</strong> 877-424-3838<br>
-                        <strong>You served. You matter.</strong>
+                    <!-- Veterans Crisis -->
+                    <div class="wallet-card">
+                        <h3>🎖️ VETERANS CRISIS</h3>
+                        <div class="emergency-number">📞 800-273-8255</div>
+                        <div class="content">
+                            <strong>VA Benefits:</strong> 800-827-1000<br>
+                            <strong>Homeless Help:</strong> 877-424-3838
+                        </div>
+                        <div class="small-text">YOU SERVED. YOU MATTER.</div>
+                    </div>
+
+                    <!-- Housing Emergency -->
+                    <div class="wallet-card">
+                        <h3>🏠 HOUSING EMERGENCY</h3>
+                        <div class="emergency-number">📞 833-RENT-HELP</div>
+                        <div class="content">
+                            <strong>Legal Aid:</strong> Call 211<br>
+                            <strong>Fair Housing:</strong> 800-669-9777<br>
+                            <strong>Never ignore eviction notices</strong>
+                        </div>
+                    </div>
+
+                    <!-- Mental Health Crisis -->
+                    <div class="wallet-card">
+                        <h3>🧠 MENTAL HEALTH</h3>
+                        <div class="emergency-number">📞 988</div>
+                        <div class="content">
+                            <strong>Crisis Text:</strong> Text HOME to 741741<br>
+                            <strong>Veterans:</strong> 800-273-8255<br>
+                            <strong>You are not alone</strong>
+                        </div>
+                    </div>
+
+                    <!-- Voting Rights -->
+                    <div class="wallet-card">
+                        <h3>🗳️ VOTING RIGHTS</h3>
+                        <div class="emergency-number">📞 866-OUR-VOTE</div>
+                        <div class="content">
+                            <strong>Spanish:</strong> 888-839-8682<br>
+                            <strong>Asian Languages:</strong> 888-843-8683<br>
+                            <strong>Right to vote - protected by law</strong>
+                        </div>
+                    </div>
+
+                    <!-- Workplace Rights -->
+                    <div class="wallet-card">
+                        <h3>💼 WORKPLACE RIGHTS</h3>
+                        <div class="emergency-number">📞 800-669-4000</div>
+                        <div class="content">
+                            <strong>EEOC Discrimination</strong><br>
+                            <strong>OSHA Safety:</strong> 800-321-6742<br>
+                            <strong>Wage Theft:</strong> 866-4-USWAGE
+                        </div>
+                        <div class="small-text">DOCUMENT EVERYTHING</div>
                     </div>
                 </div>
             `;
             
-            // Add wallet-mode class to body for print styles
-            document.body.classList.add('wallet-mode');
-            showResults('Wallet-Sized Emergency Cards - SIMPLIFIED & READABLE', content);
+            showResults('Professional Wallet-Sized Emergency Cards', content);
             
             // Auto-trigger print after a brief delay
             setTimeout(() => {
                 window.print();
-                document.body.classList.remove('wallet-mode');
             }, 1000);
         }
 
@@ -3185,66 +3914,475 @@
             showResults('Comprehensive Reproductive Rights Emergency Guide', content);
         }
 
-        // Simple accessibility mode
-        let seniorModeActive = false;
+        // COMPREHENSIVE ADA ACCESSIBILITY SYSTEM
+        let accessibilityState = {
+            seniorMode: false,
+            highContrast: false,
+            reducedMotion: false,
+            largeText: false,
+            screenReaderMode: false,
+            keyboardNav: true
+        };
 
-        function toggleAccessibilityMode() {
-            seniorModeActive = !seniorModeActive;
-            const body = document.body;
-            const toggleButton = document.getElementById('accessibility-toggle');
+        // Initialize ADA features on page load
+        function initializeADAFeatures() {
+            // Add skip links
+            addSkipLinks();
             
-            if (seniorModeActive) {
-                // Apply senior-friendly styles
+            // Set up keyboard navigation
+            setupKeyboardNavigation();
+            
+            // Add ARIA labels and roles
+            enhanceWithARIA();
+            
+            // Check for user preferences
+            checkUserPreferences();
+            
+            // Add focus management
+            setupFocusManagement();
+            
+            // Announce page loads to screen readers
+            announceToScreenReader('CivicHub Emergency Democracy Protection Platform loaded. Press H to navigate by headings, or use Tab to navigate by links and buttons.');
+        }
+
+        function addSkipLinks() {
+            const skipLinks = document.createElement('div');
+            skipLinks.className = 'skip-links sr-only';
+            skipLinks.innerHTML = `
+                <a href="#main-content" class="skip-link">Skip to main content</a>
+                <a href="#navigation" class="skip-link">Skip to navigation</a>
+                <a href="#emergency-contacts" class="skip-link">Skip to emergency contacts</a>
+            `;
+            document.body.insertBefore(skipLinks, document.body.firstChild);
+        }
+
+        function setupKeyboardNavigation() {
+            // Enhanced keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                // Alt + A = Toggle accessibility menu
+                if (e.altKey && e.key.toLowerCase() === 'a') {
+                    e.preventDefault();
+                    toggleAccessibilityMenu();
+                }
+                
+                // Alt + E = Emergency help
+                if (e.altKey && e.key.toLowerCase() === 'e') {
+                    e.preventDefault();
+                    openEmergencyHelp();
+                    announceToScreenReader('Emergency help dialog opened');
+                }
+                
+                // Alt + H = Go to main heading
+                if (e.altKey && e.key.toLowerCase() === 'h') {
+                    e.preventDefault();
+                    const mainHeading = document.querySelector('h1');
+                    if (mainHeading) {
+                        mainHeading.focus();
+                        announceToScreenReader('Navigated to main heading');
+                    }
+                }
+                
+                // Alt + M = Go to main content
+                if (e.altKey && e.key.toLowerCase() === 'm') {
+                    e.preventDefault();
+                    const mainContent = document.querySelector('main') || document.getElementById('main-content');
+                    if (mainContent) {
+                        mainContent.focus();
+                        announceToScreenReader('Navigated to main content');
+                    }
+                }
+                
+                // Escape key handling
+                if (e.key === 'Escape') {
+                    closeAllModals();
+                    announceToScreenReader('Dialogs closed');
+                }
+            });
+
+            // Tab trapping for modals
+            document.addEventListener('focusin', (e) => {
+                const modal = document.querySelector('.fixed.inset-0:not(.hidden)');
+                if (modal && !modal.contains(e.target)) {
+                    e.preventDefault();
+                    const focusableElements = modal.querySelectorAll('button, a, input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                    if (focusableElements.length > 0) {
+                        focusableElements[0].focus();
+                    }
+                }
+            });
+        }
+
+        function enhanceWithARIA() {
+            // Add ARIA landmarks
+            const header = document.querySelector('header');
+            if (header) header.setAttribute('role', 'banner');
+            
+            const nav = document.querySelector('nav');
+            if (nav) {
+                nav.setAttribute('role', 'navigation');
+                nav.setAttribute('aria-label', 'Main navigation');
+                nav.id = 'navigation';
+            }
+            
+            const main = document.querySelector('main');
+            if (main) {
+                main.setAttribute('role', 'main');
+                main.id = 'main-content';
+                main.setAttribute('tabindex', '-1');
+            }
+            
+            const footer = document.querySelector('footer');
+            if (footer) footer.setAttribute('role', 'contentinfo');
+
+            // Add ARIA labels to buttons
+            document.querySelectorAll('button').forEach(button => {
+                if (!button.getAttribute('aria-label') && !button.getAttribute('aria-labelledby')) {
+                    const text = button.textContent.trim();
+                    if (text) {
+                        button.setAttribute('aria-label', text);
+                    }
+                }
+            });
+
+            // Add ARIA labels to emergency contacts
+            document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+                const text = link.textContent.trim();
+                link.setAttribute('aria-label', `Call ${text} for emergency assistance`);
+            });
+
+            // Mark sections with appropriate roles
+            document.querySelectorAll('section').forEach(section => {
+                section.setAttribute('role', 'region');
+                const heading = section.querySelector('h1, h2, h3, h4, h5, h6');
+                if (heading) {
+                    const id = `section-${Math.random().toString(36).substr(2, 9)}`;
+                    heading.id = id;
+                    section.setAttribute('aria-labelledby', id);
+                }
+            });
+        }
+
+        function checkUserPreferences() {
+            // Check for reduced motion preference
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                accessibilityState.reducedMotion = true;
+                document.documentElement.classList.add('reduce-motion');
+            }
+
+            // Check for high contrast preference
+            if (window.matchMedia('(prefers-contrast: high)').matches) {
+                accessibilityState.highContrast = true;
+                document.documentElement.classList.add('high-contrast');
+            }
+
+            // Check for color scheme preference
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            }
+        }
+
+        function setupFocusManagement() {
+            // Visible focus indicators
+            const style = document.createElement('style');
+            style.textContent = `
+                :focus {
+                    outline: 3px solid #5D5CDE !important;
+                    outline-offset: 2px !important;
+                }
+                
+                .focus-visible {
+                    outline: 3px solid #5D5CDE !important;
+                    outline-offset: 2px !important;
+                }
+                
+                .sr-only {
+                    position: absolute !important;
+                    width: 1px !important;
+                    height: 1px !important;
+                    padding: 0 !important;
+                    margin: -1px !important;
+                    overflow: hidden !important;
+                    clip: rect(0, 0, 0, 0) !important;
+                    white-space: nowrap !important;
+                    border: 0 !important;
+                }
+                
+                .skip-link {
+                    position: absolute;
+                    top: -40px;
+                    left: 6px;
+                    background: #5D5CDE;
+                    color: white;
+                    padding: 8px;
+                    text-decoration: none;
+                    border-radius: 0 0 4px 4px;
+                    z-index: 1000;
+                    font-weight: bold;
+                }
+                
+                .skip-link:focus {
+                    top: 0;
+                }
+                
+                .reduce-motion *,
+                .reduce-motion *::before,
+                .reduce-motion *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+                
+                .high-contrast {
+                    filter: contrast(150%) brightness(120%);
+                }
+                
+                .large-text {
+                    font-size: 1.25em !important;
+                    line-height: 1.6 !important;
+                }
+                
+                .accessibility-panel {
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: white;
+                    border: 2px solid #5D5CDE;
+                    border-radius: 8px;
+                    padding: 20px;
+                    z-index: 1000;
+                    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+                    max-width: 300px;
+                }
+                
+                .dark .accessibility-panel {
+                    background: #1f2937;
+                    color: white;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        function announceToScreenReader(message) {
+            const announcement = document.createElement('div');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.setAttribute('aria-atomic', 'true');
+            announcement.className = 'sr-only';
+            announcement.textContent = message;
+            document.body.appendChild(announcement);
+            
+            setTimeout(() => {
+                document.body.removeChild(announcement);
+            }, 1000);
+        }
+
+        function toggleAccessibilityMenu() {
+            const existingPanel = document.getElementById('accessibility-panel');
+            if (existingPanel) {
+                existingPanel.remove();
+                return;
+            }
+
+            const panel = document.createElement('div');
+            panel.id = 'accessibility-panel';
+            panel.className = 'accessibility-panel';
+            panel.setAttribute('role', 'dialog');
+            panel.setAttribute('aria-label', 'Accessibility Settings');
+            panel.setAttribute('tabindex', '-1');
+            
+            panel.innerHTML = `
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-lg font-bold">♿ Accessibility Settings</h3>
+                    <button onclick="this.closest('.accessibility-panel').remove()" 
+                            aria-label="Close accessibility panel"
+                            class="text-gray-500 hover:text-gray-700 text-xl">&times;</button>
+                </div>
+                
+                <div class="space-y-4">
+                    <div>
+                        <button onclick="toggleSeniorMode()" 
+                                class="w-full text-left p-2 rounded ${accessibilityState.seniorMode ? 'bg-blue-600 text-white' : 'bg-gray-100 hover:bg-gray-200'}"
+                                aria-pressed="${accessibilityState.seniorMode}">
+                            👴 Senior Mode (Large text, high contrast)
+                        </button>
+                    </div>
+                    
+                    <div>
+                        <button onclick="toggleHighContrast()" 
+                                class="w-full text-left p-2 rounded ${accessibilityState.highContrast ? 'bg-blue-600 text-white' : 'bg-gray-100 hover:bg-gray-200'}"
+                                aria-pressed="${accessibilityState.highContrast}">
+                            🎨 High Contrast Mode
+                        </button>
+                    </div>
+                    
+                    <div>
+                        <button onclick="toggleReducedMotion()" 
+                                class="w-full text-left p-2 rounded ${accessibilityState.reducedMotion ? 'bg-blue-600 text-white' : 'bg-gray-100 hover:bg-gray-200'}"
+                                aria-pressed="${accessibilityState.reducedMotion}">
+                            ⏸️ Reduce Motion
+                        </button>
+                    </div>
+                    
+                    <div>
+                        <button onclick="toggleLargeText()" 
+                                class="w-full text-left p-2 rounded ${accessibilityState.largeText ? 'bg-blue-600 text-white' : 'bg-gray-100 hover:bg-gray-200'}"
+                                aria-pressed="${accessibilityState.largeText}">
+                            🔍 Large Text
+                        </button>
+                    </div>
+                    
+                    <div>
+                        <button onclick="showKeyboardShortcuts()" 
+                                class="w-full text-left p-2 rounded bg-gray-100 hover:bg-gray-200">
+                            ⌨️ Keyboard Shortcuts
+                        </button>
+                    </div>
+                    
+                    <div>
+                        <button onclick="announcePageStructure()" 
+                                class="w-full text-left p-2 rounded bg-gray-100 hover:bg-gray-200">
+                            📢 Announce Page Structure
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="mt-4 text-xs text-gray-600">
+                    <strong>Tip:</strong> Press Alt+A to toggle this menu, Alt+E for emergency help
+                </div>
+            `;
+            
+            document.body.appendChild(panel);
+            panel.focus();
+            announceToScreenReader('Accessibility settings panel opened');
+        }
+
+        function toggleSeniorMode() {
+            accessibilityState.seniorMode = !accessibilityState.seniorMode;
+            const body = document.body;
+            
+            if (accessibilityState.seniorMode) {
                 const style = document.createElement('style');
                 style.id = 'senior-mode-style';
                 style.textContent = `
                     .senior-mode {
-                        font-size: 120% !important;
+                        font-size: 125% !important;
                         line-height: 1.8 !important;
                     }
-                    .senior-mode h1 { font-size: 3rem !important; }
-                    .senior-mode h2 { font-size: 2.5rem !important; }
-                    .senior-mode h3 { font-size: 2rem !important; }
+                    .senior-mode h1 { font-size: 3rem !important; font-weight: bold !important; }
+                    .senior-mode h2 { font-size: 2.5rem !important; font-weight: bold !important; }
+                    .senior-mode h3 { font-size: 2rem !important; font-weight: bold !important; }
+                    .senior-mode h4 { font-size: 1.75rem !important; font-weight: bold !important; }
                     .senior-mode button {
-                        padding: 1rem 1.5rem !important;
-                        font-size: 1.2rem !important;
+                        padding: 1.25rem 1.75rem !important;
+                        font-size: 1.25rem !important;
                         font-weight: bold !important;
                         border: 3px solid #000 !important;
-                        min-height: 60px !important;
+                        min-height: 64px !important;
+                        border-radius: 8px !important;
                     }
                     .senior-mode a {
-                        font-size: 1.2rem !important;
+                        font-size: 1.25rem !important;
                         text-decoration: underline !important;
                         font-weight: bold !important;
+                        color: #0066cc !important;
                     }
-                    .senior-mode input {
-                        font-size: 1.2rem !important;
+                    .senior-mode input, .senior-mode select {
+                        font-size: 1.25rem !important;
                         padding: 1rem !important;
                         border: 3px solid #000 !important;
+                        min-height: 56px !important;
                     }
-                    .senior-mode .text-xs { font-size: 1rem !important; }
-                    .senior-mode .text-sm { font-size: 1.1rem !important; }
-                    .senior-mode .text-base { font-size: 1.3rem !important; }
+                    .senior-mode .text-xs { font-size: 1.1rem !important; }
+                    .senior-mode .text-sm { font-size: 1.2rem !important; }
+                    .senior-mode .text-base { font-size: 1.4rem !important; }
+                    .senior-mode .text-lg { font-size: 1.6rem !important; }
                 `;
                 document.head.appendChild(style);
                 body.classList.add('senior-mode');
-                body.style.filter = 'contrast(140%) brightness(110%)';
+                body.style.filter = 'contrast(150%) brightness(115%)';
                 
-                toggleButton.textContent = '🔧 Exit Senior Mode';
-                toggleButton.classList.add('bg-yellow-500', 'text-black');
-                
-                showNotification('♿ Senior accessibility mode enabled - Large fonts, high contrast active');
+                announceToScreenReader('Senior mode enabled - Large fonts and high contrast active');
             } else {
                 const style = document.getElementById('senior-mode-style');
                 if (style) style.remove();
                 body.classList.remove('senior-mode');
                 body.style.filter = '';
                 
-                toggleButton.textContent = '👴 Senior Mode';
-                toggleButton.classList.remove('bg-yellow-500', 'text-black');
-                
-                showNotification('Senior accessibility mode disabled');
+                announceToScreenReader('Senior mode disabled');
             }
+            
+            // Update accessibility toggle button
+            const toggleButton = document.getElementById('accessibility-toggle');
+            if (toggleButton) {
+                toggleButton.textContent = accessibilityState.seniorMode ? '🔧 Exit Senior Mode' : '👴 Senior Mode';
+                toggleButton.setAttribute('aria-pressed', accessibilityState.seniorMode);
+            }
+        }
+
+        function toggleHighContrast() {
+            accessibilityState.highContrast = !accessibilityState.highContrast;
+            document.documentElement.classList.toggle('high-contrast', accessibilityState.highContrast);
+            announceToScreenReader(accessibilityState.highContrast ? 'High contrast mode enabled' : 'High contrast mode disabled');
+        }
+
+        function toggleReducedMotion() {
+            accessibilityState.reducedMotion = !accessibilityState.reducedMotion;
+            document.documentElement.classList.toggle('reduce-motion', accessibilityState.reducedMotion);
+            announceToScreenReader(accessibilityState.reducedMotion ? 'Reduced motion enabled' : 'Reduced motion disabled');
+        }
+
+        function toggleLargeText() {
+            accessibilityState.largeText = !accessibilityState.largeText;
+            document.documentElement.classList.toggle('large-text', accessibilityState.largeText);
+            announceToScreenReader(accessibilityState.largeText ? 'Large text enabled' : 'Large text disabled');
+        }
+
+        function showKeyboardShortcuts() {
+            const shortcuts = `
+                Keyboard Shortcuts:
+                Alt + A: Toggle accessibility menu
+                Alt + E: Emergency help
+                Alt + H: Navigate to main heading
+                Alt + M: Navigate to main content
+                Tab: Navigate forward through links and buttons
+                Shift + Tab: Navigate backward
+                Enter or Space: Activate buttons
+                Escape: Close dialogs and menus
+                Arrow keys: Navigate within menus
+            `;
+            
+            showCustomDialog(
+                "⌨️ KEYBOARD SHORTCUTS",
+                shortcuts,
+                [{ text: "Close", action: () => {} }]
+            );
+            
+            announceToScreenReader('Keyboard shortcuts dialog opened');
+        }
+
+        function announcePageStructure() {
+            const headings = Array.from(document.querySelectorAll('h1, h2, h3, h4, h5, h6')).map(h => 
+                `${h.tagName}: ${h.textContent.trim()}`
+            ).join('. ');
+            
+            const landmarks = Array.from(document.querySelectorAll('[role]')).map(el => 
+                `${el.getAttribute('role')}: ${el.getAttribute('aria-label') || 'unlabeled'}`
+            ).join('. ');
+            
+            announceToScreenReader(`Page structure: ${headings}. Landmarks: ${landmarks}`);
+        }
+
+        function closeAllModals() {
+            document.querySelectorAll('.fixed.inset-0').forEach(modal => {
+                modal.remove();
+            });
+            document.querySelectorAll('.accessibility-panel').forEach(panel => {
+                panel.remove();
+            });
+        }
+
+        // Legacy function for backward compatibility
+        function toggleAccessibilityMode() {
+            toggleSeniorMode();
         }
 
         function showNotification(message) {
@@ -5444,18 +6582,456 @@
             showResults('Religious Liberty Legal Support & Lawyers', content);
         }
 
+        // NEW: User pathway personalization system
+        function showUserPath(pathType) {
+            // Hide user selection and show personalized pathway
+            document.getElementById('user-selection').classList.add('hidden');
+            const pathwaySection = document.getElementById('user-pathways');
+            pathwaySection.classList.remove('hidden');
+            
+            // Generate personalized content based on path type
+            const pathwayContent = generateUserPathContent(pathType);
+            pathwaySection.innerHTML = pathwayContent;
+            
+            // Scroll to the personalized content
+            pathwaySection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function generateUserPathContent(pathType) {
+            const pathways = {
+                'immigration': {
+                    title: '🛡️ Immigration & ICE Protection Hub',
+                    color: 'orange',
+                    priority: [
+                        { 
+                            title: '🚨 ICE Emergency Actions', 
+                            action: 'generateICEGuide()',
+                            description: 'If ICE comes to your door - immediate steps to protect yourself',
+                            urgent: true
+                        },
+                        { 
+                            title: '⚖️ Find Immigration Attorney', 
+                            action: 'findAttorneys()',
+                            description: 'Locate free/low-cost legal representation in your area',
+                            urgent: true
+                        },
+                        { 
+                            title: '📱 ICE Rights Card', 
+                            action: 'generateRightsCard()',
+                            description: 'Printable wallet card with your constitutional rights',
+                            urgent: false
+                        }
+                    ],
+                    contacts: [
+                        { name: 'Immigration Hotline', number: '855-448-7277', description: 'National immigration emergency line' },
+                        { name: 'ACLU Emergency', number: '212-549-2500', description: 'Civil rights emergency support' },
+                        { name: 'RAICES Emergency', number: '844-724-2437', description: 'Immigration legal assistance' }
+                    ]
+                },
+                'voting': {
+                    title: '🗳️ Voting Rights Protection Center',
+                    color: 'blue', 
+                    priority: [
+                        { 
+                            title: '🗳️ Check Voter Registration', 
+                            action: 'checkRegistration()',
+                            description: 'Verify your registration status before elections',
+                            urgent: true
+                        },
+                        { 
+                            title: '📝 Register to Vote', 
+                            action: 'registerToVote()',
+                            description: 'Register online or get registration forms',
+                            urgent: true
+                        },
+                        { 
+                            title: '📍 Find Polling Location', 
+                            action: 'findPollingLocation()',
+                            description: 'Locate your polling place and voting info',
+                            urgent: false
+                        }
+                    ],
+                    contacts: [
+                        { name: 'Election Protection', number: '866-OUR-VOTE', description: 'Report voting problems' },
+                        { name: 'Spanish Election Help', number: '888-839-8682', description: 'Ayuda electoral en español' },
+                        { name: 'Asian Language Help', number: '888-843-8683', description: 'Asian language voting assistance' }
+                    ]
+                },
+                'workplace': {
+                    title: '💼 Workers\' Rights Emergency Hub',
+                    color: 'green',
+                    priority: [
+                        { 
+                            title: '🚨 Report Workplace Discrimination', 
+                            action: 'reportViolation()',
+                            description: 'File EEOC complaint for workplace violations',
+                            urgent: true
+                        },
+                        { 
+                            title: '👩 Women\'s Workplace Rights', 
+                            action: 'workplaceRightsWomen()',
+                            description: 'Equal pay, harassment, and pregnancy protections',
+                            urgent: false
+                        },
+                        { 
+                            title: '⚖️ Find Employment Lawyer', 
+                            action: 'findCivilRightsLawyer()',
+                            description: 'Legal help for workplace discrimination',
+                            urgent: false
+                        }
+                    ],
+                    contacts: [
+                        { name: 'EEOC Workplace Rights', number: '800-669-4000', description: 'Employment discrimination complaints' },
+                        { name: 'OSHA Safety Hotline', number: '800-321-6742', description: 'Workplace safety violations' },
+                        { name: 'Department of Labor', number: '866-4-USWAGE', description: 'Wage theft and labor violations' }
+                    ]
+                },
+                'housing': {
+                    title: '🏠 Housing Emergency Protection',
+                    color: 'teal',
+                    priority: [
+                        { 
+                            title: '🚨 Stop Eviction Emergency', 
+                            action: 'evictionProtection()',
+                            description: 'Immediate steps to prevent eviction',
+                            urgent: true
+                        },
+                        { 
+                            title: '📋 Complete Housing Rights Guide', 
+                            action: 'generateHousingRightsGuide()',
+                            description: 'Tenant rights, fair housing, and legal protections',
+                            urgent: false
+                        },
+                        { 
+                            title: '🏠 Find Emergency Housing', 
+                            action: 'emergencyHousing()',
+                            description: 'Shelters and emergency housing assistance',
+                            urgent: true
+                        }
+                    ],
+                    contacts: [
+                        { name: 'Rent Help Emergency', number: '833-RENT-HELP', description: 'Emergency rental assistance' },
+                        { name: 'Fair Housing Hotline', number: '800-669-9777', description: 'Housing discrimination complaints' },
+                        { name: 'Legal Aid (Housing)', number: '211', description: 'Free legal help referrals' }
+                    ]
+                },
+                'lgbtq': {
+                    title: '🏳️‍🌈 LGBTQ+ Safety & Support Hub',
+                    color: 'purple',
+                    priority: [
+                        { 
+                            title: '🆘 LGBTQ+ Crisis Support', 
+                            action: 'window.open("tel:+18664887386")',
+                            description: 'Immediate crisis intervention and support',
+                            urgent: true
+                        },
+                        { 
+                            title: '🛡️ Safety Planning Guide', 
+                            action: 'safetyPlanning()',
+                            description: 'Create personal safety and emergency plans',
+                            urgent: false
+                        },
+                        { 
+                            title: '⚖️ Find LGBTQ+ Legal Help', 
+                            action: 'findLGBTQLawyer()',
+                            description: 'Legal resources for LGBTQ+ discrimination',
+                            urgent: false
+                        }
+                    ],
+                    contacts: [
+                        { name: 'Trevor Project Crisis', number: '866-488-7386', description: 'LGBTQ+ youth crisis support' },
+                        { name: 'Trans Lifeline', number: '877-565-8860', description: 'Transgender crisis support' },
+                        { name: 'LGBT National Hotline', number: '888-543-7692', description: 'General LGBTQ+ support' }
+                    ]
+                },
+                'healthcare': {
+                    title: '🩺 Healthcare Rights Emergency',
+                    color: 'pink',
+                    priority: [
+                        { 
+                            title: '🚨 Reproductive Rights Emergency', 
+                            action: 'window.open("tel:+18002302526")',
+                            description: 'Immediate reproductive healthcare support',
+                            urgent: true
+                        },
+                        { 
+                            title: '📋 Complete Reproductive Rights Guide', 
+                            action: 'generateReproductiveRightsGuide()',
+                            description: 'Know your healthcare rights and protections',
+                            urgent: false
+                        },
+                        { 
+                            title: '⚖️ Find Reproductive Rights Lawyer', 
+                            action: 'findReproductiveLawyer()',
+                            description: 'Legal support for healthcare discrimination',
+                            urgent: false
+                        }
+                    ],
+                    contacts: [
+                        { name: 'Planned Parenthood', number: '800-230-PLAN', description: 'Reproductive healthcare services' },
+                        { name: 'Repro Legal Helpline', number: '844-674-6606', description: 'Legal support for reproductive rights' },
+                        { name: 'National Abortion Fund', number: '202-546-1174', description: 'Financial assistance for reproductive care' }
+                    ]
+                },
+                'seniors': {
+                    title: '👴 Senior Citizens Rights Hub',
+                    color: 'amber',
+                    priority: [
+                        { 
+                            title: '🚨 Elder Abuse Emergency', 
+                            action: 'window.open("tel:+18006774357")',
+                            description: 'Report elder abuse and get immediate help',
+                            urgent: true
+                        },
+                        { 
+                            title: '📋 Complete Elderly Rights Guide', 
+                            action: 'generateElderlyRightsGuide()',
+                            description: 'Medicare, Social Security, and senior protections',
+                            urgent: false
+                        },
+                        { 
+                            title: '🏥 Medicare Assistance', 
+                            action: 'medicareAssistance()',
+                            description: 'Help with Medicare questions and problems',
+                            urgent: false
+                        }
+                    ],
+                    contacts: [
+                        { name: 'Elder Abuse Hotline', number: '800-677-1116', description: 'Report elder abuse and neglect' },
+                        { name: 'Medicare Helpline', number: '800-MEDICARE', description: 'Medicare questions and problems' },
+                        { name: 'Social Security', number: '800-772-1213', description: 'Social Security benefits help' }
+                    ]
+                },
+                'veterans': {
+                    title: '🎖️ Veterans Rights Emergency Center',
+                    color: 'indigo',
+                    priority: [
+                        { 
+                            title: '🚨 Veterans Crisis Support', 
+                            action: 'window.open("tel:+18002738255")',
+                            description: 'Immediate crisis intervention for veterans',
+                            urgent: true
+                        },
+                        { 
+                            title: '📋 Complete Veterans Rights Guide', 
+                            action: 'generateVeteransRightsGuide()',
+                            description: 'VA benefits, healthcare, and veteran protections',
+                            urgent: false
+                        },
+                        { 
+                            title: '💰 Veterans Benefits Help', 
+                            action: 'veteransBenefitsHelp()',
+                            description: 'Get help with VA benefits and claims',
+                            urgent: false
+                        }
+                    ],
+                    contacts: [
+                        { name: 'Veterans Crisis Line', number: '800-273-8255', description: '24/7 veterans crisis support' },
+                        { name: 'VA Benefits Hotline', number: '800-827-1000', description: 'VA benefits questions and help' },
+                        { name: 'Homeless Veterans', number: '877-424-3838', description: 'Housing help for veterans' }
+                    ]
+                },
+                'students': {
+                    title: '📚 Student Rights Protection Hub',
+                    color: 'cyan',
+                    priority: [
+                        { 
+                            title: '📚 School Rights Emergency', 
+                            action: 'childrenRightsGuide()',
+                            description: 'Know your educational rights and protections',
+                            urgent: false
+                        },
+                        { 
+                            title: '🚨 Report School Discrimination', 
+                            action: 'reportViolation()',
+                            description: 'File complaint for educational discrimination',
+                            urgent: true
+                        },
+                        { 
+                            title: '♿ Disability Accommodations', 
+                            action: 'generateDisabilityRightsGuide()',
+                            description: 'IEP, 504 plans, and educational accommodations',
+                            urgent: false
+                        }
+                    ],
+                    contacts: [
+                        { name: 'OCR Education Rights', number: '800-421-3481', description: 'Educational discrimination complaints' },
+                        { name: 'Student Aid Hotline', number: '800-433-3243', description: 'Federal student aid questions' },
+                        { name: 'Disability Rights Education', number: '800-214-4494', description: 'Special education advocacy' }
+                    ]
+                },
+                'parents': {
+                    title: '👨‍👩‍👧‍👦 Parents & Family Emergency Hub',
+                    color: 'rose',
+                    priority: [
+                        { 
+                            title: '🚨 Child Abuse Emergency', 
+                            action: 'window.open("tel:+18002544355")',
+                            description: 'Report child abuse and get immediate help',
+                            urgent: true
+                        },
+                        { 
+                            title: '👨‍👩‍👧‍👦 Family Separation Crisis Plan', 
+                            action: 'familySeparationHelp()',
+                            description: 'Emergency planning for family separation',
+                            urgent: false
+                        },
+                        { 
+                            title: '📚 Children\'s Educational Rights', 
+                            action: 'childrenRightsGuide()',
+                            description: 'School rights and educational protections',
+                            urgent: false
+                        }
+                    ],
+                    contacts: [
+                        { name: 'Child Abuse Hotline', number: '800-254-4355', description: 'National child abuse reporting' },
+                        { name: 'Family Separation Help', number: '855-448-7277', description: 'Immigration family crisis support' },
+                        { name: 'Missing Children', number: '800-THE-LOST', description: 'National missing children center' }
+                    ]
+                },
+                'disability': {
+                    title: '♿ Disability Rights Emergency Center',
+                    color: 'violet',
+                    priority: [
+                        { 
+                            title: '🚨 Disability Rights Violation', 
+                            action: 'window.open("tel:+18002144494")',
+                            description: 'Report ADA violations and discrimination',
+                            urgent: true
+                        },
+                        { 
+                            title: '📋 Complete Disability Rights Guide', 
+                            action: 'generateDisabilityRightsGuide()',
+                            description: 'ADA protections and accommodation rights',
+                            urgent: false
+                        },
+                        { 
+                            title: '🛡️ Disability Legal Advocacy', 
+                            action: 'disabilityAdvocacy()',
+                            description: 'Legal support and advocacy resources',
+                            urgent: false
+                        }
+                    ],
+                    contacts: [
+                        { name: 'Disability Rights', number: '800-214-4494', description: 'ADA rights and advocacy' },
+                        { name: 'ADA Information', number: '800-514-0301', description: 'Americans with Disabilities Act info' },
+                        { name: 'Social Security Disability', number: '800-772-1213', description: 'Disability benefits help' }
+                    ]
+                },
+                'general': {
+                    title: '📋 Complete Civic Rights Hub',
+                    color: 'gray',
+                    priority: [
+                        { 
+                            title: '📋 Complete Civil Rights Guide', 
+                            action: 'generateComprehensiveCivilRightsGuide()',
+                            description: 'Comprehensive constitutional rights protection',
+                            urgent: false
+                        },
+                        { 
+                            title: '🖨️ Print All Emergency Guides', 
+                            action: 'printCompleteGuide()',
+                            description: 'Offline access to all rights and resources',
+                            urgent: false
+                        },
+                        { 
+                            title: '🗺️ Find Nearby Legal Help', 
+                            action: 'showSection("map")',
+                            description: 'Locate local legal aid and resources',
+                            urgent: false
+                        }
+                    ],
+                    contacts: [
+                        { name: 'DOJ Civil Rights', number: '800-514-0301', description: 'Federal civil rights violations' },
+                        { name: 'ACLU National', number: '212-549-2500', description: 'Civil liberties emergency line' },
+                        { name: 'Legal Aid Referral', number: '211', description: 'Find local free legal help' }
+                    ]
+                }
+            };
+
+            const pathway = pathways[pathType];
+            if (!pathway) return '<div>Pathway not found.</div>';
+
+            return `
+                <div class="bg-gradient-to-r from-${pathway.color}-100 to-${pathway.color}-200 dark:from-${pathway.color}-900/20 dark:to-${pathway.color}-800/20 rounded-lg p-6">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h2 class="text-3xl font-bold text-${pathway.color}-800 dark:text-${pathway.color}-200 mb-2">${pathway.title}</h2>
+                            <p class="text-${pathway.color}-700 dark:text-${pathway.color}-300">Personalized resources for your specific needs</p>
+                        </div>
+                        <button onclick="resetUserSelection()" class="bg-white text-${pathway.color}-600 px-4 py-2 rounded-lg hover:bg-gray-50 font-semibold">
+                            ← Choose Different Path
+                        </button>
+                    </div>
+
+                    <!-- Priority Actions -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-${pathway.color}-800 dark:text-${pathway.color}-200 mb-4">🚨 Priority Actions for You</h3>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            ${pathway.priority.map(action => `
+                                <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow hover:shadow-lg transition-shadow ${action.urgent ? 'border-l-4 border-red-500' : 'border-l-4 border-' + pathway.color + '-500'}">
+                                    <div class="flex items-start justify-between mb-2">
+                                        <h4 class="font-bold text-gray-800 dark:text-gray-200">${action.title}</h4>
+                                        ${action.urgent ? '<span class="text-xs bg-red-600 text-white px-2 py-1 rounded">URGENT</span>' : ''}
+                                    </div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">${action.description}</p>
+                                    <button onclick="${action.action}" class="w-full bg-${pathway.color}-600 text-white py-2 px-4 rounded hover:bg-${pathway.color}-700 transition-colors font-semibold">
+                                        Get Help Now
+                                    </button>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Emergency Contacts -->
+                    <div class="bg-white dark:bg-gray-800 rounded-lg p-6 shadow">
+                        <h3 class="text-xl font-bold text-${pathway.color}-800 dark:text-${pathway.color}-200 mb-4">📞 Your Emergency Contacts</h3>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            ${pathway.contacts.map(contact => `
+                                <div class="bg-${pathway.color}-50 dark:bg-${pathway.color}-900/20 p-4 rounded-lg">
+                                    <div class="font-semibold text-${pathway.color}-800 dark:text-${pathway.color}-200">${contact.name}</div>
+                                    <a href="tel:+${contact.number.replace(/[^\d]/g, '')}" class="text-${pathway.color}-600 dark:text-${pathway.color}-400 font-bold text-lg hover:underline">${contact.number}</a>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">${contact.description}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Quick Access to Other Resources -->
+                    <div class="mt-8 bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+                        <h3 class="text-lg font-bold text-gray-800 dark:text-gray-200 mb-3">🔗 Need Other Resources?</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="showSection('protection')" class="bg-red-600 text-white px-4 py-2 rounded text-sm hover:bg-red-700">🛡️ All Protection</button>
+                            <button onclick="showSection('rights')" class="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700">⚖️ All Rights</button>
+                            <button onclick="showSection('resources')" class="bg-purple-600 text-white px-4 py-2 rounded text-sm hover:bg-purple-700">📋 All Resources</button>
+                            <button onclick="showSection('map')" class="bg-indigo-600 text-white px-4 py-2 rounded text-sm hover:bg-indigo-700">🗺️ Find Local Help</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function resetUserSelection() {
+            document.getElementById('user-pathways').classList.add('hidden');
+            document.getElementById('user-selection').classList.remove('hidden');
+            document.getElementById('user-selection').scrollIntoView({ behavior: 'smooth' });
+        }
+
         // Initialize app
         document.addEventListener('DOMContentLoaded', () => {
             console.log('CivicHub Emergency Democracy Protection Platform Loaded');
             console.log('All emergency numbers functional');
             console.log('Translation system ready');
             console.log('Print functionality enabled');
+            console.log('NEW: User-specific pathway system active');
+            console.log('NEW: Personalized resources based on user needs');
             console.log('NEW: Complete religious freedom rights guide added');
             console.log('NEW: Comprehensive guides for protest safety, women\'s rights, and more');
         });
     </script>
 </body>
 </html>
+
 
 
 
